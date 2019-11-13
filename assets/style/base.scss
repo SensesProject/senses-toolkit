@@ -1,0 +1,43 @@
+@charset "utf-8";
+$font-prefix: "../../node_modules/library/src/assets/fonts";
+@import "library/src/style/base.scss";
+@import "./global";
+
+.title {
+	color: #fff;
+	font-size: 4rem;
+}
+
+.module-title {
+	font-size: 2.3rem;
+	line-height: 1;
+	font-style: italic;
+	letter-spacing: -0.02em;
+}
+
+.module-description {
+	font-size: 0.8rem;
+}
+
+.btn {
+	transition: background 0.2s, text 0.2s;
+	background: $color-neon;
+	color: #fff;
+  padding: $spacing / 4;
+  border: 0;
+  cursor: pointer;
+  border-radius: 0;
+  @include center();
+  font-size: 0.8rem;
+  box-shadow: $box-shadow--weak;
+
+  &.btn--secondary {
+  	background-color: getColor(gray, 80);
+  	color: #000;
+  }
+
+  &:hover, &:focus {
+  	background: #b8aeff;
+  	color: #424ab9;
+  }
+}

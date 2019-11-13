@@ -1,0 +1,103 @@
+@import "library/src/style/global.scss";
+@import "./variables";
+@import "./mixins";
+
+.color9 {
+  rect {
+    fill: getColor(gray, 100);
+  }
+  path, circle, line {
+    fill: getColor(gray, 80);
+    stroke: getColor(gray, 80);
+  }
+}
+
+.color8 {
+  rect {
+    fill: getColor(yellow, 100);
+  }
+  path, circle, line {
+    fill: getColor(yellow, 80);
+    stroke: getColor(yellow, 80);
+  }
+}
+
+.color7 {
+  rect {
+    fill: getColor(yellow, 100);
+  }
+  path, circle, line {
+    fill: $color-yellow;
+    stroke: $color-yellow;
+  }
+}
+
+.color6 {
+  rect {
+    fill: getColor(green, 100);
+  }
+  path, circle, line {
+    fill: getColor(green, 80);
+    stroke: getColor(green, 80);
+  }
+}
+
+.color5 {
+  rect {
+    fill: getColor(green, 100);
+  }
+  path, circle, line {
+    fill: getColor(green, 60);
+    stroke: getColor(green, 60);
+  }
+}
+
+.color4 {
+  rect {
+    fill: getColor(green, 100);
+  }
+  path, circle, line {
+    fill: $color-green;
+    stroke: $color-green;
+  }
+}
+
+.color3 {
+  rect {
+    fill: getColor(green, 100);
+  }
+  path, circle, line {
+    fill: getColor(green, 40);
+    stroke: getColor(green, 40);
+  }
+}
+
+.color2 {
+  rect {
+    fill: getColor(red, 100);
+  }
+  path, circle, line {
+    fill: getColor(red, 60);
+    stroke: getColor(red, 60);
+  }
+}
+
+.color1 {
+  rect {
+    fill: getColor(red, 100);
+  }
+  path, circle, line {
+    fill: $color-red;
+    stroke: $color-red;
+  }
+}
+
+.color0 {
+  rect {
+    fill: getColor(red, 100);
+  }
+  path, circle, line {
+    fill: getColor(red, 40);
+    stroke: getColor(red, 40);
+  }
+}
