@@ -1,5 +1,4 @@
-import { map, assign, get, filter, flatten, includes } from 'lodash'
-import { extent } from 'd3-array'
+import { assign, get, filter, includes, trim } from 'lodash'
 import axios from 'axios'
 
 const state = () => {
@@ -9,7 +8,7 @@ const state = () => {
 }
 
 const mutations = {
-  DATA_CHANGE (state, data) {
+  MODULES_CHANGE (state, data) {
     const obj = {
       status: 'idle',
       data: false,
@@ -20,45 +19,37 @@ const mutations = {
 }
 
 const getters = {
-  data: (state, getters, rootState) => {
-    const model = get(rootState, ['settings', 'model'])
-    const region = get(rootState, ['settings', 'region'])
-    const scenario = get(rootState, ['settings', 'scenario'])
-    // console.log({ model, region, scenario })
-    const relevant = ['Energy Efficiency', 'CCS', 'Electricity - T&D and Storage', 'Extraction and Conversion - Nuclear', 'Extraction and Conversion - Bioenergy', 'Hydrogen - Non-fossil', 'Electricity - Non-bio Renewables', 'Hydrogen - Fossil', 'Electricity - Fossil Fuels w/o CCS', 'Extraction and Conversion - Fossil Fuels']
+  modules: (state, getters, rootState) => {
+    const audience = get(rootState, ['filter', 'audience'])
+    const term = trim(get(rootState, ['filter', 'term']).toLowerCase())
 
-    const runs = filter(get(state, ['datum', 'data'], []), { model, region, scenario })
-    return filter(runs, (run) => {
-      return includes(relevant, get(run, 'variable'))
+    return filter(get(state, ['datum', 'data'], []), (run) => {
+      if (!(!audience || (audience && includes(get(run, 'audience'), audience)))) {
+        return false
+      }
+
+      if (!(!term.length || (term.length && get(run, 'title').toLowerCase().includes(term)))) {
+        return false
+      }
+
+      return true
     })
-  },
-  rangeValues: (state, getters, rootState) => {
-    return extent(flatten(map(getters.data, (runs) => {
-      return map(get(runs, 'years', []), '1')
-    })))
-  },
-  rangeTime: (state, getters, rootState) => {
-    return extent(flatten(map(getters.data, (runs) => {
-      return map(get(runs, 'years', []), (d) => {
-        return new Date(d[0], 0, 1)
-      })
-    })))
   }
 }
 
 const actions = {
-  loadData ({ commit, state }) {
+  loadModules ({ commit, state }) {
     const status = get(state.datum, 'status')
     if (status !== 'loading') {
-      commit('DATA_CHANGE', { status: 'loading' })
-      const url = './data/data.json'
+      commit('MODULES_CHANGE', { status: 'loading' })
+      const url = './modules.json'
       axios.get(url)
         .then((response) => {
-          commit('DATA_CHANGE', { status: 'success', data: response.data.runs })
+          commit('MODULES_CHANGE', { status: 'success', data: response.data.modules })
         })
         .catch((error) => {
           console.error('error', error)
-          commit('DATA_CHANGE', { status: 'error', message: error })
+          commit('MODULES_CHANGE', { status: 'error', message: error })
         })
     }
   }

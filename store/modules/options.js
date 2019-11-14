@@ -1,17 +1,10 @@
-import { map, get, uniq } from 'lodash'
+import { uniq, flatten, map, get } from 'lodash'
 
 const getters = {
-  models: (state, getters, rootState) => {
-    return uniq(map(get(rootState, ['data', 'datum', 'data'], []), 'model'))
-  },
-  regions: (state, getters, rootState) => {
-    return uniq(map(get(rootState, ['data', 'datum', 'data'], []), 'region'))
-  },
-  scenarios: (state, getters, rootState) => {
-    return uniq(map(get(rootState, ['data', 'datum', 'data'], []), 'scenario'))
-  },
-  visualisations: () => {
-    return ['Alluvial', 'ScatterSlope', 'ScatterChange', 'CircleLine']
+  audiences: (state, getters, rootState) => {
+    const options = [{ 'label': 'Show all', 'value': false }]
+    options.push(...uniq(flatten(map(get(rootState, ['data', 'datum', 'data'], []), 'audience'))))
+    return options
   }
 }
 

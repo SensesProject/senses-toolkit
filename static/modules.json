@@ -1,0 +1,163 @@
+{
+  "modules": [{
+    "id": "primer",
+    "title": "Primer to Climate Scenarios",
+    "description": "This module explores how current decarbonization plans until 2030 relate to the long-term targets of the Paris Agreement. This module explores how current decarbonization plans until 2030 relate to the long-term targets of the Paris Agreement.",
+    "authors": ["Fidel Thomet"],
+    "gem": false,
+    "share": true,
+    "bg": "bg3",
+    "isRight": false,
+    "audience": ["Policy", "Finance"]
+  }, {
+    "id": "stocktake1",
+    "title": "Global Stocktake I",
+    "description": "This module explores how current decarbonization plans until 2030 relate to the long-term targets of the Paris Agreement.",
+    "authors": ["Christoph Bertram", "Jonas Parnow"],
+    "gem": "https://data.ene.iiasa.ac.at/iamc-1.5c-explorer//#/workspaces/share/1a6e44c8-0963-4f28-a871-2b81bfb11def",
+    "share": true,
+    "bg": "bg1",
+    "isRight": true,
+    "audience": ["Policy"]
+  }, {
+    "id": "stocktake2",
+    "title": "Global Stocktake II",
+    "description": "We cannot predict the future, but we can create different plausible scenarios of how a future decarbonization pathway could look like.",
+    "authors": ["Jonas Parnow"],
+    "gem": true,
+    "share": true,
+    "bg": "bg2",
+    "isRight": true,
+    "audience": ["Policy"]
+  }, {
+    "id": "transitionPath1",
+    "title": "National and sectoral transition paths",
+    "description": "We cannot predict the future, but we can create different plausible scenarios of how a future decarbonization pathway could look like.",
+    "authors": ["Falko Ueckerdt", "Gunnar Luderer", "Francesca Morini"],
+    "gem": false,
+    "share": false,
+    "bg": "bg1",
+    "isRight": true,
+    "audience": ["Policy"]
+  }, {
+    "id": "transitionPath2",
+    "title": "National and sectoral transition paths II",
+    "description": "This module explores how current decarbonization plans until 2030 relate to the long-term targets of the Paris Agreement.",
+    "authors": ["Falko Ueckerdt", "Gunnar Luderer", "Francesca Morini"],
+    "gem": false,
+    "share": false,
+    "bg": "bg3",
+    "isRight": false,
+    "audience": ["Policy"]
+  }, {
+    "id": "impactDemand",
+    "title": "What is the potential impact of the demand side?",
+    "description": "This module explores how current decarbonization plans until 2030 relate to the long-term targets of the Paris Agreement.",
+    "authors": ["Arnulf Grübler", "Volker Krey", "Charlie Wilson", "Francesca Morini"],
+    "gem": false,
+    "share": false,
+    "bg": "bg3",
+    "isRight": false,
+    "audience": ["Policy"]
+  }, {
+    "id": "landTransitions",
+    "title": "Land transitions module",
+    "description": "This module explores how current decarbonization plans until 2030 relate to the long-term targets of the Paris Agreement.",
+    "authors": ["Florian Humpenöder", "Alex Popp", "Fidel Thomet"],
+    "gem": false,
+    "share": false,
+    "bg": "bg3",
+    "isRight": false,
+    "audience": ["Policy"]
+  }, {
+    "id": "landAffected",
+    "title": "How much land area is affected by and how much population is exposed to extreme events under climate change?",
+    "description": "This module explores how current decarbonization plans until 2030 relate to the long-term targets of the Paris Agreement.",
+    "authors": ["Katja Frieler", "Jan Volkholz", "Fidel Thomet"],
+    "gem": false,
+    "share": false,
+    "bg": "bg3",
+    "isRight": false,
+    "audience": ["Policy"]
+  }, {
+    "id": "transitionRisk",
+    "title": "Transition risk",
+    "description": "This module explores how current decarbonization plans until 2030 relate to the long-term targets of the Paris Agreement.",
+    "authors": ["Nico Bauer", "Bas van Ruijven", "Nadia Zeissig"],
+    "gem": false,
+    "share": false,
+    "bg": "bg3",
+    "isRight": false,
+    "audience": ["Finance"]
+  }, {
+    "id": "investmentOpportunities",
+    "title": "Investment Opportunities and Alignment: What are investment opportunities in a low carbon world?",
+    "description": "This module explores how current decarbonization plans until 2030 relate to the long-term targets of the Paris Agreement.",
+    "authors": ["Bas van Ruijven", "Christoph Bertram", "Jonas Parnow"],
+    "gem": false,
+    "share": false,
+    "bg": "bg3",
+    "isRight": false,
+    "audience": ["Finance"]
+  }, {
+    "id": "physicalRisks",
+    "title": "Physical Risks",
+    "description": "This module explores how current decarbonization plans until 2030 relate to the long-term targets of the Paris Agreement.",
+    "authors": ["Katja Frieler", "Jan Volkholz ", "Fidel Thomet"],
+    "gem": false,
+    "share": false,
+    "bg": "bg3",
+    "isRight": false,
+    "audience": ["Finance"]
+  }, {
+    "id": "primaryEnergy",
+    "title": "Primary Energy Scenarios",
+    "description": "This module explores how current decarbonization plans until 2030 relate to the long-term targets of the Paris Agreement.",
+    "authors": ["Hannah Schwan", "Dennis Ostendorf"],
+    "gem": false,
+    "share": false,
+    "bg": "bg3",
+    "isRight": false,
+    "audience": ["Finance"]
+  }, {
+    "id": "finder",
+    "title": "Scenario Finder",
+    "description": "This module explores how current decarbonization plans until 2030 relate to the long-term targets of the Paris Agreement.",
+    "authors": ["Jonas Parnow"],
+    "gem": false,
+    "share": false,
+    "bg": "bg3",
+    "isRight": false,
+    "audience": ["Finance", "Policy"]
+  }, {
+    "id": "earth",
+    "title": "Senses Earth",
+    "description": "This module explores how current decarbonization plans until 2030 relate to the long-term targets of the Paris Agreement.",
+    "authors": ["Fidel Thomet"],
+    "gem": false,
+    "share": false,
+    "bg": "bg3",
+    "isRight": false,
+    "audience": ["Finance", "Policy"]
+  }, {
+    "id": "database",
+    "title": "Link to IIASA Database",
+    "description": "This module explores how current decarbonization plans until 2030 relate to the long-term targets of the Paris Agreement.",
+    "authors": ["Volker Krey"],
+    "gem": false,
+    "share": false,
+    "bg": "bg3",
+    "isRight": false,
+    "audience": ["Finance", "Policy"]
+  }, {
+    "id": "film",
+    "title": "CO2 Film",
+    "description": "This module explores how current decarbonization plans until 2030 relate to the long-term targets of the Paris Agreement.",
+    "authors": ["Boris Müller"],
+    "gem": false,
+    "share": false,
+    "bg": "bg3",
+    "isRight": false,
+    "audience": ["Finance", "Policy"]
+  }]
+}

@@ -1,20 +1,49 @@
 <template>
   <div class="header-options">
     <section class="options-filter">
-      <SensesSelect />
+      <SensesSelect v-model="audience" :options="audiences" />
     </section>
     <section class="options-search">
-      <input type="search" class="highlight input-search" placeholder="Search" />
+      <input v-model="term" type="search" class="highlight input-search" placeholder="Search" />
     </section>
   </div>
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex'
 import SensesSelect from 'library/src/components/SensesSelect.vue'
+import { get, trim } from 'lodash'
 
 export default {
   components: {
     SensesSelect
+  },
+  computed: {
+    ...mapGetters([
+      'audiences'
+    ]),
+    audience: {
+      get () {
+        return get(this.$store, ['state', 'filter', 'audience'])
+      },
+      set (value) {
+        this.changeFilter({ key: 'audience', value })
+      }
+    },
+    term: {
+      get () {
+        return get(this.$store, ['state', 'filter', 'term'])
+      },
+      set (v) {
+        const value = trim(v)
+        this.changeFilter({ key: 'term', value })
+      }
+    }
+  },
+  methods: {
+    ...mapActions([
+      'changeFilter'
+    ])
   }
 }
 </script>
