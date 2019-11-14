@@ -2,8 +2,8 @@
   <nav class="page-intro">
     <div class="page-intro-float">
       <section><span>Scroll down to the toolkit for all modules</span></section>
-      <section><span>Interested in Policy? Visit the portal</span></section>
-      <section><span>Interested in Finance? Visit the portal</span></section>
+      <section class="policy"><span>Interested in <strong>Policy</strong>? Visit the portal</span></section>
+      <section class="finance"><span>Interested in <strong>Finance</strong>? Visit the portal</span></section>
     </div>
   </nav>
 </template>
@@ -29,6 +29,14 @@ export default {}
       section {
         border-right: 1px solid #F0F0FF;
         padding: $spacing;
+
+        &.policy strong {
+          color: $color-green;
+        }
+
+        &.finance strong {
+          color: $color-purple;
+        }
       }
     }
 

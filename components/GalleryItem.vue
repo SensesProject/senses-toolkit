@@ -5,9 +5,15 @@
       <p class="module-description">{{ description }}</p>
     </header>
     <footer class="module-footer">
-      <button class="btn">Read the module</button>
-      <button class="btn btn--secondary" v-if="gem">Explore the data</button>
-      <button class="btn btn--secondary" v-if="share">Download ressources</button>
+      <button class="btn btn-module">Read the module</button>
+      <ul>
+        <li>By Francesca Morini</li>
+        <li><span v-for="tag in audience" :key="tag" :class="{ tag: true, [tag]: true }">{{ tag }}</span></li>
+        <li v-if="gem"><span class="btn btn--tertiary">Explore the data</span></li>
+        <li v-if="share"><span class="btn btn--tertiary">Download ressources</span></li>
+      </ul>
+      <!-- <button class="btn btn--secondary" v-if="gem">Explore the data</button>
+      <button class="btn btn--secondary" v-if="share">Download ressources</button> -->
     </footer>
   </div>
 </template>
@@ -35,6 +41,10 @@ export default {
     isRight: {
       type: Boolean,
       default: false
+    },
+    audience: {
+      type: Array,
+      default: () => []
     }
   }
 }
@@ -62,7 +72,7 @@ export default {
       background-position: center;
       background-size: cover;
       background-repeat: no-repeat;
-      @include text-radability();
+      @include text-radability(#fff);
 
       &.isRight {
         display: flex;
@@ -82,21 +92,23 @@ export default {
     }
 
     .module-footer {
-      // padding-top: $spacing / 2;
-      // grid-column-start: 2;
-      margin-bottom: $spacing;
       display: grid;
       grid-template-rows: 1fr;
-      grid-row-gap: $spacing / 4;
-      justify-items: center;
+      // grid-row-gap: $spacing / 4;
+      padding: 0 $spacing / 2 $spacing / 2;
       align-items: start;
 
-      & > * {
+      .btn-module {
+        place-self: center;
         width: 60%;
+        transform: translateY(-50%);
+      }
 
-        &:first-child {
-          transform: translateY(-50%);
-        }
+      ul {
+        list-style: none;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: $spacing / 2 $spacing / 2;
       }
     }
   }

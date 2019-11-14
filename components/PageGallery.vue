@@ -5,10 +5,7 @@
       <div class="header-intro">
         <p>This collection of visualisation tools helps you understand and communicate climate change scenarios. Each module answers a specific question. Lorem ipsum dolor.</p>
       </div>
-      <div class="header-options">
-        <span>Audience</span>
-        <span>Search</span>
-      </div>
+      <GalleryOptions />
     </header>
     <Gallery />
   </div>
@@ -16,10 +13,12 @@
 
 <script>
 import Gallery from '~/components/Gallery.vue'
+import GalleryOptions from '~/components/GalleryOptions.vue'
 
 export default {
   components: {
-    Gallery
+    Gallery,
+    GalleryOptions
   }
 }
 </script>
@@ -56,7 +55,7 @@ export default {
       }
 
       .header-options {
-        box-shadow: $box-shadow--default;
+        // box-shadow: $box-shadow--default;
       }
     }
   }

@@ -24,6 +24,7 @@ export default {}
 
     .title {
       max-width: 1000px;
+      @include text-radability(rgba(0, 0, 0, 0.3));
     }
   }
 

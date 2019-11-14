@@ -3,6 +3,11 @@ $font-prefix: "../../node_modules/library/src/assets/fonts";
 @import "library/src/style/base.scss";
 @import "./global";
 
+input {
+  font: $font-weight-regular normal 100%/1.5 $font-family-default;
+  text-size-adjust: 100%;
+}
+
 .title {
 	color: #fff;
 	font-size: 4rem;
@@ -15,7 +20,7 @@ $font-prefix: "../../node_modules/library/src/assets/fonts";
 	letter-spacing: -0.02em;
 }
 
-.module-description {
+.module-description, .module-footer {
 	font-size: 0.8rem;
 }
 
@@ -26,7 +31,6 @@ $font-prefix: "../../node_modules/library/src/assets/fonts";
   padding: $spacing / 4;
   border: 0;
   cursor: pointer;
-  border-radius: 0;
   @include center();
   font-size: 0.8rem;
   box-shadow: $box-shadow--weak;
@@ -40,4 +44,46 @@ $font-prefix: "../../node_modules/library/src/assets/fonts";
   	background: #b8aeff;
   	color: #424ab9;
   }
+
+  &.btn--tertiary {
+  	border: none;
+  	background-color: getColor(gray, 90);
+  	color: $color-deep-gray;
+  	box-shadow: none;
+
+  	&:hover, &:focus {
+	  	background-color: getColor(gray, 90);
+	  	color: $color-black;
+	  }
+  }
+}
+
+.input-search {
+	cursor: text;
+	border: 0;
+	display: block;
+	padding: $spacing / 2;
+	width: 100%;
+	font-size: 0.9rem;
+}
+
+.tag {
+	padding: 3px 4px 2px;
+	border-radius: $border-radius;
+	margin-right: 4px;
+	background-color: rgba($color-gray, 0.2);
+	color: $color-gray;
+
+	&:last-child {
+		margin: 0;
+	}
+
+	&.Policy {
+		background-color: rgba($color-green, 0.2);
+		color: $color-green;
+	}
+	&.Finance {
+		background-color: rgba($color-purple, 0.2);
+		color: $color-purple;
+	}
 }
