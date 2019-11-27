@@ -1,163 +1,179 @@
 {
   "modules": [{
-    "id": "primer",
+    "path": "primer",
     "title": "Primer to Climate Scenarios",
     "description": "This module explores how current decarbonization plans until 2030 relate to the long-term targets of the Paris Agreement. This module explores how current decarbonization plans until 2030 relate to the long-term targets of the Paris Agreement.",
     "authors": ["Fidel Thomet"],
     "gem": false,
     "share": true,
     "bg": "bg3",
-    "isRight": false,
-    "audience": ["Policy", "Finance"]
+    "alignRight": false,
+    "tags": ["Policy", "Finance"],
+    "dev": false
   }, {
-    "id": "stocktake1",
+    "path": "stocktake-1",
     "title": "Global Stocktake I",
     "description": "This module explores how current decarbonization plans until 2030 relate to the long-term targets of the Paris Agreement.",
     "authors": ["Christoph Bertram", "Jonas Parnow"],
     "gem": "https://data.ene.iiasa.ac.at/iamc-1.5c-explorer//#/workspaces/share/1a6e44c8-0963-4f28-a871-2b81bfb11def",
     "share": true,
     "bg": "bg1",
-    "isRight": true,
-    "audience": ["Policy"]
+    "alignRight": true,
+    "tags": ["Policy"],
+    "dev": true
   }, {
-    "id": "stocktake2",
+    "path": "stocktake-2",
     "title": "Global Stocktake II",
     "description": "We cannot predict the future, but we can create different plausible scenarios of how a future decarbonization pathway could look like.",
     "authors": ["Jonas Parnow"],
     "gem": true,
     "share": true,
     "bg": "bg2",
-    "isRight": true,
-    "audience": ["Policy"]
+    "alignRight": true,
+    "tags": ["Policy"],
+    "dev": true
   }, {
-    "id": "transitionPath1",
+    "path": "transition-path-1",
     "title": "National and sectoral transition paths",
     "description": "We cannot predict the future, but we can create different plausible scenarios of how a future decarbonization pathway could look like.",
     "authors": ["Falko Ueckerdt", "Gunnar Luderer", "Francesca Morini"],
     "gem": false,
     "share": false,
     "bg": "bg1",
-    "isRight": true,
-    "audience": ["Policy"]
+    "alignRight": true,
+    "tags": ["Policy"],
+    "dev": true
   }, {
-    "id": "transitionPath2",
+    "path": "transition-path-2",
     "title": "National and sectoral transition paths II",
     "description": "This module explores how current decarbonization plans until 2030 relate to the long-term targets of the Paris Agreement.",
     "authors": ["Falko Ueckerdt", "Gunnar Luderer", "Francesca Morini"],
     "gem": false,
     "share": false,
     "bg": "bg3",
-    "isRight": false,
-    "audience": ["Policy"]
+    "alignRight": false,
+    "tags": ["Policy"],
+    "dev": true
   }, {
-    "id": "impactDemand",
+    "path": "impact-demand",
     "title": "What is the potential impact of the demand side?",
     "description": "This module explores how current decarbonization plans until 2030 relate to the long-term targets of the Paris Agreement.",
     "authors": ["Arnulf Grübler", "Volker Krey", "Charlie Wilson", "Francesca Morini"],
     "gem": false,
     "share": false,
     "bg": "bg3",
-    "isRight": false,
-    "audience": ["Policy"]
+    "alignRight": false,
+    "tags": ["Policy"],
+    "dev": true
   }, {
-    "id": "landTransitions",
+    "path": "land-transitions",
     "title": "Land transitions module",
     "description": "This module explores how current decarbonization plans until 2030 relate to the long-term targets of the Paris Agreement.",
     "authors": ["Florian Humpenöder", "Alex Popp", "Fidel Thomet"],
     "gem": false,
     "share": false,
     "bg": "bg3",
-    "isRight": false,
-    "audience": ["Policy"]
+    "alignRight": false,
+    "tags": ["Policy"],
+    "dev": true
   }, {
-    "id": "landAffected",
+    "path": "land-affected",
     "title": "How much land area is affected by and how much population is exposed to extreme events under climate change?",
     "description": "This module explores how current decarbonization plans until 2030 relate to the long-term targets of the Paris Agreement.",
     "authors": ["Katja Frieler", "Jan Volkholz", "Fidel Thomet"],
     "gem": false,
     "share": false,
     "bg": "bg3",
-    "isRight": false,
-    "audience": ["Policy"]
+    "alignRight": false,
+    "tags": ["Policy"],
+    "dev": true
   }, {
-    "id": "transitionRisk",
+    "path": "transition-risk",
     "title": "Transition risk",
     "description": "This module explores how current decarbonization plans until 2030 relate to the long-term targets of the Paris Agreement.",
     "authors": ["Nico Bauer", "Bas van Ruijven", "Nadia Zeissig"],
     "gem": false,
     "share": false,
     "bg": "bg3",
-    "isRight": false,
-    "audience": ["Finance"]
+    "alignRight": false,
+    "tags": ["Finance"],
+    "dev": true
   }, {
-    "id": "investmentOpportunities",
+    "path": "investment-opportunities",
     "title": "Investment Opportunities and Alignment: What are investment opportunities in a low carbon world?",
     "description": "This module explores how current decarbonization plans until 2030 relate to the long-term targets of the Paris Agreement.",
     "authors": ["Bas van Ruijven", "Christoph Bertram", "Jonas Parnow"],
     "gem": false,
     "share": false,
     "bg": "bg3",
-    "isRight": false,
-    "audience": ["Finance"]
+    "alignRight": false,
+    "tags": ["Finance"],
+    "dev": true
   }, {
-    "id": "physicalRisks",
+    "path": "physical-risks",
     "title": "Physical Risks",
     "description": "This module explores how current decarbonization plans until 2030 relate to the long-term targets of the Paris Agreement.",
     "authors": ["Katja Frieler", "Jan Volkholz ", "Fidel Thomet"],
     "gem": false,
     "share": false,
     "bg": "bg3",
-    "isRight": false,
-    "audience": ["Finance"]
+    "alignRight": false,
+    "tags": ["Finance"],
+    "dev": true
   }, {
-    "id": "primaryEnergy",
+    "path": "primary-energy",
     "title": "Primary Energy Scenarios",
     "description": "This module explores how current decarbonization plans until 2030 relate to the long-term targets of the Paris Agreement.",
     "authors": ["Hannah Schwan", "Dennis Ostendorf"],
     "gem": false,
     "share": false,
     "bg": "bg3",
-    "isRight": false,
-    "audience": ["Finance"]
+    "alignRight": false,
+    "tags": ["Finance"],
+    "dev": true
   }, {
-    "id": "finder",
+    "path": "finder",
     "title": "Scenario Finder",
     "description": "This module explores how current decarbonization plans until 2030 relate to the long-term targets of the Paris Agreement.",
     "authors": ["Jonas Parnow"],
     "gem": false,
     "share": false,
     "bg": "bg3",
-    "isRight": false,
-    "audience": ["Finance", "Policy"]
+    "alignRight": false,
+    "tags": ["Finance", "Policy"],
+    "dev": true
   }, {
-    "id": "earth",
+    "path": "earth",
     "title": "Senses Earth",
     "description": "This module explores how current decarbonization plans until 2030 relate to the long-term targets of the Paris Agreement.",
     "authors": ["Fidel Thomet"],
     "gem": false,
     "share": false,
     "bg": "bg3",
-    "isRight": false,
-    "audience": ["Finance", "Policy"]
+    "alignRight": false,
+    "tags": ["Finance", "Policy"],
+    "dev": true
   }, {
-    "id": "database",
+    "path": "database",
     "title": "Link to IIASA Database",
     "description": "This module explores how current decarbonization plans until 2030 relate to the long-term targets of the Paris Agreement.",
     "authors": ["Volker Krey"],
     "gem": false,
     "share": false,
     "bg": "bg3",
-    "isRight": false,
-    "audience": ["Finance", "Policy"]
+    "alignRight": false,
+    "tags": ["Finance", "Policy"],
+    "dev": true
   }, {
-    "id": "film",
+    "path": "film",
     "title": "CO2 Film",
     "description": "This module explores how current decarbonization plans until 2030 relate to the long-term targets of the Paris Agreement.",
     "authors": ["Boris Müller"],
     "gem": false,
     "share": false,
     "bg": "bg3",
-    "isRight": false,
-    "audience": ["Finance", "Policy"]
+    "alignRight": false,
+    "tags": ["Finance", "Policy"],
+    "dev": true
   }]
 }
