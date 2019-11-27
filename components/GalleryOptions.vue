@@ -1,7 +1,7 @@
 <template>
   <div class="header-options">
     <section class="options-filter">
-      <SensesSelect v-model="audience" :options="audiences" />
+      <SensesSelect v-model="audience" :options="audiences" class="input-select" />
     </section>
     <section class="options-search">
       <input v-model="term" type="search" class="highlight input-search" placeholder="Search" />
@@ -48,7 +48,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
   @import "~@/assets/style/global";
 
   .header-options {
@@ -61,6 +61,12 @@ export default {
     .options-search {
       // padding: 0 $spacing / 2;
       width: 100%;
+    }
+
+    .options-filter {
+      button {
+        padding: $spacing / 2 $spacing !important;
+      }
     }
   }
 
