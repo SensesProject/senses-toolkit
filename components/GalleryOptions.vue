@@ -1,7 +1,7 @@
 <template>
   <div class="header-options">
     <section class="options-filter">
-      <SensesSelect v-model="audience" :options="audiences" class="input-select" />
+      <SensesSelect v-model="tag" :options="tags" class="input-select" />
     </section>
     <section class="options-search">
       <input v-model="term" type="search" class="highlight input-search" placeholder="Search" />
@@ -20,19 +20,19 @@ export default {
   },
   computed: {
     ...mapGetters([
-      'audiences'
+      'tags'
     ]),
-    audience: {
+    tag: {
       get () {
-        return get(this.$store, ['state', 'filter', 'audience'])
+        return get(this.$store, ['state', 'filter', 'tag'], [])
       },
       set (value) {
-        this.changeFilter({ key: 'audience', value })
+        this.changeFilter({ key: 'tag', value })
       }
     },
     term: {
       get () {
-        return get(this.$store, ['state', 'filter', 'term'])
+        return get(this.$store, ['state', 'filter', 'term'], [])
       },
       set (v) {
         const value = trim(v)
