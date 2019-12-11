@@ -5,7 +5,7 @@
       <p class="module-description">{{ description }}</p>
     </header>
     <footer class="module-footer">
-      <button class="btn btn-module">Read the module {{ tags.length }}</button>
+      <button class="btn btn-module">Read the module</button>
       <ul>
         <li>By {{ chain(authors) }}</li>
         <li><span v-for="tag in tags" :key="tag" :class="{ tag: true, [tag]: true }">{{ tag }}</span></li>
