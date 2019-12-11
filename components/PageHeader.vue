@@ -15,7 +15,8 @@ export default {}
 
   .page-header {
     width: 100%;
-    min-height: 50vh;
+    height: 50vh;
+    min-height: 500px;
     @include center();
     background-image: url('../static/The_Coalmine_Series-17.jpg');
     background-position: center;
