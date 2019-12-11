@@ -88,7 +88,7 @@ export default {
       min-height: 250px;
       border-bottom: 1px solid #F0F0FF;
       background-position: center;
-      background-size: cover;
+      background-size: 90% auto;
       background-repeat: no-repeat;
       @include text-radability(#fff);
 
