@@ -53,10 +53,13 @@ export default {
 
   .header-options {
     display: grid;
-    grid-template-columns: 1fr 2fr;
     justify-items: center;
     // align-items: center;
     grid-gap: $spacing / 2;
+
+    @include media-query($medium) {
+      grid-template-columns: 1fr 2fr;
+    }
 
     .options-search {
       // padding: 0 $spacing / 2;

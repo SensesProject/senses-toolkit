@@ -1,7 +1,7 @@
 <template>
   <header class="page-header">
     <h1 class="title serif">
-      Making sense of climate change scenarios for <vue-typer
+      Making sense of climate change scenarios for <br class="until-medium" /><vue-typer
         :text="strings"
         :pre-erase-delay="3000"
         erase-style="clear"
@@ -16,8 +16,7 @@
 import { VueTyper } from 'vue-typer'
 
 function getNextElement (arr, i) {
-  const length = arr.length
-  if (i === length - 1) {
+  if (i === arr.length - 1) {
     return arr[0]
   } else {
     return arr[i + 1]
@@ -37,9 +36,7 @@ export default {
   methods: {
     onErased (erasedString) {
       const i = this.strings.indexOf(erasedString)
-      console.log(i, getNextElement(this.strings, i).toLowerCase())
       this.klass = getNextElement(this.strings, i).toLowerCase()
-      console.log({ erasedString })
     }
   }
 }
@@ -51,15 +48,19 @@ export default {
   .page-header {
     width: 100%;
     height: 50vh;
-    min-height: 500px;
     @include center();
     background-image: url('../static/The_Coalmine_Series-17.jpg');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
 
+    @include media-query($medium) {
+      min-height: 500px;
+    }
+
     .title {
       max-width: 1000px;
+      margin: 0 $spacing / 2;
       @include text-radability(rgba(0, 0, 0, 0.3));
 
       .vue-typer {
@@ -72,7 +73,7 @@ export default {
         }
 
         .custom.caret {
-          width: 5px;
+          width: 3px;
           background-color: #fff;
           box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3), 0px 0px 5px rgba(0, 0, 0, 0.3), 0px 0px 10px rgba(0, 0, 0, 0.3);
           margin-left: 2px;

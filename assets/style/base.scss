@@ -2,26 +2,11 @@
 $font-prefix: "../../node_modules/library/src/assets/fonts";
 @import "library/src/style/base.scss";
 @import "./global";
+@import "./typography";
 
 input {
   font: $font-weight-regular normal 100%/1.5 $font-family-default;
   text-size-adjust: 100%;
-}
-
-.title {
-	color: #fff;
-	font-size: 4rem;
-}
-
-.module-title {
-	font-size: 2.3rem;
-	line-height: 1;
-	font-style: italic;
-	letter-spacing: -0.02em;
-}
-
-.module-description, .module-footer {
-	font-size: 0.8rem;
 }
 
 .btn {
@@ -86,4 +71,11 @@ input {
 		background-color: rgba($color-purple, 0.2);
 		color: $color-purple;
 	}
+}
+
+.until-medium {
+	@include media-query($medium) {
+    display: none;
+    visibility: hidden;
+  }
 }

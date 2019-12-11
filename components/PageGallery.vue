@@ -30,6 +30,11 @@ export default {
     width: 96vw;
     max-width: 1200px;
 
+    // @include media-query($medium) {
+    //   width: 96vw;
+    //   max-width: 1200px;
+    // }
+
     .gallery-header, .gallery-content {
       display: grid;
       grid-gap: $spacing;

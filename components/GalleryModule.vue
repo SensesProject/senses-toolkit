@@ -71,6 +71,7 @@ export default {
     grid-template-rows: 1fr auto;
     grid-template-rows: subgrid;
     grid-row-gap: 0;
+    width: 100%;
 
     .module-header {
       padding: $spacing / 2 $spacing / 3 * 2;
