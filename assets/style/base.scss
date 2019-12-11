@@ -17,6 +17,7 @@ input {
   border: 0;
   cursor: pointer;
   @include center();
+  text-align: center;
   font-size: 0.8rem;
   box-shadow: $box-shadow--weak;
 

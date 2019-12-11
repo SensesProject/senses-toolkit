@@ -5,10 +5,10 @@
       <p class="module-description">{{ description }}</p>
     </header>
     <footer class="module-footer">
-      <button class="btn btn-module">Read the module</button>
+      <button class="btn btn-module">Read the module {{ tags.length }}</button>
       <ul>
         <li>By {{ chain(authors) }}</li>
-        <li><span v-for="tag in audience" :key="tag" :class="{ tag: true, [tag]: true }">{{ tag }}</span></li>
+        <li><span v-for="tag in tags" :key="tag" :class="{ tag: true, [tag]: true }">{{ tag }}</span></li>
         <li v-if="gem"><span class="btn btn--tertiary">Explore the data</span></li>
         <li v-if="share"><span class="btn btn--tertiary">Download ressources</span></li>
       </ul>
@@ -42,7 +42,7 @@ export default {
       type: Boolean,
       default: false
     },
-    audience: {
+    tags: {
       type: Array,
       default: () => []
     },
@@ -123,7 +123,15 @@ export default {
         list-style: none;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        grid-gap: $spacing / 2 $spacing / 2;
+        grid-gap: $spacing / 4 $spacing / 4;
+
+        .btn {
+          height: 100%;
+        }
+
+        @include media-query($medium) {
+          grid-gap: $spacing / 2 $spacing / 2;
+        }
       }
     }
   }
