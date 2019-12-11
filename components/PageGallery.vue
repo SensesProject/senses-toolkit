@@ -35,7 +35,7 @@ export default {
     .gallery-header, .gallery-content {
       @include media-query($medium) {
         display: grid;
-        grid-gap: $spacing / 2;
+        grid-gap: $spacing;
         grid-template-columns: 1fr;
         grid-auto-flow: row;
       }
