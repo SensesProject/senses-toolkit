@@ -72,6 +72,11 @@ export default {
     grid-template-rows: subgrid;
     grid-row-gap: 0;
     width: 100%;
+    margin-bottom: $spacing;
+
+    @include media-query($medium) {
+      margin-bottom: 0;
+    }
 
     .module-header {
       padding: $spacing / 2 $spacing / 3 * 2;

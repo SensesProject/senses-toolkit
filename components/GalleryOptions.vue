@@ -56,8 +56,10 @@ export default {
     justify-items: center;
     // align-items: center;
     grid-gap: $spacing / 2;
+    margin-top: $spacing / 2;
 
     @include media-query($medium) {
+      margin-top: 0;
       grid-template-columns: 1fr 2fr;
     }
 
@@ -68,7 +70,19 @@ export default {
 
     .options-filter {
       button {
-        padding: $spacing / 2 $spacing !important;
+        padding: $spacing / 4 $spacing / 2 !important;
+
+        @include media-query($medium) {
+          padding: $spacing / 2 $spacing !important;
+        }
+      }
+    }
+
+    .input-search {
+      padding: $spacing / 4;
+
+      @include media-query($medium) {
+        padding: $spacing / 2;
       }
     }
   }

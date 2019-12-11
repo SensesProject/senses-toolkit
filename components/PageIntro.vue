@@ -15,7 +15,7 @@
             <span class="glyph glyph-policies" />
           </div>
           <div>
-            <span>Interested in <strong>Policy</strong>? Visit the portal &nearr;</span>
+            <span>Interested in <strong>Policy</strong>? Visit the portal&nbsp;&nearr;</span>
           </div>
         </a>
       </section>
@@ -25,7 +25,7 @@
             <span class="glyph glyph-wildfires" />
           </div>
           <div>
-            <span>Interested in <strong>Finance</strong>? Visit the portal &nearr;</span>
+            <span>Interested in <strong>Finance</strong>? Visit the portal&nbsp;&nearr;</span>
           </div>
         </a>
       </section>

@@ -23,23 +23,22 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
   @import "~@/assets/style/global";
 
   .page-gallery {
-    width: 96vw;
-    max-width: 1200px;
-
-    // @include media-query($medium) {
-    //   width: 96vw;
-    //   max-width: 1200px;
-    // }
+    @include media-query($medium) {
+      width: 96vw;
+      max-width: 1200px;
+    }
 
     .gallery-header, .gallery-content {
-      display: grid;
-      grid-gap: $spacing;
-      grid-template-columns: 1fr;
-      grid-auto-flow: row;
+      @include media-query($medium) {
+        display: grid;
+        grid-gap: $spacing;
+        grid-template-columns: 1fr;
+        grid-auto-flow: row;
+      }
 
       @include media-query(1200px) {
         & {
@@ -49,7 +48,7 @@ export default {
     }
 
     .gallery-header {
-      margin-bottom: $spacing * 2;
+      margin: 0 $spacing / 3 * 2 $spacing * 2;
 
       .header-title {
         @include media-query(1200px) {
