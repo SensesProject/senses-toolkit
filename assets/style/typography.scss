@@ -4,16 +4,24 @@
 	color: #fff;
 	font-size: 2rem;
 
+	@include media-query($narrow) {
+    font-size: 3rem;
+  }
+
 	@include media-query($medium) {
     font-size: 4rem;
   }
 }
 
 .module-title {
-	font-size: 2.3rem;
+	font-size: 1.5rem;
 	line-height: 1;
 	font-style: italic;
 	letter-spacing: -0.02em;
+
+	@include media-query($medium) {
+    font-size: 2.3rem;
+  }
 }
 
 .module-description, .module-footer {

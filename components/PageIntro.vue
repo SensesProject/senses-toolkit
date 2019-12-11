@@ -48,7 +48,7 @@ export default {}
       box-shadow: $box-shadow--strong;
       margin-bottom: $spacing;
 
-      @include media-query($medium) {
+      @include media-query($narrow) {
         display: grid;
         max-width: $medium;
         grid-template-columns: repeat(3, 1fr);
@@ -73,7 +73,7 @@ export default {}
       section {
         border-bottom: 1px solid #F0F0FF;
 
-        @include media-query($medium) {
+        @include media-query($narrow) {
           border: none;
           border-right: 1px solid #F0F0FF;
         }

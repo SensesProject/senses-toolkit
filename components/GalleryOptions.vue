@@ -58,9 +58,12 @@ export default {
     grid-gap: $spacing / 2;
     margin-top: $spacing / 2;
 
+    @include media-query($narrow) {
+      grid-template-columns: 1fr 2fr;
+    }
+
     @include media-query($medium) {
       margin-top: 0;
-      grid-template-columns: 1fr 2fr;
     }
 
     .options-search {
@@ -72,7 +75,7 @@ export default {
       button {
         padding: $spacing / 4 $spacing / 2 !important;
 
-        @include media-query($medium) {
+        @include media-query($narrow) {
           padding: $spacing / 2 $spacing !important;
         }
       }
@@ -81,7 +84,7 @@ export default {
     .input-search {
       padding: $spacing / 4;
 
-      @include media-query($medium) {
+      @include media-query($narrow) {
         padding: $spacing / 2;
       }
     }

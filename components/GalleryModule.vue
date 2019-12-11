@@ -79,7 +79,10 @@ export default {
     }
 
     .module-header {
-      padding: $spacing / 2 $spacing / 3 * 2;
+      padding: $spacing / 3 * 2 $spacing / 3 * 2;
+      @include media-query($medium) {
+        padding: $spacing / 2 $spacing / 3 * 2;
+      }
       // padding-top: $spacing;
       padding-bottom: $spacing * 2;
       min-height: 250px;

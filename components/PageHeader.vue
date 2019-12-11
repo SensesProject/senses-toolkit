@@ -59,9 +59,13 @@ export default {
     }
 
     .title {
-      max-width: 1000px;
+      max-width: $narrow;
       margin: 0 $spacing / 2;
       @include text-radability(rgba(0, 0, 0, 0.3));
+
+      @include media-query($medium) {
+        max-width: 1000px;
+      }
 
       .vue-typer {
         &.finance .custom.char.typed {
