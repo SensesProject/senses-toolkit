@@ -55,11 +55,11 @@ export default {
     display: grid;
     justify-items: center;
     // align-items: center;
-    grid-gap: $spacing / 2;
+    grid-gap: $spacing;
     margin-top: $spacing / 2;
 
     @include media-query($narrow) {
-      grid-template-columns: 1fr 2fr;
+      grid-template-columns: auto 1fr;
     }
 
     @include media-query($medium) {

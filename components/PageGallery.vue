@@ -50,6 +50,12 @@ export default {
     .gallery-header {
       margin: 0 $spacing / 3 * 2 $spacing * 2;
 
+      @include media-query($medium) {
+        & {
+          margin: 0 0 $spacing * 2;
+        }
+      }
+
       .header-title {
         @include media-query(1200px) {
           & {
