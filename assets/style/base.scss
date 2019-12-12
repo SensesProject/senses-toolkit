@@ -33,7 +33,7 @@ input {
 
   &.btn--tertiary {
   	border: none;
-  	background-color: getColor(gray, 90);
+  	background-color: #f8f8f8;
   	color: $color-deep-gray;
   	box-shadow: none;
 
@@ -53,11 +53,13 @@ input {
 }
 
 .tag {
-	padding: 3px 4px 2px;
+	font-size: 0.7rem;
+	padding: 3px 5px 3px;
 	border-radius: $border-radius;
-	margin-right: 4px;
+	margin-right: 8px;
 	background-color: rgba($color-gray, 0.2);
 	color: $color-gray;
+	cursor: pointer;
 
 	&:last-child {
 		margin: 0;
@@ -66,10 +68,18 @@ input {
 	&.Policy {
 		background-color: rgba($color-green, 0.2);
 		color: $color-green;
+
+		&:hover {
+			background-color: rgba($color-green, 0.4);
+		}
 	}
 	&.Finance {
 		background-color: rgba($color-purple, 0.2);
 		color: $color-purple;
+
+		&:hover {
+			background-color: rgba($color-purple, 0.4);
+		}
 	}
 }
 

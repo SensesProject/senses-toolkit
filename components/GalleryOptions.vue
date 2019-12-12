@@ -81,8 +81,23 @@ export default {
       }
     }
 
+    .input-select {
+      button {
+        background-color: #f8f8f8;
+      }
+
+      span {
+        color: $color-neon;
+      }
+    }
+
     .input-search {
       padding: $spacing / 4;
+      background-color: #f8f8f8;
+
+      &::placeholder {
+        color: getColor(neon, 50);
+      }
 
       @include media-query($narrow) {
         padding: $spacing / 2;

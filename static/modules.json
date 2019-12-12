@@ -123,8 +123,13 @@
     "portal-num": 7,
     "main-topic": "Transitions",
     "path": "land-affected",
+<<<<<<< HEAD
     "title": "How much land area is affected by and how much population is exposed to extreme events under climate change?",
     "description": "The extent and impact of crop failures, river floods, tropical cyclones, heatwaves, wildfires, and droughts depend on the underlying meteorological, hydrological, or climatological events as well as on human factors such as land use, water and agricultural management, and population density. In this module you'll learn how climate change contributes to extreme events and who is most affected by those.",
+=======
+    "title": "Extreme events under climate change?",
+    "description": "This module explores how current decarbonization plans until 2030 relate to the long-term targets of the Paris Agreement.",
+>>>>>>> Better titles, styling
     "authors": ["Katja Frieler", "Jan Volkholz", "Fidel Thomet"],
     "reading-time": 25,
     "gem": false,
@@ -157,7 +162,7 @@
     "portal-num": 2,
     "main-topic": "Opportunities",
     "path": "investment-opportunities",
-    "title": "Investment Opportunities and Alignment: What are investment opportunities in a low carbon world?",
+    "title": "What are investment opportunities in a low carbon world?",
     "description": "Placeholder Text",
     "authors": ["Bas van Ruijven", "Christoph Bertram", "Jonas Parnow"],
     "reading-time": 25,
