@@ -63,10 +63,6 @@ export default {
           }
         }
       }
-
-      .header-options {
-        // box-shadow: $box-shadow--default;
-      }
     }
   }
 </style>
