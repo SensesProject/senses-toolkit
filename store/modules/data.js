@@ -20,11 +20,11 @@ const mutations = {
 
 const getters = {
   modules: (state, getters, rootState) => {
-    const audience = get(rootState, ['filter', 'audience'])
+    const tag = get(rootState, ['filter', 'tag'])
     const term = trim(get(rootState, ['filter', 'term']).toLowerCase())
 
     return filter(get(state, ['datum', 'data'], []), (run) => {
-      if (!(!audience || (audience && includes(get(run, 'audience'), audience)))) {
+      if (!(!tag || (tag && includes(get(run, 'tags'), tag)))) {
         return false
       }
 

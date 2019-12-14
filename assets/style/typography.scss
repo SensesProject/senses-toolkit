@@ -1,0 +1,48 @@
+@import "./global";
+
+.title {
+	color: #fff;
+	font-size: 2rem;
+
+	@include media-query($narrow) {
+    font-size: 3rem;
+  }
+
+	@include media-query($medium) {
+    font-size: 4rem;
+  }
+}
+
+.header-title {
+	font-size: 1.5rem;
+	margin-bottom: $spacing / 4;
+
+	@include media-query($narrow) {
+    font-size: 2rem;
+    margin-bottom: $spacing / 2;
+  }
+
+	@include media-query($medium) {
+    font-size: 3rem;
+    margin-bottom: 0;
+  }
+}
+
+.module-title {
+	font-size: 1.5rem;
+	line-height: 1;
+	font-style: italic;
+	letter-spacing: -0.02em;
+
+	@include media-query($medium) {
+    font-size: 2.3rem;
+  }
+}
+
+.module-description {
+	font-size: 1rem;
+}
+
+.module-footer {
+	font-size: 0.8rem;
+}

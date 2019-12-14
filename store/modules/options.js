@@ -1,9 +1,9 @@
 import { uniq, flatten, map, get } from 'lodash'
 
 const getters = {
-  audiences: (state, getters, rootState) => {
+  tags: (state, getters, rootState) => {
     const options = [{ 'label': 'Show all', 'value': false }]
-    options.push(...uniq(flatten(map(get(rootState, ['data', 'datum', 'data'], []), 'audience'))))
+    options.push(...uniq(flatten(map(get(rootState, ['data', 'datum', 'data'], []), 'tags'))))
     return options
   }
 }

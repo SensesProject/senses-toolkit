@@ -32,8 +32,10 @@ export default {
   @import "~@/assets/style/global";
 
   .gallery-content {
-    display: grid;
-    grid-template-rows: repeat(auto-fit, 1fr auto);
+    @include media-query($medium) {
+      display: grid;
+      grid-template-rows: repeat(auto-fit, 1fr auto);
+    }
   }
 
 </style>

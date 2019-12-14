@@ -1,13 +1,13 @@
 import { has, get, set } from 'lodash'
 
 const DEFAULTS = {
-  audience: false,
+  tag: false,
   term: ''
 }
 
 const state = () => {
   return {
-    audience: DEFAULTS.audience,
+    tag: DEFAULTS.tag,
     term: DEFAULTS.term
   }
 }
