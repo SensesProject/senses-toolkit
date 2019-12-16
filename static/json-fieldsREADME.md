@@ -6,7 +6,7 @@
 - *"title"*: Title of the module
 - *"description"*: Description of the module
 - *"authors"*: designers and scientists that authored the module
-- *"reading-time"*: Minutes (approx.) required to read the module
+- *"readingTime"*: Minutes (approx.) required to read the module
 - *"gem"*: The module has/has not a GEMs link
 - *"scenario-finder"*: The module has/has not a scenario finder link
 - *"data"*: The module has/has not additional data that can be downloaded
