@@ -1,11 +1,15 @@
 <template>
   <div class="gallery-module">
     <header :class="{ 'module-header': true }" :style="{ 'background-image': `url(./bg/${bg}.png)`}">
-      <h2 class="module-title mono">{{ title }}</h2>
-      <p class="module-description">{{ description }}</p>
+      <h2 class="module-title mono">
+        {{ title }}
+      </h2>
+      <p class="module-description">
+        {{ description }}
+      </p>
     </header>
     <footer class="module-footer">
-      <a :href="`/${path}`" class="btn btn-module">Read the module</a>
+      <a v-if="path.length" :href="`/${path}`" class="btn btn-module">Read the module</a>
       <ul>
         <li>By {{ chain(authors) }}</li>
         <li>
@@ -15,8 +19,12 @@
             :class="{ tag: true, [tag]: true }"
             @click="() => changeFilter({ key: 'tag', value: tag })">{{ tag }}</span>
         </li>
-        <li v-if="gem"><span class="btn btn--tertiary">Explore the data</span></li>
-        <li v-if="share"><span class="btn btn--tertiary">Download ressources</span></li>
+        <li v-if="gem">
+          <span class="btn btn--tertiary">Explore the data</span>
+        </li>
+        <li v-if="share">
+          <span class="btn btn--tertiary">Download ressources</span>
+        </li>
       </ul>
       <!-- <button class="btn btn--secondary" v-if="gem">Explore the data</button>
       <button class="btn btn--secondary" v-if="share">Download ressources</button> -->
@@ -29,35 +37,39 @@ import { mapActions } from 'vuex'
 
 export default {
   props: {
-    title: {
-      type: String
+    title: { // Title of the module
+      type: String,
+      default: 'Unnamed module'
     },
-    description: {
-      type: String
+    description: { // Description text of the module
+      type: String,
+      default: null
     },
-    gem: {
+    gem: { // Link to a gem
       type: [Boolean, String],
       default: false
     },
-    share: {
+    share: { // Link to share elements
       type: Boolean,
       default: false
     },
-    path: {
-      type: String
+    path: { // The url path to the module
+      type: String,
+      default: null
     },
-    bg: {
-      type: String
+    bg: { // The url to the background image
+      type: String,
+      default: null
     },
     alignRight: {
       type: Boolean,
       default: false
     },
-    tags: {
+    tags: { // What is the audience (policy, finance)
       type: Array,
       default: () => []
     },
-    authors: {
+    authors: { // List of authors
       type: Array,
       default: () => []
     }
