@@ -11,7 +11,7 @@
     <footer class="module-footer">
       <a v-if="path.length" :href="`/${path}`" class="btn btn-module">Read the module</a>
       <ul>
-        <li>By {{ chain(authors) }}</li>
+        <li>By {{ author }}</li>
         <li>
           <span
             v-for="tag in tags"
@@ -34,6 +34,7 @@
 
 <script>
 import { mapActions } from 'vuex'
+import { chain } from '~/assets/js/utils.js'
 
 export default {
   props: {
@@ -74,10 +75,12 @@ export default {
       default: () => []
     }
   },
+  computed: {
+    author () {
+      return chain(this.authors)
+    }
+  },
   methods: {
-    chain: (a) => {
-      return [a.slice(0, -1).join(', '), a.slice(-1)[0]].join(a.length < 2 ? '' : ' and ')
-    },
     ...mapActions([
       'changeFilter'
     ])
