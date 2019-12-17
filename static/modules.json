@@ -192,7 +192,7 @@
       "path": "physical-risks",
       "title": "Physical Risks",
       "description": "Placeholder Text TODO",
-      "authors": ["Katja Frieler", "Jan Volkholz ", "Fidel Thomet"],
+      "authors": ["Katja Frieler", "Jan Volkholz", "Fidel Thomet"],
       "readingTime": 15,
       "gem": false,
       "scenario-finder": false,
