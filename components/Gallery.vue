@@ -19,10 +19,12 @@ export default {
   },
   created () {
     this.loadModules()
+    this.loadDownloads()
   },
   methods: {
     ...mapActions([
-      'loadModules'
+      'loadModules',
+      'loadDownloads'
     ])
   }
 }

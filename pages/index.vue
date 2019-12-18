@@ -3,6 +3,9 @@
     <PageHeader />
     <PageIntro />
     <PageGallery />
+    <modal name="download">
+      <PageDownload />
+    </modal>
   </div>
 </template>
 
@@ -10,12 +13,14 @@
 import PageHeader from '~/components/PageHeader.vue'
 import PageIntro from '~/components/PageIntro.vue'
 import PageGallery from '~/components/PageGallery.vue'
+import PageDownload from '~/components/PageDownload.vue'
 
 export default {
   components: {
     PageHeader,
     PageIntro,
-    PageGallery
+    PageGallery,
+    PageDownload
   }
 }
 </script>

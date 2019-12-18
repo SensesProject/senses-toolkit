@@ -12,7 +12,7 @@
     </header>
     <footer class="module-footer">
       <a v-if="path.length" :href="`/${path}`" class="btn btn-module">Read the module</a>
-      <span @click="expand" class="btn btn-expand" :class="{ isExpanded }">More information <svg width="16" height="8"><g><path d="M-4,1.5 L0,-1.5 L4,1.5"/></g></svg></span>
+      <span @click="expand" :class="{ isExpanded }" class="btn btn-expand">More information <svg width="16" height="8"><g><path d="M-4,1.5 L0,-1.5 L4,1.5" /></g></svg></span>
       <transition-expand>
         <ul v-if="isExpanded" class="items">
           <li>
@@ -36,10 +36,10 @@
               </li>
             </ul>
           </li>
-          <li v-if="share" class="wide">
+          <li v-if="download" class="wide">
             <span class="caption">Download ressources</span>
             <ul class="list">
-              <a href="#">Static visualisation graphics</a>
+              <span v-for="item in download" @click="() => showDownload(item.id)" class="a">{{ item.label }}</span>
             </ul>
           </li>
         </ul>
@@ -49,9 +49,10 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
-import TransitionExpand from '~/components/TransitionExpand.vue'
+import { mapGetters, mapActions } from 'vuex'
+import { map, get } from 'lodash'
 import { chain } from '~/assets/js/utils.js'
+import TransitionExpand from '~/components/TransitionExpand.vue'
 
 export default {
   props: {
@@ -67,9 +68,9 @@ export default {
       type: [Boolean, String],
       default: false
     },
-    share: { // Link to share elements
-      type: Boolean,
-      default: false
+    downloadIDs: { // Link to share elements
+      type: [Boolean, Array],
+      default: () => []
     },
     path: { // The url path to the module
       type: String,
@@ -98,16 +99,41 @@ export default {
     }
   },
   computed: {
+    ...mapGetters([
+      'downloads'
+    ]),
     author () {
       return chain(this.authors)
+    },
+    download () {
+      const { downloadIDs } = this
+      if (downloadIDs) {
+        return map(downloadIDs, (id) => {
+          const item = get(this.downloads, downloadIDs)
+          const label = get(item, 'label', 'unnamed item')
+          return {
+            id,
+            ...item,
+            label
+          }
+        })
+      }
+      return []
     }
   },
   methods: {
     ...mapActions([
-      'changeFilter'
+      'changeFilter',
+      'selectDownload'
     ]),
     expand () {
       this.isExpanded = !this.isExpanded
+    },
+    showDownload (id) {
+      if (id) {
+        this.selectDownload(id)
+        this.$modal.show('download')
+      }
     }
   },
   components: {
@@ -164,7 +190,7 @@ export default {
       &::after {
         content: "";
         background-color: #fff;
-        opacity: 1;
+        opacity: 0.2;
         top: 0;
         left: 0;
         bottom: 0;
@@ -175,7 +201,7 @@ export default {
       }
 
       &.isExpanded::after {
-        opacity: 1;
+        opacity: .2;
       }
 
       &.alignRight {
