@@ -3,6 +3,7 @@
     <PageHeader />
     <PageIntro />
     <PageGallery />
+    <PageFooter />
     <modal
       name="download"
       :scrollable="true"
@@ -16,6 +17,7 @@
 import PageHeader from '~/components/PageHeader.vue'
 import PageIntro from '~/components/PageIntro.vue'
 import PageGallery from '~/components/PageGallery.vue'
+import PageFooter from '~/components/PageFooter.vue'
 import PageDownload from '~/components/PageDownload.vue'
 
 export default {
@@ -23,6 +25,7 @@ export default {
     PageHeader,
     PageIntro,
     PageGallery,
+    PageFooter,
     PageDownload
   }
 }
