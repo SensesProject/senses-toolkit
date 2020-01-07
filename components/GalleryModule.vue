@@ -36,7 +36,7 @@
               </li>
             </ul>
           </li>
-          <li v-if="download" class="wide">
+          <li v-if="download.length" class="wide">
             <span class="caption">Download ressources</span>
             <ul class="list">
               <span v-for="item in download" @click="() => showDownload(item.id)" class="a">{{ item.label }}</span>
@@ -234,12 +234,16 @@ export default {
         place-self: flex-end;
         width: $button-width;
         height: $button-width;
-        margin-right: calc((100% - #{$text-width} - #{$button-width}) / 2 - #{$spacing / 4});
+        margin-right: 0;
         z-index: 2;
         border-radius: 50%;
         padding: 0;
         box-shadow: $box-shadow--strong;
         transition: transform $transition, background-color $transition, color $transition;
+
+        @include media-query($medium) {
+          margin-right: calc((100% - #{$text-width} - #{$button-width}) / 2 - #{$spacing / 4});
+        }
 
         &:hover {
           transform: scale(1.1);
