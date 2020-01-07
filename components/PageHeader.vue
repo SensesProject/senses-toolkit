@@ -9,6 +9,7 @@
         :class="klass"
         @erased='onErased' />
     </h1>
+    <a class="copyright" href="http://tomhegen.de/" rel="author external" target="_blank">Photographs by Tom Hegen</a>
   </header>
 </template>
 
@@ -53,6 +54,7 @@ export default {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+    position: relative;
 
     @include media-query($medium) {
       min-height: 500px;
@@ -83,6 +85,21 @@ export default {
           margin-left: 2px;
           border-radius: 1px;
         }
+      }
+    }
+
+    .copyright {
+      position: absolute;
+      right: 5px;
+      bottom: 5px;
+      color: rgba(#fff, 0.5);
+      letter-spacing: 0.02em;
+      background: none;
+      font-size: 0.7rem;
+      font-weight: normal;
+
+      &:hover, &:focus {
+        color: #fff;
       }
     }
   }
