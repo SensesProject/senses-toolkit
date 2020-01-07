@@ -29,7 +29,7 @@
       <span class="org">Potsdam Institut für Klimafolgenforschung (PIK)</span><br />
       <div class="adr">
         <span class="street-address">Telegrafenberg A31</span><br />
-        <span class="postal-code">14473</span> <span class="locality">Potsdam</span><br /><br />
+        <span class="postal-code">14473</span> <span class="locality">Potsdam</span>
       </div>
     </div>
     <div class="footer-funding">
@@ -56,8 +56,11 @@ export default {}
   @import "~@/assets/style/global";
 
   .page-footer {
+    margin: $spacing / 2;
     margin-top: $spacing * 2;
     display: grid;
+    font-size: 0.8rem;
+    grid-gap: $spacing / 2;
 
     .ml:after {
       content: attr(data-name) "@" attr(data-domain) "." attr(data-tld);
@@ -76,13 +79,17 @@ export default {}
 
     .funders {
       display: grid;
-      grid-template-columns: repeat(6, 1fr);
       list-style: none;
       justify-items: center;
       align-items: center;
       justify-content: space-evenly;
       grid-gap: $spacing * 3 / 2;
       margin: $spacing 0 $spacing * 2;
+      grid-template-columns: repeat(2, 1fr);
+
+      @include media-query($medium) {
+        grid-template-columns: repeat(6, 1fr);
+      }
 
       li {
         @include center();
