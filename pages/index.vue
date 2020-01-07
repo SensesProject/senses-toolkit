@@ -3,7 +3,10 @@
     <PageHeader />
     <PageIntro />
     <PageGallery />
-    <modal name="download">
+    <modal
+      name="download"
+      :scrollable="true"
+      height="auto">
       <PageDownload />
     </modal>
   </div>
