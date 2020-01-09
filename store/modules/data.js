@@ -1,4 +1,4 @@
-import { assign, get, filter, includes } from 'lodash'
+import { assign, get, filter, includes, trim } from 'lodash'
 import axios from 'axios'
 import Fuse from 'fuse.js'
 
@@ -48,10 +48,14 @@ const getters = {
       return true
     })
 
-    const fuse = new Fuse(elements, options)
+    const term = trim(get(rootState, ['filter', 'term']))
 
-    const term = get(rootState, ['filter', 'term'])
-    return fuse.search(term)
+    if (term) {
+      const fuse = new Fuse(elements, options)
+      return fuse.search(term)
+    } else {
+      return elements
+    }
   }
 }
 
