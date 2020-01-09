@@ -1,5 +1,22 @@
-import { assign, get, filter, includes, trim } from 'lodash'
+import { assign, get, filter, includes } from 'lodash'
 import axios from 'axios'
+import Fuse from 'fuse.js'
+
+const options = {
+  shouldSort: true,
+  threshold: 0.6,
+  location: 0,
+  distance: 100,
+  maxPatternLength: 32,
+  minMatchCharLength: 1,
+  keys: [
+    'title',
+    'description',
+    'keywords',
+    'authors',
+    'tags'
+  ]
+}
 
 const state = () => {
   return {
@@ -21,19 +38,20 @@ const mutations = {
 const getters = {
   modules: (state, getters, rootState) => {
     const tag = get(rootState, ['filter', 'tag'])
-    const term = trim(get(rootState, ['filter', 'term']).toLowerCase())
 
-    return filter(get(state, ['datum', 'data'], []), (run) => {
+    // First filter all elements with the correct tag
+    const elements = filter(get(state, ['datum', 'data'], []), (run) => {
       if (!(!tag || (tag && includes(get(run, 'tags'), tag)))) {
-        return false
-      }
-
-      if (!(!term.length || (term.length && get(run, 'title').toLowerCase().includes(term)))) {
         return false
       }
 
       return true
     })
+
+    const fuse = new Fuse(elements, options)
+
+    const term = get(rootState, ['filter', 'term'])
+    return fuse.search(term)
   }
 }
 
