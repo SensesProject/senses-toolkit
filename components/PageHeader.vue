@@ -2,14 +2,13 @@
   <header class="page-header">
     <h1 class="title serif">
       Making sense of climate change scenarios for <br class="until-medium" /><vue-typer
-        :class="klass"
         :pre-erase-delay="5000"
         :text="strings"
         caret-animation="smooth"
         erase-style="clear"
         @erased="onErased" />
     </h1>
-    <ul class="header-background" :class="klass">
+    <ul class="header-background">
       <li
         v-for="el in elements"
         :class="{ isVisible: el.isVisible }"
