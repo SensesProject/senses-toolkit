@@ -13,14 +13,15 @@
         PO Box 601203<br />
         14412 Potsdam<br /><br />
 
-        Tel: <span class="tel" itemprop="telephone"><a href="tel:+4933128820787" >+49-331-288-20787</a></span><br />
+        Tel: <span class="tel" itemprop="telephone"><a href="tel:+4933128820787">+49-331-288-20787</a></span><br />
         e-mail: <a
           href="#"
           class="ml"
           data-name="cornelia.auer"
           data-domain="pik-potsdam"
           data-tld="de"
-          onclick="window.location.href = 'mailto:' + this.dataset.name + '@' + this.dataset.domain + '.' + this.dataset.tld; return false;" />
+          onclick="window.location.href = 'mailto:' + this.dataset.name + '@' + this.dataset.domain + '.' + this.dataset.tld; return false;"
+        />
       </address>
     </div>
     <div class="footer-lpi">
@@ -37,11 +38,11 @@
       <span class="org">The project runs from 2017 to 2020. The project SENSES is part of the European Research Area for Climate Services (ERA4CS), an ERA-NET initiated by JPI Climate. It is funded by BMBF (DE), BMWFW (AT), NWO (NL), FORMAS (SE) with co-funding by the European Union (Grant 690462). <a href="http://www.jpi-climate.eu/ERA4CS">(ERA4CS)</a>.</span>
       <ul class="funders">
         <li><img src="logos/logo_EU.svg" alt="European Union" style="width: 70%" /></li>
-        <li><a href="http://www.jpi-climate.eu/"><img src="logos/logo_JPI.png" alt="Joint Programming Initiative Climate" target="_blank"/></a></li>
-        <li><a href="https://www.bmbf.de/en/index.html"><img src="logos/logo_BMBF.svg" alt="Federal Ministry of Education and Research" target="_blank"/></a></li>
-        <li><a href="http://www.dlr.de/"><img src="logos/logo_DLR.svg" alt="German Aerospace Center" style="width: 60%" target="_blank"/></a></li>
-        <li><a href="https://www.nwo.nl/"><img src="logos/logo_nwo.svg" alt="The Netherlands Organisation for Scientific Research" style="width: 70%" target="_blank"/></a></li>
-        <li><a href="http://www.formas.se/"><img src="logos/logo_formas.svg" alt="The Swedish Research Council for Environment, Agricultural Sciences and Spatial Planning" style="margin-top: 2em" target="_blank"/></a></li>
+        <li><a href="http://www.jpi-climate.eu/"><img src="logos/logo_JPI.png" alt="Joint Programming Initiative Climate" target="_blank" /></a></li>
+        <li><a href="https://www.bmbf.de/en/index.html"><img src="logos/logo_BMBF.svg" alt="Federal Ministry of Education and Research" target="_blank" /></a></li>
+        <li><a href="http://www.dlr.de/"><img src="logos/logo_DLR.svg" alt="German Aerospace Center" style="width: 60%" target="_blank" /></a></li>
+        <li><a href="https://www.nwo.nl/"><img src="logos/logo_nwo.svg" alt="The Netherlands Organisation for Scientific Research" style="width: 70%" target="_blank" /></a></li>
+        <li><a href="http://www.formas.se/"><img src="logos/logo_formas.svg" alt="The Swedish Research Council for Environment, Agricultural Sciences and Spatial Planning" style="margin-top: 2em" target="_blank" /></a></li>
       </ul>
     </div>
   </footer>
@@ -85,7 +86,7 @@ export default {}
       justify-content: space-evenly;
       grid-gap: $spacing * 3 / 2;
       margin: $spacing 0 $spacing * 2;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(1, 1fr);
 
       @include media-query($medium) {
         grid-template-columns: repeat(6, 1fr);
