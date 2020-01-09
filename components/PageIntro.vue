@@ -41,6 +41,7 @@ export default {}
   @import "~@/assets/style/global";
 
   .page-intro {
+    z-index: 3;
     @include center();
 
     .page-intro-float {
