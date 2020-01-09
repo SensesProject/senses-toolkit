@@ -17,7 +17,7 @@
         <ul v-if="isExpanded" class="items">
           <li>
             <span class="caption">Authors</span>
-            <span>By {{ author }}</span>
+            <span>{{ author }}</span>
           </li>
           <li>
             <span class="caption">Audience</span>
