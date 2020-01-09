@@ -1,7 +1,9 @@
 <template>
   <div class="page-gallery">
     <header class="gallery-header">
-      <h1 class="header-title">The Senses Toolkit</h1>
+      <h1 class="header-title">
+        The Senses Toolkit
+      </h1>
       <div class="header-intro">
         <p>This collection of visualisation tools helps you understand and communicate climate change scenarios. Each module answers a specific question. Lorem ipsum dolor.</p>
       </div>
