@@ -7,7 +7,8 @@
       "licence": "Creative Commons Attribution-ShareAlike 4.0 International",
       "reference": "Senses (2020), Global Stocktake",
       "authors": ["Fidel Thomet"],
-      "description": "The package contains 12 high-resolution static graphics from the Primer in SVG and PNG formats."
+      "description": "The package contains 12 high-resolution static graphics from the Primer in SVG and PNG formats.",
+      "previews": ["primer-1.png", "primer-2.png", "primer-3.png"]
     }
   ]
 }

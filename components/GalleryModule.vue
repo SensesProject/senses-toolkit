@@ -39,7 +39,7 @@
           <li v-if="download.length" class="wide">
             <span class="caption">Download ressources</span>
             <ul class="list">
-              <span v-for="item in download" @click="() => showDownload(item.id)" class="a">{{ item.label }}</span>
+              <span v-for="item in download" @click="() => showDownload({ module: id })" class="a">{{ item.label }}</span>
             </ul>
           </li>
         </ul>
@@ -56,6 +56,10 @@ import TransitionExpand from '~/components/TransitionExpand.vue'
 
 export default {
   props: {
+    id: { // The id of the module. Used for the download-modal
+      type: String,
+      default: null
+    },
     title: { // Title of the module
       type: String,
       default: 'Unnamed module'

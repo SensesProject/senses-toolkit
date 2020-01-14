@@ -1,26 +1,48 @@
 <template>
   <div class="page-download">
     <header class="download-header">
-      <h1>{{ item.label }}</h1>
+      <span class="caption">Downloads for</span>
+      <h1>{{ moduleTitle }}</h1>
+      <ul>
+        <li v-for="element in downloadElements">{{ element.label }}</li>
+      </ul>
     </header>
-    <dl class="download-details">
-      <dt class="caption">Description</dt>
-      <dd>{{ item.description }}</dd>
+    <div class="download-download" v-if="download">
+      <h1>{{ download.label }}</h1>
+      <div>
+        <a :href="download.link" class="btn btn--action">Download</a>
+      </div>
+      <p class="description">{{ download.description }}</p>
+    </div>
+    <dl class="download-details" v-if="download">
+      <dt class="caption ">Preview</dt>
+      <dd class="gallery">
+        <ul class="previews">
+          <li v-for="element in download.previews" class="preview">
+            <img :src="`/previews/${element}`" />
+          </li>
+        </ul>
+      </dd>
       <dt class="caption">Authors</dt>
       <dd>{{ author }}</dd>
       <dt v-if="reference" class="caption">Reference</dt>
       <dd v-if="reference">
         <div class="readonly">
-          <input type="text" readonly :value="item.reference" :class="{ copied }" />
+          <input type="text" readonly :value="download.reference" :class="{ copied }" />
           <button class="btn" @click="copyToClipboard" ref="referenceButton">{{ copyReference }}</button>
         </div>
       </dd>
+      <dt v-if="reference" class="caption">URL</dt>
+      <dd v-if="reference">
+        <div class="readonly">
+          <input type="text" readonly :value="'https://climatescenarios.org/#primerdownloads'" :class="{ copied }" />
+          <button class="btn" @click="copyToClipboard" ref="referenceButton">{{ copyReference }}</button>
+        </div>
+      </dd>
+      <dt class="caption">Licence</dt>
+      <dd>{{ download.licence }}</dd>
     </dl>
     <footer class="download-footer">
-      <dl>
-        <dt class="caption">Licence</dt>
-        <dd>{{ item.licence }}</dd>
-      </dl>
       <strong>You are free to</strong>
       <ul>
         <li>Copy and redistribute the material in any medium or format</li>
@@ -32,15 +54,14 @@
         <li>If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original.</li>
         <li>You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.</li>
       </ul>
-      <a :href="item.link" class="btn btn--invert btn--action">Download {{ item.label }}</a>
     </footer>
     <span @click="hide" class="close">&times;</span>
   </div>
 </template>
 
 <script>
-import { mapState, mapGetters } from 'vuex'
-import { get } from 'lodash'
+import { mapGetters } from 'vuex'
+import { get, map } from 'lodash'
 import copy from 'copy-to-clipboard'
 import { chain } from '~/assets/js/utils.js'
 
@@ -54,20 +75,42 @@ export default {
     }
   },
   computed: {
-    ...mapState({
-      activeID: state => get(state, ['downloads', 'activeID'], false)
-    }),
     ...mapGetters([
-      'downloads'
+      'downloads',
+      'module'
     ]),
-    item () {
-      return get(this.downloads, this.activeID)
+    ...mapGetters({
+      'downloadID': 'currentDownloadID'
+    }),
+    moduleTitle () {
+      return get(this.module, 'title')
+    },
+    download () {
+      return get(this.downloads, this.downloadID)
     },
     author () {
-      return chain(this.item.authors)
+      return chain(this.download.authors)
     },
     reference () {
-      return this.item.reference
+      return this.download.reference
+    },
+    downloadIDs () {
+      return get(this.module, 'downloadIDs')
+    },
+    downloadElements () {
+      const { downloadIDs } = this
+      if (downloadIDs) {
+        return map(downloadIDs, (id) => {
+          const item = get(this.downloads, downloadIDs)
+          const label = get(item, 'label', 'unnamed item')
+          return {
+            id,
+            ...item,
+            label
+          }
+        })
+      }
+      return []
     }
   },
   methods: {
@@ -100,20 +143,39 @@ export default {
   display: grid;
   grid-row-gap: $spacing;
   position: relative;
+  z-index: 10;
 
-  .download-header, .download-details {
+  .download-download, .download-details {
     margin: $spacing;
     margin-bottom: 0;
+    margin-top: 0;
+  }
 
-    &.download-details {
-      margin-top: 0;
+  .download-download {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 2fr 1fr;
+    grid-column-gap: $spacing;
+    grid-row-gap: $spacing;
+
+    .description {
+      grid-column-end: span 2;
+    }
+  }
+
+  .download-header {
+    background-color: $color-neon;
+    padding: $spacing;
+    color: #fff;
+
+    .caption {
+      color: rgba(#fff, 0.7);
     }
   }
 
   .download-footer {
-    background-color: $color-neon;
     padding: $spacing;
-    color: #fff;
+    padding-top: 0;
 
     ul {
       font-size: 0.8rem;
@@ -135,10 +197,6 @@ export default {
     dl {
       margin-bottom: $spacing / 2;
     }
-
-    .caption {
-      color: rgba(#fff, 0.7);
-    }
   }
 
   .close {
@@ -147,7 +205,7 @@ export default {
     right: 0;
     font-size: 1.5rem;
     display: inline-block;
-    color: $color-neon;
+    color: $color-white;
     cursor: pointer;
     speak: none;
     font-variant: normal;
@@ -163,7 +221,36 @@ export default {
 
   .download-details {
     dd {
-      margin-bottom: $spacing / 2;
+      margin-bottom: $spacing;
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .gallery {
+    position: relative;
+    height: 200px;
+  }
+
+  .previews {
+    width: 100%;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    position: absolute;
+
+    .preview {
+      height: 200px;
+      padding: $spacing / 4;
+
+      img {
+        height: 100%;
+        width: auto;
+        box-shadow: $box-shadow--default;
+      }
     }
   }
 

@@ -5,15 +5,19 @@
     <PageGallery />
     <PageFooter />
     <modal
-      name="download"
       :scrollable="true"
-      height="auto">
+      name="download"
+      height="auto"
+      :width="800"
+    >
       <PageDownload />
     </modal>
   </div>
 </template>
 
 <script>
+import { get } from 'lodash'
+import { mapActions } from 'vuex'
 import PageHeader from '~/components/PageHeader.vue'
 import PageIntro from '~/components/PageIntro.vue'
 import PageGallery from '~/components/PageGallery.vue'
@@ -27,6 +31,23 @@ export default {
     PageGallery,
     PageFooter,
     PageDownload
+  },
+  mounted () {
+    const download = get(this, ['$route', 'query', 'd'])
+    if (download) {
+      this.showDownload(parseInt(download))
+    }
+  },
+  methods: {
+    ...mapActions([
+      'selectDownload'
+    ]),
+    showDownload (id) {
+      if (id) {
+        this.selectDownload(id)
+        this.$modal.show('download')
+      }
+    }
   }
 }
 </script>
