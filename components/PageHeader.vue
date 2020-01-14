@@ -71,8 +71,14 @@ export default {
       year: '2019',
       author: 'Tom Hegen',
       link: 'http://tomhegen.de/fotodesign/the-marble-series/'
+    }, {
+      file: 'ATLAS-OF-PLACES-INFRASTRUCTURE-PATTERNS-IV-IMG-7.jpg',
+      info: 'Namiquipa, Mexico',
+      year: '2019',
+      author: 'Atlas of Places',
+      link: 'https://atlasofplaces.com/research/infrastructure-patterns-iv/'
     }]
-    const strings = ['policy', 'finance', 'decision making', 'scientists', 'investors', 'activists']
+    const strings = ['policy', 'finance', 'decision making', 'scientists', 'investors', 'activists', 'mitigation', 'adaptation']
     return {
       strings,
       images,
