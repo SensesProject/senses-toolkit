@@ -8,7 +8,7 @@
       </ul>
     </header>
     <div class="download-download" v-if="download">
-      <h1>{{ download.label }}</h1>
+      <h2>{{ download.label }}</h2>
       <div>
         <a :href="download.link" class="btn btn--action">Download</a>
       </div>
@@ -164,9 +164,15 @@ export default {
   }
 
   .download-header {
-    background-color: $color-neon;
+    // background-color: $color-neon;
     padding: $spacing;
-    color: #fff;
+    // color: #fff;
+    border-bottom: 1px solid getColor(gray, 80);
+
+    h1 {
+      font-size: 2.3rem;
+      font-style: italic;
+    }
 
     .caption {
       color: rgba(#fff, 0.7);
@@ -205,7 +211,7 @@ export default {
     right: 0;
     font-size: 1.5rem;
     display: inline-block;
-    color: $color-white;
+    color: $color-neon;
     cursor: pointer;
     speak: none;
     font-variant: normal;
