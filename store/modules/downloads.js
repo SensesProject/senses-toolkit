@@ -19,12 +19,16 @@ const mutations = {
     state.datum = assign(obj, data)
   },
   DOWNLOAD_SELECT (state, params) {
+    console.log({ params })
     const moduleID = get(params, 'module')
     if (moduleID) { // If module id is present
       state.moduleID = moduleID
       const downloadID = get(params, 'download')
       if (downloadID) { // If download id is present
-        state.downloadID = moduleID
+        console.log({ moduleID, downloadID })
+        state.downloadID = downloadID
+      } else {
+        state.downloadID = false
       }
     } else { // If module id is not present: close window
       state.moduleID = false
@@ -51,11 +55,11 @@ const getters = {
       const downloadID = state.downloadID
       const downloads = get(getters.module, 'downloadIDs', [])
       console.log({ downloadID, downloads })
-      if (!downloadID || downloads.includes(downloadID)) {
+      if (!downloadID || !downloads.includes(downloadID)) {
         console.log('get', get(downloads, 0, false))
         return get(downloads, 0, false)
       } else {
-        return false
+        return downloadID
       }
     } else {
       return false

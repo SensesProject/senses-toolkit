@@ -9,6 +9,7 @@
       name="download"
       height="auto"
       :width="800"
+      @closed="closed"
     >
       <PageDownload />
     </modal>
@@ -47,6 +48,9 @@ export default {
         this.selectDownload(id)
         this.$modal.show('download')
       }
+    },
+    closed () {
+      this.selectDownload({})
     }
   }
 }

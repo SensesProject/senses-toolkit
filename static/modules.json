@@ -14,7 +14,7 @@
       "gem": false,
       "scenario-finder": false,
       "data": false,
-      "downloadIDs": [1],
+      "downloadIDs": [1, 2, 3],
       "bg": "bg3",
       "alignRight": false,
       "tags": ["Policy", "Finance"],

@@ -39,7 +39,10 @@
           <li v-if="download.length" class="wide">
             <span class="caption">Download ressources</span>
             <ul class="list">
-              <span v-for="item in download" @click="() => showDownload({ module: id })" class="a">{{ item.label }}</span>
+              <li
+                v-for="item in download"
+                class="clickable"
+                @click="() => showDownload({ module: id, download: item.id })">{{ item.label }}</li>
             </ul>
           </li>
         </ul>
@@ -110,10 +113,10 @@ export default {
       return chain(this.authors)
     },
     download () {
-      const { downloadIDs } = this
+      const { downloadIDs, downloads } = this
       if (downloadIDs) {
         return map(downloadIDs, (id) => {
-          const item = get(this.downloads, downloadIDs)
+          const item = get(downloads, id)
           const label = get(item, 'label', 'unnamed item')
           return {
             id,
@@ -325,6 +328,15 @@ export default {
       ul.list {
         list-style: none;
         font-size: 0.8rem;
+
+        li {
+          color: $color-neon;
+          background: none;
+
+          &:hover, &:focus {
+            color: getColor(neon, 40);
+          }
+        }
       }
     }
   }

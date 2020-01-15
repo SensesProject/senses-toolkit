@@ -1,10 +1,13 @@
 <template>
   <div class="page-download">
     <header class="download-header">
-      <span class="caption">Downloads for</span>
-      <h1>{{ moduleTitle }}</h1>
-      <ul>
-        <li v-for="element in downloadElements">{{ element.label }}</li>
+      <h1 class="mono">{{ moduleTitle }}</h1>
+      <span class="caption">Available downloads</span>
+      <ul class="list">
+        <li
+          v-for="element in downloadElements"
+          :class="{ isActive: element.isActive, clickable: !element.isActive }"
+          @click="() => selectDownload({ module: module.id, download: element.id })">{{ element.label }}</li>
       </ul>
     </header>
     <div class="download-download" v-if="download">
@@ -29,7 +32,7 @@
       <dd v-if="reference">
         <div class="readonly">
           <input type="text" readonly :value="download.reference" :class="{ copied }" />
-          <button class="btn" @click="copyToClipboard" ref="referenceButton">{{ copyReference }}</button>
+          <button class="btn" :class="{ copied }" @click="copyToClipboard" ref="referenceButton">{{ copyReference }}</button>
         </div>
       </dd>
       <dt v-if="reference" class="caption">URL</dt>
@@ -60,7 +63,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 import { get, map } from 'lodash'
 import copy from 'copy-to-clipboard'
 import { chain } from '~/assets/js/utils.js'
@@ -98,15 +101,17 @@ export default {
       return get(this.module, 'downloadIDs')
     },
     downloadElements () {
-      const { downloadIDs } = this
+      const { downloadIDs, downloadID, downloads } = this
       if (downloadIDs) {
         return map(downloadIDs, (id) => {
-          const item = get(this.downloads, downloadIDs)
+          const item = get(downloads, id)
           const label = get(item, 'label', 'unnamed item')
+          const isActive = id === downloadID
           return {
             id,
             ...item,
-            label
+            label,
+            isActive
           }
         })
       }
@@ -114,9 +119,9 @@ export default {
     }
   },
   methods: {
-    hide () {
-      this.$modal.hide('download')
-    },
+    ...mapActions([
+      'selectDownload'
+    ]),
     copyToClipboard () {
       if (this.reference) {
         copy(this.reference)
@@ -172,16 +177,46 @@ export default {
     h1 {
       font-size: 2.3rem;
       font-style: italic;
+      line-height: 1;
+      letter-spacing: -0.02em;
+      margin-bottom: $spacing / 2;
     }
 
     .caption {
-      color: rgba(#fff, 0.7);
+      color: rgba(#000, 0.7);
+    }
+
+    .list {
+      margin-top: $spacing / 4;
+      list-style: none;
+
+      li {
+        padding: 0.2em 1em 0.2em 1.6em;
+        list-style-position: inside;
+        text-indent: -1.6em;
+        line-height: 1.5em;
+        color: $color-neon;
+
+        &:hover, &:hover {
+          color: getColor(neon, 40);
+        }
+
+        &.isActive {
+          color: #000;
+        }
+
+        &:before {
+          content: "— ";
+          color: getColor(gray, 80);
+          margin-right: 0.3em;
+        }
+      }
     }
   }
 
   .download-footer {
+    border-top: 1px solid getColor(gray, 80);
     padding: $spacing;
-    padding-top: 0;
 
     ul {
       font-size: 0.8rem;
@@ -227,7 +262,7 @@ export default {
 
   .download-details {
     dd {
-      margin-bottom: $spacing;
+      margin-bottom: $spacing / 2;
 
       &:last-of-type {
         margin-bottom: 0;
@@ -265,6 +300,24 @@ export default {
     margin-right: 8px;
     display: grid;
     grid-template-columns: 1fr auto;
+
+    .btn {
+      border: 1px solid rgba($color-gray, 0.2);
+      background-color: #fff;
+      color: $color-neon;
+      transition: color 2s, border-color 2s, box-shadow 2s;
+
+      &:hover, &:focus {
+        color: #000;
+        transition: color 0.1s;
+      }
+
+      &.copied {
+        color: $color-neon;
+        border-color: $color-neon;
+        transition: color 0.1s, border-color 0.1s, box-shadow 0.1s;
+      }
+    }
 
     input {
       border: 0;
