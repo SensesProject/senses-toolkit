@@ -20,7 +20,6 @@ import PageFooter from '~/components/PageFooter.vue'
 import PageGallery from '~/components/PageGallery.vue'
 import PageHeader from '~/components/PageHeader.vue'
 import PageIntro from '~/components/PageIntro.vue'
-// import SensesDownload from '~/components/SensesDownload.vue'
 
 export default {
   components: {
@@ -28,7 +27,6 @@ export default {
     PageGallery,
     PageHeader,
     PageIntro,
-    // SensesDownload,
     SensesDownload
   },
   computed: {
