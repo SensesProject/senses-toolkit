@@ -11,7 +11,7 @@
       </transition-expand>
     </header>
     <footer class="module-footer">
-      <a v-if="path.length" :href="`/${path}`" class="btn btn-module">Read the module</a>
+      <a v-if="link.length" :href="link" class="btn btn-module">{{ linkText }}</a>
       <span @click="expand" :class="{ isExpanded }" class="btn btn-expand">More information <svg width="16" height="8"><g><path d="M-4,1.5 L0,-1.5 L4,1.5" /></g></svg></span>
       <transition-expand>
         <ul v-if="isExpanded" class="items">
@@ -28,11 +28,11 @@
               @click="() => changeFilter({ key: 'tag', value: tag })"
             >{{ tag }}</span>
           </li>
-          <li v-if="gem" class="wide">
+          <li v-if="gems.length" class="wide">
             <span class="caption">Gems for this module</span>
             <ul class="list">
-              <li>
-                <a href="https://data.ene.iiasa.ac.at/iamc-1.5c-explorer//#/workspaces/share/1a6e44c8-0963-4f28-a871-2b81bfb11def">PEP Emissions by major economies (iiasa.ac.at) <i>&nearr;</i></a>
+              <li v-for="gem in gems">
+                <a :href="gem.url">{{ gem.title }} <i>&nearr;</i></a>
               </li>
             </ul>
           </li>
@@ -71,17 +71,21 @@ export default {
       type: String,
       default: null
     },
-    gem: { // Link to a gem
-      type: [Boolean, String],
-      default: false
+    gems: { // Link to gems
+      type: [Array],
+      default: () => []
     },
     downloadIDs: { // Link to share elements
       type: [Boolean, Array],
       default: () => []
     },
-    path: { // The url path to the module
+    link: { // The url path to the module
       type: String,
       default: null
+    },
+    linkText: { // The url path to the module
+      type: String,
+      default: 'Read the module'
     },
     bg: { // The url to the background image
       type: String,
