@@ -1,6 +1,10 @@
 <template>
   <div class="gallery-content">
-    <GalleryModule v-for="(module, i) in modules" v-tooltip="{ content: 'If you are new to scenarios you should start here!', trigger: 'manual', show: i === 0, 'offset': 5 }" :key="module.title" v-bind="module" />
+    <GalleryModule
+      v-for="(module, i) in modules"
+      v-tooltip="{ content: 'If you are new to scenarios you should start here!', trigger: 'manual', show: i === 0, 'offset': 5 }"
+      :key="module.title"
+      v-bind="module" />
   </div>
 </template>
 
