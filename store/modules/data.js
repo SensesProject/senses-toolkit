@@ -64,10 +64,10 @@ const actions = {
     const status = get(state.datum, 'status')
     if (status !== 'loading') {
       commit('MODULES_CHANGE', { status: 'loading' })
-      const url = './modules.json'
+      const url = 'https://dev.climatescenarios.org/settings/modules.json'
       axios.get(url)
         .then((response) => {
-          commit('MODULES_CHANGE', { status: 'success', data: response.data.modules })
+          commit('MODULES_CHANGE', { status: 'success', data: response.data.generals })
         })
         .catch((error) => {
           console.error('error', error)

@@ -1,88 +1,66 @@
-import { assign, get, fromPairs, map, find } from 'lodash'
-import axios from 'axios'
+import { get, find } from 'lodash'
 
 const state = () => {
   return {
     datum: [],
-    moduleID: false, // The id of the module
-    downloadID: false // The id of the selected item
+    currentModuleID: false, // The id of the module
+    currentDownloadID: false // The id of the selected item
   }
 }
 
 const mutations = {
-  DOWNLOADS_CHANGE (state, data) {
-    const obj = {
-      status: 'idle',
-      data: false,
-      message: false
-    }
-    state.datum = assign(obj, data)
-  },
   DOWNLOAD_SELECT (state, params) {
-    console.log({ params })
     const moduleID = get(params, 'module')
+    console.log('Here', moduleID)
     if (moduleID) { // If module id is present
-      state.moduleID = moduleID
+      state.currentModuleID = moduleID
       const downloadID = get(params, 'download')
+      console.log({ downloadID })
       if (downloadID) { // If download id is present
-        console.log({ moduleID, downloadID })
-        state.downloadID = downloadID
+        state.currentDownloadID = downloadID
       } else {
-        state.downloadID = false
+        state.currentDownloadID = false
       }
-    } else { // If module id is not present: close window
-      state.moduleID = false
+    } else {
+      state.currentModuleID = false
+      state.currentDownloadID = false
     }
   }
 }
 
 const getters = {
-  downloads: (state, getters) => {
-    const downloads = get(state, ['datum', 'data'], [])
-    return fromPairs(map(downloads, (download, i) => {
-      const id = get(download, 'id', `unknown_${i}`)
-      return [id, download]
-    }))
-  },
-  module: (state, getters, rootState) => {
+  module: (state, getters, rootState) => { // Currently selected module
     const modules = get(rootState, ['data', 'datum', 'data'])
-    console.log({ modules }, state.moduleID, find(modules, { 'id': state.moduleID }))
-    return find(modules, { 'id': state.moduleID })
+    console.log('Current module', find(modules, { 'id': state.currentModuleID }))
+    return find(modules, { 'id': state.currentModuleID })
   },
-  currentDownloadID: (state, getters, rootState) => {
-    if (getters.module) {
-      console.log('There is a module')
-      const downloadID = state.downloadID
-      const downloads = get(getters.module, 'downloadIDs', [])
-      console.log({ downloadID, downloads })
-      if (!downloadID || !downloads.includes(downloadID)) {
-        console.log('get', get(downloads, 0, false))
-        return get(downloads, 0, false)
-      } else {
-        return downloadID
-      }
-    } else {
-      return false
-    }
+  // currentDownloadID: (state, getters, rootState) => {
+  //   if (getters.module) {
+  //     console.log('There is a module')
+  //     const downloadID = state.downloadID
+  //     const downloads = get(getters.module, 'downloadIDs', [])
+  //     console.log({ downloadID, downloads })
+  //     if (!downloadID || !downloads.includes(downloadID)) {
+  //       console.log('get', get(downloads, 0, false))
+  //       return get(downloads, 0, false)
+  //     } else {
+  //       return downloadID
+  //     }
+  //   } else {
+  //     return false
+  //   }
+  // },
+  currentDownloadTitle: (state, getters, rootState) => { // Title of the active module
+    console.log('currentDownloadTitle', get(getters.module, 'title'))
+    return get(getters.module, 'title')
+  },
+  currentDownloadIDs: (state, getters, rootState) => { // IDs of downloads for active module
+    console.log('currentDownloadIDs', get(getters.module, 'downloadIDs'))
+    return get(getters.module, 'downloadIDs')
   }
 }
 
 const actions = {
-  loadDownloads ({ commit, state }) {
-    const status = get(state.datum, 'status')
-    if (status !== 'loading') {
-      commit('DOWNLOADS_CHANGE', { status: 'loading' })
-      const url = './downloads.json'
-      axios.get(url)
-        .then((response) => {
-          commit('DOWNLOADS_CHANGE', { status: 'success', data: response.data.downloads })
-        })
-        .catch((error) => {
-          console.error('error', error)
-          commit('DOWNLOADS_CHANGE', { status: 'error', message: error })
-        })
-    }
-  },
   selectDownload ({ commit }, params) {
     console.log({ params })
     commit('DOWNLOAD_SELECT', params)

@@ -52,7 +52,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
+import { mapActions } from 'vuex'
 import { map, get } from 'lodash'
 import { chain } from '~/assets/js/utils.js'
 import TransitionExpand from '~/components/TransitionExpand.vue'
@@ -106,9 +106,9 @@ export default {
     }
   },
   computed: {
-    ...mapGetters([
-      'downloads'
-    ]),
+    // ...mapGetters([
+    //   'downloads'
+    // ]),
     author () {
       return chain(this.authors)
     },
@@ -139,7 +139,7 @@ export default {
     showDownload (id) {
       if (id) {
         this.selectDownload(id)
-        this.$modal.show('download')
+        // this.$modal.show('download')
       }
     }
   },

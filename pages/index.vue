@@ -4,52 +4,57 @@
     <PageIntro />
     <PageGallery />
     <PageFooter />
-    <modal
-      :scrollable="true"
-      name="download"
-      height="auto"
-      :width="800"
-      @closed="closed"
-    >
-      <PageDownload />
-    </modal>
+    <SensesDownload
+      :selected="currentDownloadID"
+      :ids="currentDownloadIDs"
+      :title="currentDownloadTitle"
+      :close="close" />
   </div>
 </template>
 
 <script>
 import { get } from 'lodash'
-import { mapActions } from 'vuex'
+import { mapState, mapActions, mapGetters } from 'vuex'
+import SensesDownload from 'library/src/components/SensesDownload.vue'
+import PageFooter from '~/components/PageFooter.vue'
+import PageGallery from '~/components/PageGallery.vue'
 import PageHeader from '~/components/PageHeader.vue'
 import PageIntro from '~/components/PageIntro.vue'
-import PageGallery from '~/components/PageGallery.vue'
-import PageFooter from '~/components/PageFooter.vue'
-import PageDownload from '~/components/PageDownload.vue'
+// import SensesDownload from '~/components/SensesDownload.vue'
 
 export default {
   components: {
+    PageFooter,
+    PageGallery,
     PageHeader,
     PageIntro,
-    PageGallery,
-    PageFooter,
-    PageDownload
+    // SensesDownload,
+    SensesDownload
+  },
+  computed: {
+    ...mapState({
+      currentDownloadID: state => get(state, 'downloads.currentDownloadID', false)
+    }),
+    ...mapGetters([
+      'currentDownloadTitle',
+      'currentDownloadIDs'
+    ])
   },
   mounted () {
     const download = get(this, ['$route', 'query', 'd'])
     if (download) {
-      this.showDownload(parseInt(download))
+      const id = parseInt(download)
+      if (id) {
+        this.selectDownload(id)
+      }
     }
   },
   methods: {
     ...mapActions([
       'selectDownload'
     ]),
-    showDownload (id) {
-      if (id) {
-        this.selectDownload(id)
-        this.$modal.show('download')
-      }
-    },
-    closed () {
+    close () {
+      console.log('close')
       this.selectDownload({})
     }
   }
