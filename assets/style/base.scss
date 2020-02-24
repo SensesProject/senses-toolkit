@@ -74,9 +74,13 @@ input {
 	padding: 2px 5px 2px;
 	border-radius: $border-radius;
 	margin-right: 8px;
-	background-color: rgba($color-gray, 0.2);
+	background-color: rgba($color-gray, 0.1);
 	color: $color-gray;
 	cursor: pointer;
+
+  &:hover {
+    background-color: rgba($color-gray, 0.3)
+  }
 
 	&:last-child {
 		margin: 0;
@@ -118,13 +122,23 @@ input {
 .tooltip {
   display: block !important;
   z-index: 5;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
+
+  &.attention, &.senses-tooltip-select {
+    font-size: 0.8rem;
+  }
 
   .tooltip-inner {
     background: $color-neon;
     color: white;
     border-radius: $border-radius;
+    padding: 3px 6px 2px;
+    box-shadow: $box-shadow--sharp;
+  }
+
+  &.attention .tooltip-inner{
     padding: 5px 10px 4px;
+    box-shadow: none;
   }
 
   .tooltip-arrow {
