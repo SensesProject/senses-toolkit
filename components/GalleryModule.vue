@@ -21,29 +21,42 @@
             <span>{{ author }}</span>
           </li>
           <li>
-            <span class="caption">Audience</span>
-            <span
-              v-for="tag in tags"
-              :key="tag"
-              :class="{ tag: true, [tag]: true }"
-              @click="() => changeFilter({ key: 'tag', value: tag })"
-            >{{ tag }}</span>
+            <section>
+              <span class="caption">Audience</span>
+              <span
+                v-for="tag in tags"
+                :key="tag"
+                :class="{ tag: true, [tag]: true }"
+                v-tooltip="{ content: `Filter by ${tag}`, offset: 2 }"
+                @click="() => changeFilter({ key: 'tag', value: tag })"
+              >{{ tag }}</span>
+            </section>
+            <section>
+              <span class="caption">Type</span>
+              <span
+                v-for="typ in type"
+                :key="typ"
+                :class="{ tag: true, [typ]: true }"
+                v-tooltip="{ content: `Filter by ${typ}`, offset: 2 }"
+                @click="() => changeFilter({ key: 'tag', value: typ })"
+              >{{ typ }}</span>
+            </section>
           </li>
-          <li v-if="gems.length" class="wide">
-            <span class="caption">Gems for this module</span>
-            <ul class="list">
-              <li v-for="gem in gems">
-                <a :href="gem.url">{{ gem.title }} <i>&nearr;</i></a>
-              </li>
-            </ul>
-          </li>
-          <li v-if="download.length" class="wide">
+          <li v-if="download.length">
             <span class="caption">Download ressources</span>
             <ul class="list">
               <li
                 v-for="item in download"
                 class="clickable"
                 @click="() => showDownload({ module: id, download: item.id })">{{ item.label }}</li>
+            </ul>
+          </li>
+          <li v-if="gems.length">
+            <span class="caption">Gems for this module</span>
+            <ul class="list">
+              <li v-for="gem in gems">
+                <a :href="gem.url">{{ gem.title }} <i>&nearr;</i></a>
+              </li>
             </ul>
           </li>
         </ul>
@@ -100,6 +113,10 @@ export default {
       default: false
     },
     tags: { // What is the audience (policy, finance)
+      type: Array,
+      default: () => []
+    },
+    type: { // What is the type (learn, share, …)
       type: Array,
       default: () => []
     },
@@ -344,6 +361,14 @@ export default {
 
         .btn {
           height: 100%;
+        }
+
+        section + section {
+          margin-top: $spacing / 4;
+
+          @include media-query($medium) {
+            margin-top: $spacing / 2;
+          }
         }
 
         @include media-query($medium) {
