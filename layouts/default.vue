@@ -1,6 +1,6 @@
 <template>
   <div>
-    <SensesMenu />
+    <SensesMenu message="Evaluation prototype" />
     <nuxt />
   </div>
 </template>
