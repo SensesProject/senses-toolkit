@@ -4,6 +4,7 @@
       <h2 class="module-title mono">
         {{ title }}
       </h2>
+      <span class="caption type" v-if="subtitle">{{ subtitle }}</span>
       <transition-expand>
         <p v-if="!isExpanded" class="module-description">
           {{ description }}
@@ -11,7 +12,7 @@
       </transition-expand>
     </header>
     <footer class="module-footer">
-      <a v-if="link.length" :href="link" class="btn btn-module">{{ linkText }}</a>
+      <a :href="link" :class="['btn', 'btn--module', { 'btn--clickable': link }]"><span>{{ link ? linkText : 'Available soon' }}</span></a>
       <span @click="expand" :class="{ isExpanded }" class="btn btn-expand">More information <svg width="16" height="8"><g><path d="M-4,1.5 L0,-1.5 L4,1.5" /></g></svg></span>
       <transition-expand>
         <ul v-if="isExpanded" class="items">
@@ -67,6 +68,9 @@ export default {
       type: String,
       default: 'Unnamed module'
     },
+    subtitle: { // Subtitle of the module
+      type: String
+    },
     description: { // Description text of the module
       type: String,
       default: null
@@ -80,8 +84,8 @@ export default {
       default: () => []
     },
     link: { // The url path to the module
-      type: String,
-      default: null
+      type: [Boolean, String],
+      default: false
     },
     linkText: { // The url path to the module
       type: String,
@@ -198,6 +202,11 @@ export default {
       align-items: flex-start;
       flex-direction: column;
 
+      .type {
+        margin-top: $spacing / 4;
+        display: inline-block;
+      }
+
       &::after {
         content: "";
         background-color: #fff;
@@ -238,29 +247,46 @@ export default {
       // grid-row-gap: $spacing / 4;
       padding: 0 $padding-horizontal $padding-vertical;
       align-items: start;
-      box-shadow: inset 0 20px 20px -20px rgba(getColor(gray, 80), 0.5);
+      // box-shadow: inset 0 20px 20px -20px rgba(getColor(gray, 80), 0.5);
       position: relative;
 
-      .btn-module {
+      .btn--module {
         place-self: flex-end;
         width: $button-width;
         height: $button-width;
         margin-right: 0;
         z-index: 2;
         border-radius: 50%;
-        padding: 0;
-        box-shadow: $box-shadow--strong;
-        transition: transform $transition, background-color $transition, color $transition;
+        transition: transform $transition, background-color $transition, color $transition, box-shadow $transition;
+        font-size: 0.8rem;
+        text-align: center;
+        @include center();
+        border: 0;
+        background: $color-pale-gray;
+        color: $color-dark-gray;
+        cursor: default;
+
+        span {
+          margin: $spacing / 4;
+          line-height: 1.2;
+        }
 
         @include media-query($medium) {
           margin-right: calc((100% - #{$text-width} - #{$button-width}) / 2 - #{$spacing / 4});
         }
 
-        &:hover {
-          transform: scale(1.1);
-          box-shadow: $box-shadow--heavy;
-          color: #fff;
+        &.btn--clickable {
+          cursor: pointer;
           background: $color-neon;
+          box-shadow: $box-shadow--weak;
+          color: #fff;
+
+          &:hover {
+            transform: scale(1.1);
+            box-shadow: $box-shadow--heavy;
+            color: #fff;
+            background: $color-neon;
+          }
         }
       }
 
