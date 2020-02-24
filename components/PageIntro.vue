@@ -3,7 +3,7 @@
     <div class="page-intro-float">
       <section class="wrapper">
         <div>
-          <span class="glyph glyph-policies" />
+          <span class="glyph glyph-gems" />
         </div>
         <div>
           <span>Scroll down to the toolkit for all modules</span>
@@ -22,7 +22,7 @@
       <section class="finance">
         <a href="#" class="wrapper">
           <div>
-            <span class="glyph glyph-wildfires" />
+            <span class="glyph glyph-hurricanes" />
           </div>
           <div>
             <span>Interested in <strong>Finance</strong>? Visit the portal&nbsp;&nearr;</span>
