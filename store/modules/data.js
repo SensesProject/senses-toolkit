@@ -39,9 +39,15 @@ const getters = {
   modules: (state, getters, rootState) => {
     const tag = get(rootState, ['filter', 'tag'])
 
+    // Filter all modules, that are not visible
+    const visible = filter(get(state, ['datum', 'data'], []), (run) => {
+      return get(run, 'visible', true)
+    })
+
     // First filter all elements with the correct tag
-    const elements = filter(get(state, ['datum', 'data'], []), (run) => {
-      if (!(!tag || (tag && includes(get(run, 'tags'), tag)))) {
+    const elements = filter(visible, (run) => {
+      const list = [...get(run, 'tags'), ...get(run, 'type')]
+      if (!(!tag || (tag && includes(list, tag)))) {
         return false
       }
 
