@@ -14,7 +14,8 @@ const options = {
     'description',
     'keywords',
     'authors',
-    'tags'
+    'tags',
+    'type'
   ]
 }
 
