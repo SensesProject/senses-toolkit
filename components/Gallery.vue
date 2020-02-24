@@ -1,8 +1,8 @@
 <template>
   <div class="gallery-content">
     <GalleryModule
-      v-for="(module, i) in modules"
-      v-tooltip="{ content: 'If you are new to scenarios you should start here!', trigger: 'manual', show: i === 0, 'offset': 5 }"
+      v-for="module in modules"
+      v-tooltip="{ content: 'If you are new to scenarios you should start here!', trigger: 'manual', show: module.id === 'primer', 'offset': 5, position: 'top' }"
       :key="module.title"
       v-bind="module" />
   </div>
