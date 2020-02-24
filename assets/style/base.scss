@@ -9,61 +9,57 @@ input {
   text-size-adjust: 100%;
 }
 
-.btn {
-	transition: background 0.2s, color 0.2s;
-	background: $color-neon;
-	color: #fff;
-  padding: $spacing / 4;
-  border: 0;
-  cursor: pointer;
-  @include center();
-  text-align: center;
-  font-size: 0.8rem;
-  box-shadow: $box-shadow--weak;
+// .btn {
+// 	transition: background-color 0.2s, color 0.2s;
+//   padding: $spacing / 4;
+//   border: 0;
+//   cursor: pointer;
+//   @include center();
+//   text-align: center;
 
-  &.btn--action {
-  	text-transform: uppercase;
-  	letter-spacing: 0.05em;
-  	font-weight: bolder;
-  }
+//   // &.btn--action {
+//   // 	text-transform: uppercase;
+//   // 	letter-spacing: 0.05em;
+//   // 	font-weight: bolder;
+//   // }
 
-  &.btn--secondary {
-  	background-color: getColor(gray, 80);
-  	color: #000;
-  }
+//   // &:hover, &:focus {
+//   //   background: #b8aeff;
+//   //   color: #424ab9;
+//   // }
 
-  &:hover, &:focus {
-  	background: #b8aeff;
-  	color: #424ab9;
-  }
+//   // &.btn--secondary {
+//   // 	background-color: getColor(gray, 80);
+//   // 	color: #000;
+//   // }
 
-  &.btn--invert {
-  	background-color: #fff;
-  	color: $color-neon;
-  	border: 2px solid $color-neon;
-  	transition: box-shadow;
-  	border: 2px solid #fff;
-  	transition: transform $transition, background-color $transition, box-shadow $transition;
+//   // &.btn--invert {
+//   // 	background-color: #fff;
+//   // 	color: $color-neon;
+//   // 	border: 2px solid $color-neon;
+//   // 	transition: box-shadow;
+//   // 	border: 2px solid #fff;
+//   // 	transition: transform $transition, background-color $transition, box-shadow $transition;
 
-  	&:hover, &:focus {
-	  	box-shadow: $box-shadow--heavy;
-	  	transform: scale(1.01);
-	  	// background-color: $color-neon;
-	  }
-  }
+//   // 	&:hover, &:focus {
+// 	 //  	box-shadow: $box-shadow--heavy;
+// 	 //  	transform: scale(1.01);
+// 	 //  	// background-color: $color-neon;
+// 	 //  }
+//   // }
 
-  &.btn--tertiary {
-  	border: none;
-  	background-color: #f8f8f8;
-  	color: $color-deep-gray;
-  	box-shadow: none;
+//   // &.btn--tertiary {
+//   // 	border: none;
+//   // 	background-color: #f8f8f8;
+//   // 	color: $color-deep-gray;
+//   // 	box-shadow: none;
 
-  	&:hover, &:focus {
-	  	background-color: getColor(gray, 90);
-	  	color: $color-black;
-	  }
-  }
-}
+//   // 	&:hover, &:focus {
+// 	 //  	background-color: getColor(gray, 90);
+// 	 //  	color: $color-black;
+// 	 //  }
+//   // }
+// }
 
 .input-search {
 	cursor: text;
@@ -202,14 +198,43 @@ input {
   }
 
   &.popover {
-    $color: #f9f9f9;
+    $color: #fff;
 
     .popover-inner {
       background: $color;
       color: black;
-      padding: 24px;
-      border-radius: 5px;
-      box-shadow: 0 5px 30px rgba(black, .1);
+      padding: $spacing / 2;
+      border-radius: $border-radius;
+      box-shadow: $box-shadow--strong;
+
+      .option {
+        padding: $spacing / 8 $spacing / 2;
+        cursor: pointer;
+
+        &.active {
+          color: $color-neon;
+          background: transparent;
+          font-weight: $font-weight-bold;
+        }
+
+        &:hover {
+          color: $color-neon;
+          background: transparent;
+        }
+
+        &:first-child {
+          padding-left: $spacing / 4;
+        }
+      }
+
+      .text {
+        color: getColor(grey, 50);
+        font-size: 0.6rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        display: block;
+        margin-top: $spacing / 4;
+      }
     }
 
     .popover-arrow {
