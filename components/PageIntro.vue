@@ -6,26 +6,26 @@
           <span class="glyph glyph-gems" />
         </div>
         <div>
-          <span>Scroll down to the toolkit for all modules</span>
+          <span>Scroll down to find all modules</span>
         </div>
       </section>
       <section class="policy">
-        <a href="#" class="wrapper">
+        <a href="https://dev.climatescenarios.org/policy-portal/" class="wrapper">
           <div>
             <span class="glyph glyph-policies" />
           </div>
           <div>
-            <span>Interested in <strong>Policy</strong>? Visit the portal&nbsp;&nearr;</span>
+            <span>Visit the <strong>Policy</strong> portal for a curated path&nbsp;&nearr;</span>
           </div>
         </a>
       </section>
-      <section class="finance">
-        <a href="#" class="wrapper">
+      <section class="finance" v-tooltip="{ content: 'Coming soon', offset: 5, classes: 'attention finance' }">
+        <a class="wrapper">
           <div>
             <span class="glyph glyph-hurricanes" />
           </div>
           <div>
-            <span>Interested in <strong>Finance</strong>? Visit the portal&nbsp;&nearr;</span>
+            <span>Visit the <strong>Finance</strong> portal for a curated path&nbsp;&nearr;</span>
           </div>
         </a>
       </section>
@@ -112,17 +112,29 @@ export default {}
         }
 
         &.finance {
+          a {
+            cursor: default;
+          }
+
           strong, .glyph {
             color: $color-purple;
           }
 
           a:hover, a:focus {
-            background-color: $color-purple;
+            background-color: none;
 
             strong, .glyph, span {
-              color: #fff;
+              color: $color-gray;
             }
           }
+
+          // a:hover, a:focus {
+          //   background-color: $color-purple;
+
+          //   strong, .glyph, span {
+          //     color: #fff;
+          //   }
+          // }
         }
       }
     }
