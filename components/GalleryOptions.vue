@@ -1,7 +1,7 @@
 <template>
   <div class="header-options">
     <section class="options-filter">
-      <SensesSelect v-model="tag" :options="tags" class="input-select" />
+      <SensesSelect v-model="tag" :options="tags" :class="['input-select', { selected: tag } ]" />
     </section>
     <section class="options-search">
       <input v-model="term" type="search" class="highlight input-search" placeholder="Search" />
@@ -82,12 +82,20 @@ export default {
     }
 
     .input-select {
+      border-radius: $border-radius;
+      border: 1px solid #f8f8f8;
+      transition: border 0.2s;
+
       button {
         background-color: #f8f8f8;
       }
 
       span {
         color: $color-neon;
+      }
+
+      &.selected {
+        border-color: $color-neon;
       }
     }
 
