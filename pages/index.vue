@@ -5,7 +5,7 @@
     <PageGallery />
     <PageFooter />
     <SensesDownload
-      :selected="currentDownloadID"
+      :visible="currentDownloadID"
       :ids="currentDownloadIDs"
       :title="currentDownloadTitle"
       :close="close" />
