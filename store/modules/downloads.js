@@ -11,15 +11,13 @@ const state = () => {
 const mutations = {
   DOWNLOAD_SELECT (state, params) {
     const moduleID = get(params, 'module')
-    console.log('Here', moduleID)
     if (moduleID) { // If module id is present
       state.currentModuleID = moduleID
       const downloadID = get(params, 'download')
-      console.log({ downloadID })
       if (downloadID) { // If download id is present
         state.currentDownloadID = downloadID
       } else {
-        state.currentDownloadID = false
+        state.currentDownloadID = true
       }
     } else {
       state.currentModuleID = false
