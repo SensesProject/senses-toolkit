@@ -1,6 +1,6 @@
 <template>
   <div class="gallery-module">
-    <header :class="{ 'module-header': true, isExpanded }" :style="{ 'background-image': `url(./bg/${bg}.png)`}">
+    <header :class="{ 'module-header': true, isExpanded }" :style="{ 'background-image': bg ? `url(./bg/${bg}.png)` : 'none' }">
       <h2 class="module-title mono">
         {{ title }}
       </h2>
@@ -43,21 +43,23 @@
             </section>
           </li>
           <li v-if="download.length">
-            <span class="caption">Download ressources</span>
-            <ul class="list">
+            <span class="caption">Printable resources</span>
+            <span class="btn--link">View {{ download.length }} packages for download</span>
+            <!-- <ul class="list">
               <li
                 v-for="item in download"
                 class="clickable"
                 @click="() => showDownload({ module: id, download: item.id })">{{ item.label }}</li>
-            </ul>
+            </ul> -->
           </li>
           <li v-if="gems.length">
-            <span class="caption">Gems for this module</span>
-            <ul class="list">
-              <li v-for="gem in gems">
-                <a :href="gem.url">{{ gem.title }} <i>&nearr;</i></a>
+            <span class="caption">Data used in this module</span>
+            <span class="btn--link">View {{ gems.length }} guided explore module{{ gems.length === 1 ? '' : 's' }}&nbsp;<i>&nearr;</i></span>
+            <!-- <ul class="list">
+              <li v-for="gem in gems" v-tooltip="{ content: `Open GEM »${gem.title}« in new window` }">
+                <a :href="gem.url">{{ truncate(gem.title) }}&nbsp;<i>&nearr;</i></a>
               </li>
-            </ul>
+            </ul> -->
           </li>
         </ul>
       </transition-expand>
@@ -67,7 +69,7 @@
 
 <script>
 import { mapActions } from 'vuex'
-import { map, get } from 'lodash'
+import { map, get, truncate } from 'lodash'
 import { chain } from '~/assets/js/utils.js'
 import TransitionExpand from '~/components/TransitionExpand.vue'
 
@@ -105,11 +107,7 @@ export default {
       default: 'Read the module'
     },
     bg: { // The url to the background image
-      type: String,
-      default: null
-    },
-    alignRight: {
-      type: Boolean,
+      type: [String, Boolean],
       default: false
     },
     tags: { // What is the audience (policy, finance)
@@ -166,6 +164,9 @@ export default {
         this.selectDownload(id)
         // this.$modal.show('download')
       }
+    },
+    truncate (str) {
+      return truncate(str, { 'length': 35, 'separator': /, +-–/ })
     }
   },
   components: {
@@ -241,10 +242,6 @@ export default {
         opacity: .2;
       }
 
-      &.alignRight {
-        align-items: flex-end;
-      }
-
       .module-title {
         display: inline-block;
         z-index: 2;
@@ -311,7 +308,8 @@ export default {
         place-self: flex-start;
         position: absolute;
         border-radius: $spacing / 4;
-        padding: $spacing / 8 $spacing / 2;
+        padding: 0 $spacing / 2;
+        line-height: $spacing;
         height: $spacing;
         left: $padding-horizontal;
         top: -$spacing / 2;
@@ -350,6 +348,20 @@ export default {
               }
             }
           }
+        }
+      }
+
+      .btn--link {
+        background-color: #fff;
+        border: 1px solid getColor(gray, 80);
+        color: $color-deep-gray;
+        border-radius: $border-radius * 2;
+        padding: 4px 8px 4px;
+        margin-top: $spacing / 8;
+        display: inline-block;
+
+        &:hover {
+          color: $color-neon;
         }
       }
 
