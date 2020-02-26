@@ -44,7 +44,7 @@
           </li>
           <li v-if="download.length">
             <span class="caption">Printable resources</span>
-            <span class="btn--link">View {{ download.length }} packages for download</span>
+            <span class="btn--link clickable" @click="() => showDownload({ module: id })">View {{ download.length }} packages for download</span>
             <!-- <ul class="list">
               <li
                 v-for="item in download"
@@ -52,9 +52,9 @@
                 @click="() => showDownload({ module: id, download: item.id })">{{ item.label }}</li>
             </ul> -->
           </li>
-          <li v-if="gems.length">
+          <li v-if="gems">
             <span class="caption">Data used in this module</span>
-            <span class="btn--link">View {{ gems.length }} guided explore module{{ gems.length === 1 ? '' : 's' }}&nbsp;<i>&nearr;</i></span>
+            <a :href="gems" class="btn--link">View {{ gemsAmount ? gemsAmount : '' }} guided explore module{{ gemsAmount === 1 ? '' : 's' }}&nbsp;<i>&nearr;</i></a>
             <!-- <ul class="list">
               <li v-for="gem in gems" v-tooltip="{ content: `Open GEM »${gem.title}« in new window` }">
                 <a :href="gem.url">{{ truncate(gem.title) }}&nbsp;<i>&nearr;</i></a>
@@ -91,8 +91,12 @@ export default {
       default: null
     },
     gems: { // Link to gems
-      type: [Array],
-      default: () => []
+      type: [String, Boolean],
+      default: false
+    },
+    gemsAmount: { // Link to gems
+      type: Number,
+      default: 0
     },
     downloadIDs: { // Link to share elements
       type: [Boolean, Array],
@@ -352,7 +356,7 @@ export default {
       }
 
       .btn--link {
-        background-color: #fff;
+        background: #fff;
         border: 1px solid getColor(gray, 80);
         color: $color-deep-gray;
         border-radius: $border-radius * 2;
