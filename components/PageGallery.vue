@@ -5,7 +5,7 @@
         The Senses Toolkit
       </h1>
       <div class="header-intro">
-        <p>This collection of visualisation tools helps you understand and communicate climate change scenarios. Each module answers a specific question. Lorem ipsum dolor.</p>
+        <p>These modules helps you understand and communicate climate change scenarios. The modules utilise visualisations in an <span class="clickable interactive" @click="() => changeFilter({ key: 'tag', value: 'Learn' })">explanatory</span> or <span class="clickable interactive" @click="() => changeFilter({ key: 'tag', value: 'Explore' })">exploratory</span> way. The target audience are <span class="clickable interactive" @click="() => changeFilter({ key: 'tag', value: 'Finance' })">finance</span>, <span class="clickable interactive" @click="() => changeFilter({ key: 'tag', value: 'Policy' })">policy</span> and <span class="clickable interactive" @click="() => changeFilter({ key: 'tag', value: 'Regional' })">regional</span> decision makers.</p>
       </div>
       <GalleryOptions />
     </header>
@@ -14,6 +14,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 import Gallery from '~/components/Gallery.vue'
 import GalleryOptions from '~/components/GalleryOptions.vue'
 
@@ -21,6 +22,11 @@ export default {
   components: {
     Gallery,
     GalleryOptions
+  },
+  methods: {
+    ...mapActions([
+      'changeFilter'
+    ])
   }
 }
 </script>
@@ -29,6 +35,15 @@ export default {
   @import "~@/assets/style/global";
 
   .page-gallery {
+    .interactive {
+      border-bottom: 1px solid rgba($color-neon, 0.5);
+      transition: border-color 0.2s;
+
+      &:hover, &:focus {
+        border-bottom-color: $color-neon
+      }
+    }
+
     @include media-query($medium) {
       width: 96vw;
       max-width: 1200px;
