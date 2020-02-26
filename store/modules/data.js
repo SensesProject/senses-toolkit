@@ -74,7 +74,7 @@ const actions = {
       const url = 'https://dev.climatescenarios.org/settings/modules.json'
       axios.get(url)
         .then((response) => {
-          commit('MODULES_CHANGE', { status: 'success', data: response.data.generals })
+          commit('MODULES_CHANGE', { status: 'success', data: get(response, ['data', 'modules'], []) })
         })
         .catch((error) => {
           console.error('error', error)
