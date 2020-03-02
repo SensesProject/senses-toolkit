@@ -193,7 +193,7 @@ export default {
     display: grid;
     grid-row: span 2;
     grid-template-rows: 1fr auto;
-    grid-template-rows: subgrid;
+    // grid-template-rows: subgrid;
     grid-row-gap: 0;
     width: 100%;
     margin-bottom: $spacing;
