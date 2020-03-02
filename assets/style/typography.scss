@@ -2,13 +2,17 @@
 
 .title {
 	color: #fff;
-	font-size: 2rem;
+	font-size: 1.2rem;
 
 	@include media-query($narrow) {
-    font-size: 3rem;
+    font-size: 2rem;
   }
 
 	@include media-query($medium) {
+    font-size: 3rem;
+  }
+
+  @include media-query($wide) {
     font-size: 4rem;
   }
 }
