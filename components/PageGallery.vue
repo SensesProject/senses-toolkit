@@ -50,6 +50,10 @@ export default {
     }
 
     .gallery-header, .gallery-content {
+      p {
+        font-size: 1rem;
+      }
+
       @include media-query($medium) {
         display: grid;
         grid-gap: $spacing * 3 / 2;
