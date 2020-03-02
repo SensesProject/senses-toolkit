@@ -11,6 +11,7 @@
     <ul class="header-background">
       <li
         v-for="el in elements"
+        :key="el.file"
         :class="{ isVisible: el.isVisible }"
         :style="{ 'background-image': `url('./header/${el.file}')`}" />
     </ul>
