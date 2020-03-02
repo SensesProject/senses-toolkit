@@ -17,5 +17,9 @@ $ npm run start
 $ npm run build && npm run generate
 ```
 
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
-test
+## Deployment
+Currently, it’s a bit tricky:
+- Build the code
+- Upload to `/toolkit`
+- Upload ´index.html` to `/`
+- Upload background images to `/bg`
