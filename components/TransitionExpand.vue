@@ -1,25 +1,25 @@
 <script>
 // https://github.com/maoberlehner/transition-to-height-auto-with-vue/blob/master/src/components/TransitionExpand.vue
 export default {
-  name: `TransitionExpand`,
+  name: 'TransitionExpand',
   functional: true,
   render (createElement, context) {
     const data = {
       props: {
-        name: `expand`
+        name: 'expand'
       },
       on: {
         afterEnter (element) {
           // eslint-disable-next-line no-param-reassign
-          element.style.height = `auto`
+          element.style.height = 'auto'
         },
         enter (element) {
           const { width } = getComputedStyle(element)
           /* eslint-disable no-param-reassign */
           element.style.width = width
-          element.style.position = `absolute`
-          element.style.visibility = `hidden`
-          element.style.height = `auto`
+          element.style.position = 'absolute'
+          element.style.visibility = 'hidden'
+          element.style.height = 'auto'
           /* eslint-enable */
           const { height } = getComputedStyle(element)
           /* eslint-disable no-param-reassign */
@@ -52,7 +52,7 @@ export default {
         }
       }
     }
-    return createElement(`transition`, data, context.children)
+    return createElement('transition', data, context.children)
   }
 }
 </script>
