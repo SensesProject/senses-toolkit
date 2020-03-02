@@ -2,9 +2,15 @@
   <div class="gallery-module">
     <header :class="{ 'module-header': true, isExpanded }" :style="{ 'background-image': bg ? `url(./bg/${bg}.png)` : 'none' }">
       <h2 class="module-title mono">
-        {{ title }}
+        <component
+          :is="link ? 'a' : 'span'"
+          :href="link"
+          :class="{ clickable: !!link }"
+        >
+          {{ title }}
+        </component>
       </h2>
-      <span class="caption type" v-if="subtitle">{{ subtitle }}</span>
+      <span v-if="subtitle" class="caption type">{{ subtitle }}</span>
       <transition-expand>
         <p v-if="!isExpanded" class="module-description">
           {{ description }}
@@ -84,7 +90,8 @@ export default {
       default: 'Unnamed module'
     },
     subtitle: { // Subtitle of the module
-      type: String
+      type: [String, Boolean],
+      default: false
     },
     description: { // Description text of the module
       type: String,
@@ -170,7 +177,7 @@ export default {
       }
     },
     truncate (str) {
-      return truncate(str, { 'length': 35, 'separator': /, +-–/ })
+      return truncate(str, { length: 35, separator: /, +-–/ })
     }
   },
   components: {
@@ -223,6 +230,15 @@ export default {
       display: flex;
       align-items: flex-start;
       flex-direction: column;
+
+      a {
+        background: none;
+        color: #000;
+
+        &:hover, &:focus {
+          color: $color-neon;
+        }
+      }
 
       .type {
         margin-top: $spacing / 4;
