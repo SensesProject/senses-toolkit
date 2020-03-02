@@ -29,8 +29,8 @@ const mutations = {
 const getters = {
   module: (state, getters, rootState) => { // Currently selected module
     const modules = get(rootState, ['data', 'datum', 'data'])
-    console.log('Current module', find(modules, { 'id': state.currentModuleID }))
-    return find(modules, { 'id': state.currentModuleID })
+    console.log('Current module', find(modules, { id: state.currentModuleID }))
+    return find(modules, { id: state.currentModuleID })
   },
   // currentDownloadID: (state, getters, rootState) => {
   //   if (getters.module) {
