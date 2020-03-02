@@ -1,7 +1,7 @@
 <template>
   <header class="page-header">
     <h1 class="title serif">
-      Making sense of climate change scenarios for <br class="until-medium" /><vue-typer
+      Making sense of climate change scenarios for <br class="until-wide" /><vue-typer
         :pre-erase-delay="5000"
         :text="strings"
         caret-animation="smooth"
@@ -154,6 +154,8 @@ export default {
       }
 
       .vue-typer {
+        white-space: nowrap;
+
         .custom.char.typed {
           color: #fff;
         }
@@ -176,12 +178,24 @@ export default {
       color: rgba(#fff, 0.9);
       letter-spacing: 0.02em;
       background: none;
-      font-size: 0.7rem;
+      font-size: 0.5rem;
       font-weight: normal;
       @include text-radability(rgba(0, 0, 0, 0.3));
 
       &:hover, &:focus {
         color: #fff;
+      }
+
+      @include media-query($narrow) {
+        font-size: 0.6rem;
+      }
+
+      @include media-query($medium) {
+        font-size: 0.7rem;
+      }
+
+      @include media-query($wide) {
+        font-size: 0.7rem;
       }
     }
 
