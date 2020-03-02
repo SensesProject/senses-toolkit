@@ -84,11 +84,12 @@ export default {}
       justify-items: center;
       align-items: center;
       justify-content: space-evenly;
-      grid-gap: $spacing * 3 / 2;
+      grid-gap: $spacing;
       margin: $spacing 0 $spacing * 2;
-      grid-template-columns: repeat(1, 1fr);
+      grid-template-columns: repeat(2, 1fr);
 
       @include media-query($medium) {
+        grid-gap: $spacing * 3 / 2;
         grid-template-columns: repeat(6, 1fr);
       }
 
@@ -105,6 +106,7 @@ export default {}
 
       img {
         width: 100%;
+        max-width: 30vw;
       }
     }
   }
