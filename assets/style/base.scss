@@ -119,6 +119,13 @@ input {
   }
 }
 
+.until-wide {
+  @include media-query($wide) {
+    display: none;
+    visibility: hidden;
+  }
+}
+
 .tooltip {
   display: block !important;
   z-index: 5;
