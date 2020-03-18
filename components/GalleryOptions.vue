@@ -102,6 +102,7 @@ export default {
     .input-search {
       padding: $spacing / 4;
       background-color: #f8f8f8;
+      -webkit-appearance: none;
 
       &::placeholder {
         color: getColor(neon, 50);
