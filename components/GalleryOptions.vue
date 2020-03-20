@@ -1,10 +1,10 @@
 <template>
   <div class="header-options">
     <section class="options-filter">
-      <SensesSelect v-model="tag" :options="tags" :class="['input-select', { selected: tag } ]" />
+      <SensesSelect v-model="tag" :options="tags" :class="['input-select', { isActive: tag } ]" />
     </section>
     <section class="options-search">
-      <input v-model="term" type="search" class="highlight input-search" placeholder="Search" />
+      <input v-model="term" type="search" :class="['highlight', 'input-search', { isActive: term }]" placeholder="Search" />
     </section>
   </div>
 </template>
@@ -83,19 +83,25 @@ export default {
 
     .input-select {
       border-radius: $border-radius;
-      border: 1px solid #f8f8f8;
-      transition: border 0.2s;
 
-      button {
+      .highlight {
+        transition: border-color $transition;
         background-color: #f8f8f8;
+        border: 1px solid #f8f8f8;
+
+        &:focus, &:hover, &[aria-expanded="true"] {
+          border-color: rgba($color-neon, 0.5);
+        }
       }
 
       span {
         color: $color-neon;
       }
 
-      &.selected {
-        border-color: $color-neon;
+      &.isActive {
+        .highlight {
+          border-color: $color-neon;
+        }
       }
     }
 
@@ -103,9 +109,19 @@ export default {
       padding: $spacing / 4;
       background-color: #f8f8f8;
       -webkit-appearance: none;
+      border: 1px solid #f8f8f8;
+      transition: border-color $transition;
 
       &::placeholder {
         color: getColor(neon, 50);
+      }
+
+      &:focus, &:hover {
+        border-color: rgba($color-neon, 0.5);
+      }
+
+      &.isActive {
+        border-color: $color-neon;
       }
 
       @include media-query($narrow) {
