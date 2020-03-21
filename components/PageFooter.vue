@@ -88,6 +88,10 @@ export default {}
       margin: $spacing 0 $spacing * 2;
       grid-template-columns: repeat(2, 1fr);
 
+      @include media-query($narrow) {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
       @include media-query($medium) {
         grid-gap: $spacing * 3 / 2;
         grid-template-columns: repeat(6, 1fr);
