@@ -16,9 +16,9 @@ export default {
     // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module'
   ],
-  // router: {
-  //   base: '/toolkit/'
-  // },
+  router: {
+    base: '/toolkit/'
+  },
   build: {
     extend (config, ctx) {
     }
