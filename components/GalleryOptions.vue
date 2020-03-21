@@ -105,17 +105,14 @@ export default {
     }
 
     .input-search {
-<<<<<<< HEAD
       padding: $spacing / 4;
       background-color: #f8f8f8;
       -webkit-appearance: none;
       border: 1px solid #f8f8f8;
-=======
       height: 100%;
       padding: $spacing / 3;
       background-color: $color-interaction-background;
       border: 1px solid $color-interaction-background;
->>>>>>> A little bit of responsiveness
       transition: border-color $transition;
 
       &::placeholder {
