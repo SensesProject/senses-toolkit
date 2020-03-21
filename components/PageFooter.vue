@@ -95,6 +95,7 @@ export default {}
 
       li {
         @include center();
+        width: 100%;
       }
 
       a {
@@ -107,6 +108,7 @@ export default {}
       img {
         width: 100%;
         max-width: 30vw;
+        height: auto;
       }
     }
   }
