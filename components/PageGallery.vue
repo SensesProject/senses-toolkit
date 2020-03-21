@@ -51,25 +51,53 @@ export default {
 
     .gallery-header, .gallery-content {
       p {
-        font-size: 1rem;
+        font-size: 0.85rem;
+
+        @include media-query($narrow) {
+          font-size: 0.9rem;
+        }
+
+        @include media-query($medium) {
+          font-size: 1.0rem;
+        }
+      }
+      .header-intro {
+        margin-bottom: $spacing;
       }
 
       @include media-query($medium) {
         display: grid;
-        grid-gap: $spacing * 3 / 2;
-        grid-template-columns: 1fr;
-        grid-auto-flow: row;
+        grid-gap: $spacing;
+        grid-template-columns: repeat(2, 1fr);
+        // grid-auto-flow: row;
       }
 
       @include media-query(1200px) {
         & {
+          grid-gap: $spacing * 3 / 2;
           grid-template-columns: repeat(2, 1fr);
         }
       }
     }
 
+    .gallery-content {
+      @include media-query($narrow) {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      @include media-query($medium) {
+        display: grid;
+      }
+    }
+
     .gallery-header {
-      margin: 0 $spacing / 3 * 2 $spacing * 2;
+      margin: 0 $spacing / 3 * 2 $spacing * 3;
+
+      .header-intro {
+        margin-bottom: $spacing;
+      }
 
       @include media-query($medium) {
         & {
@@ -78,7 +106,7 @@ export default {
       }
 
       .header-title {
-        @include media-query(1200px) {
+        @include media-query($medium) {
           & {
             grid-column-start: span 2;
           }

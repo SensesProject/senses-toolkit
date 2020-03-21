@@ -24,9 +24,9 @@
         <ul v-if="isExpanded" class="items">
           <li>
             <span class="caption">Authors</span>
-            <span>{{ author }}</span>
+            <span class="authors content">{{ author }}</span>
           </li>
-          <li>
+          <li class="tags">
             <section>
               <span class="caption">Audience</span>
               <span
@@ -200,15 +200,19 @@ export default {
     display: grid;
     grid-row: span 2;
     grid-template-rows: 1fr auto;
-    // grid-template-rows: subgrid;
     grid-row-gap: 0;
     width: 100%;
     margin-bottom: $spacing;
     min-height: 350px;
     box-shadow: $box-shadow--default;
 
+    @include media-query($narrow) {
+      width: 80%;
+    }
+
     @include media-query($medium) {
       margin-bottom: 0;
+      width: 100%;
     }
 
     .module-header {
@@ -218,8 +222,6 @@ export default {
         padding: $padding-vertical $padding-horizontal $spacing;
       }
 
-      // padding-bottom: $spacing * 2;
-      // min-height: 250px;
       border-bottom: 1px solid getColor(gray, 80);
       background-position: center;
       background-size: 90% auto;
@@ -388,8 +390,17 @@ export default {
       ul.items {
         list-style: none;
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-gap: $spacing / 4 $spacing / 4;
+        grid-gap: $spacing / 2 $spacing / 4;
+
+        @include media-query($medium) {
+          grid-template-columns: repeat(2, 1fr);
+          grid-gap: $spacing / 4 $spacing / 4;
+        }
+
+        .authors {
+          max-width: 450px;
+          display: inline-block;
+        }
 
         .btn {
           height: 100%;
@@ -400,6 +411,16 @@ export default {
 
           @include media-query($medium) {
             margin-top: $spacing / 2;
+          }
+        }
+
+        li.tags {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          grid-gap: $spacing / 4 $spacing / 4;
+
+          section {
+            margin-top: 0;
           }
         }
 

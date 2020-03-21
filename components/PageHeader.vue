@@ -1,7 +1,7 @@
 <template>
   <header class="page-header">
     <h1 class="title serif">
-      Making sense of climate change scenarios for <br class="until-wide" /><vue-typer
+      Making sense of climate change scenarios for <br class="until-medium" /><vue-typer
         :pre-erase-delay="5000"
         :text="strings"
         caret-animation="smooth"
@@ -79,7 +79,7 @@ export default {
       author: 'Atlas of Places',
       link: 'https://atlasofplaces.com/research/infrastructure-patterns-iv/'
     }]
-    const strings = ['policy', 'finance', 'decision making', 'scientists', 'investors', 'activists', 'mitigation', 'adaptation']
+    const strings = ['policy', 'finance', 'scientists', 'investors', 'activists', 'mitigation', 'adaptation']
     return {
       strings,
       images,
@@ -114,8 +114,13 @@ export default {
   .page-header {
     width: 100%;
     height: 50vh;
+    min-height: 250px;
     @include center();
     position: relative;
+
+    @include media-query($narrow) {
+      min-height: 300px;
+    }
 
     .header-background, li {
       top: 0;
@@ -146,9 +151,13 @@ export default {
 
     .title {
       max-width: $narrow;
-      margin: 0 $spacing / 2;
+      margin: 0 $spacing;
       @include text-radability(rgba(0, 0, 0, 0.3));
       z-index: 2;
+
+      @include media-query($narrow) {
+        margin: 0 $spacing * 2;
+      }
 
       @include media-query($medium) {
         max-width: 1000px;

@@ -54,9 +54,9 @@ export default {
   .header-options {
     display: grid;
     justify-items: center;
-    // align-items: center;
-    grid-gap: $spacing;
+    grid-gap: $spacing / 2;
     margin-top: $spacing / 2;
+    align-items: center;
 
     @include media-query($narrow) {
       grid-template-columns: auto 1fr;
@@ -67,7 +67,6 @@ export default {
     }
 
     .options-search {
-      // padding: 0 $spacing / 2;
       width: 100%;
     }
 
@@ -86,8 +85,8 @@ export default {
 
       .highlight {
         transition: border-color $transition;
-        background-color: #f8f8f8;
-        border: 1px solid #f8f8f8;
+        background-color: $color-interaction-background;
+        border: 1px solid $color-interaction-background;
 
         &:focus, &:hover, &[aria-expanded="true"] {
           border-color: rgba($color-neon, 0.5);
@@ -106,10 +105,17 @@ export default {
     }
 
     .input-search {
+<<<<<<< HEAD
       padding: $spacing / 4;
       background-color: #f8f8f8;
       -webkit-appearance: none;
       border: 1px solid #f8f8f8;
+=======
+      height: 100%;
+      padding: $spacing / 3;
+      background-color: $color-interaction-background;
+      border: 1px solid $color-interaction-background;
+>>>>>>> A little bit of responsiveness
       transition: border-color $transition;
 
       &::placeholder {

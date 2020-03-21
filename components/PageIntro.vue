@@ -42,14 +42,19 @@ export default {}
 
   .page-intro {
     z-index: 3;
+    margin-top: $spacing;
     @include center();
+
+    @include media-query($medium) {
+      margin-top: 0;
+    }
 
     .page-intro-float {
       background-color: #fff;
-      box-shadow: $box-shadow--strong;
       margin-bottom: $spacing;
 
-      @include media-query($narrow) {
+      @include media-query($medium) {
+        box-shadow: $box-shadow--strong;
         display: grid;
         max-width: $medium;
         grid-template-columns: repeat(3, 1fr);
@@ -58,11 +63,15 @@ export default {}
       }
 
       .wrapper {
-        padding: $spacing / 2;
+        padding: $spacing / 4 $spacing / 2;
         display: flex;
         height: 100%;
 
         @include media-query($medium) {
+          padding: $spacing / 2;
+        }
+
+        @include media-query($wide) {
           padding: $spacing;
         }
 
@@ -74,7 +83,7 @@ export default {}
       section {
         border-bottom: 1px solid #F0F0FF;
 
-        @include media-query($narrow) {
+        @include media-query($medium) {
           border: none;
           border-right: 1px solid #F0F0FF;
         }
@@ -93,8 +102,16 @@ export default {}
         }
 
         .glyph {
-          font-size: 2.6rem;
+          font-size: 1.6rem;
           margin-right: $spacing / 2;
+
+          @include media-query($narrow) {
+            font-size: 2.2rem;
+          }
+
+          @include media-query($medium) {
+            font-size: 2.6rem;
+          }
         }
 
         &.policy {
