@@ -19,7 +19,7 @@
     </header>
     <footer class="module-footer">
       <a :href="link" :class="['btn', 'btn--module', { 'btn--clickable': link }]"><span>{{ link ? linkText : 'Available soon' }}</span></a>
-      <span @click="expand" :class="{ isExpanded }" class="btn btn-expand">More information <svg width="16" height="8"><g><path d="M-4,1.5 L0,-1.5 L4,1.5" /></g></svg></span>
+      <span :class="{ isExpanded }" class="btn btn-expand" @click="expand">More information <svg width="16" height="8"><g><path d="M-4,1.5 L0,-1.5 L4,1.5" /></g></svg></span>
       <transition-expand>
         <ul v-if="isExpanded" class="items">
           <li>
@@ -31,9 +31,9 @@
               <span class="caption">Audience</span>
               <span
                 v-for="tag in tags"
+                v-tooltip="{ content: `Filter by ${tag}`, offset: 2 }"
                 :key="tag"
                 :class="{ tag: true, [tag]: true }"
-                v-tooltip="{ content: `Filter by ${tag}`, offset: 2 }"
                 @click="() => changeFilter({ key: 'tag', value: tag })"
               >{{ tag }}</span>
             </section>
@@ -41,9 +41,9 @@
               <span class="caption">Type</span>
               <span
                 v-for="typ in type"
+                v-tooltip="{ content: `Filter by ${typ}`, offset: 2 }"
                 :key="typ"
                 :class="{ tag: true, [typ]: true }"
-                v-tooltip="{ content: `Filter by ${typ}`, offset: 2 }"
                 @click="() => changeFilter({ key: 'tag', value: typ })"
               >{{ typ }}</span>
             </section>
@@ -51,21 +51,10 @@
           <li v-if="download.length">
             <span class="caption">Printable resources</span>
             <span class="btn--link clickable" @click="() => showDownload({ module: id })">View {{ download.length }} packages for download</span>
-            <!-- <ul class="list">
-              <li
-                v-for="item in download"
-                class="clickable"
-                @click="() => showDownload({ module: id, download: item.id })">{{ item.label }}</li>
-            </ul> -->
           </li>
           <li v-if="gems">
             <span class="caption">Data used in this module</span>
             <a :href="gems" class="btn--link">View {{ gemsAmount ? gemsAmount : '' }} guided explore module{{ gemsAmount === 1 ? '' : 's' }}&nbsp;<i>&nearr;</i></a>
-            <!-- <ul class="list">
-              <li v-for="gem in gems" v-tooltip="{ content: `Open GEM »${gem.title}« in new window` }">
-                <a :href="gem.url">{{ truncate(gem.title) }}&nbsp;<i>&nearr;</i></a>
-              </li>
-            </ul> -->
           </li>
         </ul>
       </transition-expand>
@@ -76,10 +65,13 @@
 <script>
 import { mapActions } from 'vuex'
 import { map, get, truncate } from 'lodash'
+import TransitionExpand from 'library/src/components/helper/TransitionExpand.vue'
 import { chain } from '~/assets/js/utils.js'
-import TransitionExpand from '~/components/TransitionExpand.vue'
 
 export default {
+  components: {
+    TransitionExpand
+  },
   props: {
     id: { // The id of the module. Used for the download-modal
       type: String,
@@ -140,9 +132,6 @@ export default {
     }
   },
   computed: {
-    // ...mapGetters([
-    //   'downloads'
-    // ]),
     author () {
       return chain(this.authors)
     },
@@ -179,9 +168,6 @@ export default {
     truncate (str) {
       return truncate(str, { length: 35, separator: /, +-–/ })
     }
-  },
-  components: {
-    TransitionExpand
   }
 }
 </script>
