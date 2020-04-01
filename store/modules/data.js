@@ -21,7 +21,8 @@ const options = {
 
 const state = () => {
   return {
-    datum: []
+    datum: [],
+    draft: false
   }
 }
 
@@ -33,16 +34,20 @@ const mutations = {
       message: false
     }
     state.datum = assign(obj, data)
+  },
+  SET_DRAFT (state) {
+    state.draft = true
   }
 }
 
 const getters = {
-  modules: (state, getters, rootState) => {
+  modules: (state, getters, rootState, test) => {
+    console.log({ state, rootState, test })
     const tag = get(rootState, ['filter', 'tag'])
 
     // Filter all modules, that are not visible
     const visible = filter(get(state, ['datum', 'data'], []), (run) => {
-      return get(run, 'visible', true)
+      return state.draft ? true : get(run, 'visible', true)
     })
 
     // First filter all elements with the correct tag
@@ -81,6 +86,9 @@ const actions = {
           commit('MODULES_CHANGE', { status: 'error', message: error })
         })
     }
+  },
+  setDraft ({ commit }) {
+    commit('SET_DRAFT')
   }
 }
 

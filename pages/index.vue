@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import { get } from 'lodash'
+import { get, isUndefined } from 'lodash'
 import { mapState, mapActions, mapGetters } from 'vuex'
 import SensesDownload from 'library/src/components/SensesDownload.vue'
 import PageFooter from '~/components/PageFooter.vue'
@@ -46,10 +46,14 @@ export default {
         this.selectDownload(id)
       }
     }
+    if (!isUndefined(get(this, ['$route', 'query', 'draft']))) {
+      this.setDraft()
+    }
   },
   methods: {
     ...mapActions([
-      'selectDownload'
+      'selectDownload',
+      'setDraft'
     ]),
     close () {
       console.log('close')
