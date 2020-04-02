@@ -1,6 +1,8 @@
 <template>
   <div class="gallery-content">
-    <h3 v-if="!hasFilter" class="section-header">Learn modules</h3>
+    <h3 v-if="!hasFilter" class="section-header">
+      Learn modules
+    </h3>
     <GalleryModule
       v-for="module in elements['true']"
       :key="module.id"
@@ -14,7 +16,9 @@
       }"
       v-bind="module"
     />
-    <h3 v-if="!hasFilter" class="section-header">Explore modules</h3>
+    <h3 v-if="!hasFilter" class="section-header">
+      Explore modules
+    </h3>
     <GalleryModule
       v-for="module in elements['false']"
       :key="module.id"
