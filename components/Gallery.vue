@@ -2,9 +2,10 @@
   <div class="gallery-content">
     <GalleryModule
       v-for="module in modules"
-      v-tooltip="{ content: 'If you are new to scenarios you should start here!', trigger: 'manual', show: module.id === 'primer', 'offset': 5, position: 'top', classes: 'attention' }"
       :key="module.title"
-      v-bind="module" />
+      v-tooltip="{ content: 'If you are new to scenarios you should start here!', trigger: 'manual', show: module.id === 'primer', 'offset': 5, position: 'top', classes: 'attention' }"
+      v-bind="module"
+    />
   </div>
 </template>
 

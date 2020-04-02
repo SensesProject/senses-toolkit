@@ -4,7 +4,7 @@
       <SensesSelect v-model="tag" :options="tags" :class="['input-select', { isActive: tag } ]" />
     </section>
     <section class="options-search">
-      <input v-model="term" type="search" :class="['highlight', 'input-search', { isActive: term }]" placeholder="Search" />
+      <input v-model="term" type="search" :class="['highlight', 'input-search', { isActive: term }]" placeholder="Search">
     </section>
   </div>
 </template>

@@ -1,19 +1,21 @@
 <template>
   <header class="page-header">
     <h1 class="title serif">
-      Making sense of climate change scenarios for <br class="until-medium" /><vue-typer
+      Making sense of climate change scenarios for <br class="until-medium"><vue-typer
         :pre-erase-delay="5000"
         :text="strings"
         caret-animation="smooth"
         erase-style="clear"
-        @erased="onErased" />
+        @erased="onErased"
+      />
     </h1>
     <ul class="header-background">
       <li
         v-for="el in elements"
         :key="el.file"
         :class="{ isVisible: el.isVisible }"
-        :style="{ 'background-image': `url('./header/${el.file}')`}" />
+        :style="{ 'background-image': `url('./header/${el.file}')`}"
+      />
     </ul>
     <transition name="fade" mode="out-in">
       <a :key="copyright.link" class="copyright" :href="copyright.link" rel="author external" target="_blank">{{ copyright.info }}, {{ copyright.year }}. Image by {{ copyright.author }}</a>

@@ -31,8 +31,8 @@
               <span class="caption">Audience</span>
               <span
                 v-for="tag in tags"
-                v-tooltip="{ content: `Filter by ${tag}`, offset: 2 }"
                 :key="tag"
+                v-tooltip="{ content: `Filter by ${tag}`, offset: 2 }"
                 :class="{ tag: true, [tag]: true }"
                 @click="() => changeFilter({ key: 'tag', value: tag })"
               >{{ tag }}</span>
@@ -41,8 +41,8 @@
               <span class="caption">Type</span>
               <span
                 v-for="typ in type"
-                v-tooltip="{ content: `Filter by ${typ}`, offset: 2 }"
                 :key="typ"
+                v-tooltip="{ content: `Filter by ${typ}`, offset: 2 }"
                 :class="{ tag: true, [typ]: true }"
                 @click="() => changeFilter({ key: 'tag', value: typ })"
               >{{ typ }}</span>

@@ -19,7 +19,7 @@
           </div>
         </a>
       </section>
-      <section class="finance" v-tooltip="{ content: 'Coming soon', offset: 5, classes: 'attention finance' }">
+      <section v-tooltip="{ content: 'Coming soon', offset: 5, classes: 'attention finance' }" class="finance">
         <a class="wrapper">
           <div>
             <span class="glyph glyph-hurricanes" />

@@ -5,10 +5,11 @@
     <PageGallery />
     <PageFooter />
     <SensesDownload
-      :visible="currentDownloadID"
+      :close="close"
       :ids="currentDownloadIDs"
       :title="currentDownloadTitle"
-      :close="close" />
+      :visible="currentDownloadID"
+    />
   </div>
 </template>
 
