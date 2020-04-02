@@ -42,7 +42,6 @@ const mutations = {
 
 const getters = {
   modules: (state, getters, rootState, test) => {
-    console.log({ state, rootState, test })
     const tag = get(rootState, ['filter', 'tag'])
 
     // Filter all modules, that are not visible

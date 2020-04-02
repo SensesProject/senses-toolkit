@@ -1,16 +1,39 @@
 <template>
   <div class="gallery-content">
+    <h3 v-if="!hasFilter" class="section-header">Learn modules</h3>
     <GalleryModule
-      v-for="module in modules"
-      :key="module.title"
-      v-tooltip="{ content: 'If you are new to scenarios you should start here!', trigger: 'manual', show: module.id === 'primer', 'offset': 5, position: 'top', classes: 'attention' }"
+      v-for="module in elements['true']"
+      :key="module.id"
+      v-tooltip="{
+        content: 'If you are new to scenarios you should start here!',
+        trigger: 'manual',
+        show: module.id === 'primer',
+        offset: 5,
+        position: 'top',
+        classes: 'attention'
+      }"
+      v-bind="module"
+    />
+    <h3 v-if="!hasFilter" class="section-header">Explore modules</h3>
+    <GalleryModule
+      v-for="module in elements['false']"
+      :key="module.id"
+      v-tooltip="{
+        content: 'If you are new to scenarios you should start here!',
+        trigger: 'manual',
+        show: module.id === 'primer',
+        offset: 5,
+        position: 'top',
+        classes: 'attention'
+      }"
       v-bind="module"
     />
   </div>
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
+import { mapState, mapGetters, mapActions } from 'vuex'
+import { groupBy, get } from 'lodash'
 import GalleryModule from '~/components/GalleryModule.vue'
 
 export default {
@@ -18,9 +41,20 @@ export default {
     GalleryModule
   },
   computed: {
+    ...mapState('filter', [
+      'hasFilter'
+    ]),
     ...mapGetters([
       'modules'
-    ])
+    ]),
+    elements () {
+      if (this.hasFilter) {
+        return { true: this.modules }
+      }
+      return groupBy(this.modules, (module) => {
+        return get(module, 'type', []).includes('Learn')
+      })
+    }
   },
   created () {
     this.loadModules()

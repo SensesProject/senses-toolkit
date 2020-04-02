@@ -1,38 +1,43 @@
 <template>
   <div class="header-options">
     <section class="options-filter">
-      <SensesSelect v-model="tag" :options="tags" :class="['input-select', { isActive: tag } ]" />
+      <SensesSelect v-model="rawTag" :options="tags" :class="['input-select', { isActive: rawTag } ]" />
     </section>
     <section class="options-search">
-      <input v-model="term" type="search" :class="['highlight', 'input-search', { isActive: term }]" placeholder="Search">
+      <input v-model="rawTerm" type="search" :class="['highlight', 'input-search', { isActive: rawTerm }]" placeholder="Search">
     </section>
   </div>
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex'
+import { mapState, mapActions, mapGetters } from 'vuex'
 import SensesSelect from 'library/src/components/SensesSelect.vue'
-import { get, trim } from 'lodash'
+import { trim } from 'lodash'
 
 export default {
   components: {
     SensesSelect
   },
   computed: {
+    ...mapState('filter', [
+      'hasFilter',
+      'tag',
+      'term'
+    ]),
     ...mapGetters([
       'tags'
     ]),
-    tag: {
+    rawTag: {
       get () {
-        return get(this.$store, ['state', 'filter', 'tag'], [])
+        return this.tag
       },
       set (value) {
         this.changeFilter({ key: 'tag', value })
       }
     },
-    term: {
+    rawTerm: {
       get () {
-        return get(this.$store, ['state', 'filter', 'term'], [])
+        return this.term
       },
       set (v) {
         const value = trim(v)
@@ -41,7 +46,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions([
+    ...mapActions('filter', [
       'changeFilter'
     ])
   }

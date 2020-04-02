@@ -24,7 +24,7 @@ export default {
     GalleryOptions
   },
   methods: {
-    ...mapActions([
+    ...mapActions('filter', [
       'changeFilter'
     ])
   }
@@ -69,6 +69,10 @@ export default {
         display: grid;
         grid-gap: $spacing;
         grid-template-columns: repeat(2, 1fr);
+
+        .section-header {
+          grid-column-end: span 2;
+        }
         // grid-auto-flow: row;
       }
 
@@ -93,7 +97,7 @@ export default {
     }
 
     .gallery-header {
-      margin: 0 $spacing / 3 * 2 $spacing * 3;
+      margin: 0 $spacing / 3 * 2 $spacing * 2;
 
       .header-intro {
         margin-bottom: $spacing;

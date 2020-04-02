@@ -8,7 +8,8 @@ const DEFAULTS = {
 const state = () => {
   return {
     tag: DEFAULTS.tag,
-    term: DEFAULTS.term
+    term: DEFAULTS.term,
+    hasFilter: false
   }
 }
 
@@ -18,6 +19,8 @@ const mutations = {
       const val = !value ? get(DEFAULTS, key) : value
       set(state, key, val)
     }
+    state.hasFilter = !(state.tag === DEFAULTS.tag && state.term === DEFAULTS.term)
+    console.log(state.tag, DEFAULTS.tag, state.term, DEFAULTS.term, state.tag === DEFAULTS.tag && state.term === DEFAULTS.term)
   }
 }
 
@@ -28,6 +31,7 @@ const actions = {
 }
 
 export default {
+  namespaced: true,
   state,
   mutations,
   actions
