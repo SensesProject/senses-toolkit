@@ -33,10 +33,20 @@
         <span class="postal-code">14473</span> <span class="locality">Potsdam</span>
       </div>
     </div>
+    <div class="footer-consortium">
+      <span class="caption">Consortium members</span>
+      <ul class="logo-list members">
+        <li><a href="https://www.fh-potsdam.de/"><img src="logos/logo_FHP.png" alt="University of Applied Sciences Potsdam" target="_blank"></a></li>
+        <li><a href="https://iiasa.ac.at/"><img src="logos/logo_IIASA.png" alt="International Institute for Applied Systems Analysis" target="_blank"></a></li>
+        <li><a href="https://www.pik-potsdam.de/"><img src="logos/logo_PIK.png" alt="Potsdam Institute for Climate Impact Research" target="_blank"></a></li>
+        <li><a href="https://www.sei.org/"><img src="logos/logo_SEI.png" alt="Stockholm Environment Institute" target="_blank"></a></li>
+        <li><a href="https://www.wur.nl/"><img src="logos/logo_WUR.png" alt="Wageningen University and Research" target="_blank"></a></li>
+      </ul>
+    </div>
     <div class="footer-funding">
       <span class="caption">Funded by</span>
       <span class="org">The project runs from 2017 to 2020. The project SENSES is part of the European Research Area for Climate Services (ERA4CS), an ERA-NET initiated by JPI Climate. It is funded by BMBF (DE), BMWFW (AT), NWO (NL), FORMAS (SE) with co-funding by the European Union (Grant 690462). <a href="http://www.jpi-climate.eu/ERA4CS">(ERA4CS)</a>.</span>
-      <ul class="funders">
+      <ul class="logo-list funders">
         <li><img src="logos/logo_EU.svg" alt="European Union" style="width: 70%"></li>
         <li><a href="http://www.jpi-climate.eu/"><img src="logos/logo_JPI.png" alt="Joint Programming Initiative Climate" target="_blank"></a></li>
         <li><a href="https://www.bmbf.de/en/index.html"><img src="logos/logo_BMBF.svg" alt="Federal Ministry of Education and Research" target="_blank"></a></li>
@@ -63,6 +73,10 @@ export default {}
     font-size: 0.8rem;
     grid-gap: $spacing / 2;
 
+    address {
+      font-style: normal;
+    }
+
     .ml:after {
       content: attr(data-name) "@" attr(data-domain) "." attr(data-tld);
     }
@@ -73,12 +87,12 @@ export default {}
       grid-template-columns: repeat(2, 1fr);
       grid-gap: $spacing * 3 / 2;
 
-      .footer-funding {
+      .footer-funding, .footer-consortium {
         grid-column-end: span 2;
       }
     }
 
-    .funders {
+    .logo-list {
       display: grid;
       list-style: none;
       justify-items: center;
@@ -86,15 +100,32 @@ export default {}
       justify-content: space-evenly;
       grid-gap: $spacing;
       margin: $spacing 0 $spacing * 2;
-      grid-template-columns: repeat(2, 1fr);
 
-      @include media-query($narrow) {
-        grid-template-columns: repeat(3, 1fr);
+      &.members {
+        margin-top: 0;
+        grid-template-columns: repeat(2, 1fr);
+
+        @include media-query($narrow) {
+          grid-template-columns: repeat(3, 1fr);
+        }
+
+        @include media-query($medium) {
+          grid-gap: $spacing * 3 / 2;
+          grid-template-columns: repeat(5, 1fr);
+        }
       }
 
-      @include media-query($medium) {
-        grid-gap: $spacing * 3 / 2;
-        grid-template-columns: repeat(6, 1fr);
+      &.funders {
+        grid-template-columns: repeat(2, 1fr);
+
+        @include media-query($narrow) {
+          grid-template-columns: repeat(3, 1fr);
+        }
+
+        @include media-query($medium) {
+          grid-gap: $spacing * 3 / 2;
+          grid-template-columns: repeat(6, 1fr);
+        }
       }
 
       li {
