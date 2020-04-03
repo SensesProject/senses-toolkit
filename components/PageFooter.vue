@@ -36,23 +36,23 @@
     <div class="footer-consortium">
       <span class="caption">Consortium members</span>
       <ul class="logo-list members">
-        <li><a href="https://www.fh-potsdam.de/"><img src="logos/logo_FHP.png" alt="University of Applied Sciences Potsdam" target="_blank"></a></li>
-        <li><a href="https://iiasa.ac.at/"><img src="logos/logo_IIASA.png" alt="International Institute for Applied Systems Analysis" target="_blank"></a></li>
-        <li><a href="https://www.pik-potsdam.de/"><img src="logos/logo_PIK.png" alt="Potsdam Institute for Climate Impact Research" target="_blank"></a></li>
-        <li><a href="https://www.sei.org/"><img src="logos/logo_SEI.png" alt="Stockholm Environment Institute" target="_blank"></a></li>
-        <li><a href="https://www.wur.nl/"><img src="logos/logo_WUR.png" alt="Wageningen University and Research" target="_blank"></a></li>
+        <li><a href="https://www.fh-potsdam.de/"><img :src="`${$router.options.base}logos/logo_FHP.png`" alt="University of Applied Sciences Potsdam" target="_blank"></a></li>
+        <li><a href="https://iiasa.ac.at/"><img :src="`${$router.options.base}logos/logo_IIASA.png`" alt="International Institute for Applied Systems Analysis" target="_blank"></a></li>
+        <li><a href="https://www.pik-potsdam.de/"><img :src="`${$router.options.base}logos/logo_PIK.png`" alt="Potsdam Institute for Climate Impact Research" target="_blank"></a></li>
+        <li><a href="https://www.sei.org/"><img :src="`${$router.options.base}logos/logo_SEI.png`" alt="Stockholm Environment Institute" target="_blank"></a></li>
+        <li><a href="https://www.wur.nl/"><img :src="`${$router.options.base}logos/logo_WUR.png`" alt="Wageningen University and Research" target="_blank"></a></li>
       </ul>
     </div>
     <div class="footer-funding">
       <span class="caption">Funded by</span>
       <span class="org">The project runs from 2017 to 2020. The project SENSES is part of the European Research Area for Climate Services (ERA4CS), an ERA-NET initiated by JPI Climate. It is funded by BMBF (DE), BMWFW (AT), NWO (NL), FORMAS (SE) with co-funding by the European Union (Grant 690462). <a href="http://www.jpi-climate.eu/ERA4CS">(ERA4CS)</a>.</span>
       <ul class="logo-list funders">
-        <li><img src="logos/logo_EU.svg" alt="European Union" style="width: 70%"></li>
-        <li><a href="http://www.jpi-climate.eu/"><img src="logos/logo_JPI.png" alt="Joint Programming Initiative Climate" target="_blank"></a></li>
-        <li><a href="https://www.bmbf.de/en/index.html"><img src="logos/logo_BMBF.svg" alt="Federal Ministry of Education and Research" target="_blank"></a></li>
-        <li><a href="http://www.dlr.de/"><img src="logos/logo_DLR.svg" alt="German Aerospace Center" style="width: 60%" target="_blank"></a></li>
-        <li><a href="https://www.nwo.nl/"><img src="logos/logo_nwo.svg" alt="The Netherlands Organisation for Scientific Research" style="width: 70%" target="_blank"></a></li>
-        <li><a href="http://www.formas.se/"><img src="logos/logo_formas.svg" alt="The Swedish Research Council for Environment, Agricultural Sciences and Spatial Planning" style="margin-top: 2em" target="_blank"></a></li>
+        <li><img :src="`${$router.options.base}logos/logo_EU.svg`" alt="European Union" style="width: 70%"></li>
+        <li><a href="http://www.jpi-climate.eu/"><img :src="`${$router.options.base}logos/logo_JPI.png`" alt="Joint Programming Initiative Climate" target="_blank"></a></li>
+        <li><a href="https://www.bmbf.de/en/index.html"><img :src="`${$router.options.base}logos/logo_BMBF.svg`" alt="Federal Ministry of Education and Research" target="_blank"></a></li>
+        <li><a href="http://www.dlr.de/"><img :src="`${$router.options.base}logos/logo_DLR.svg`" alt="German Aerospace Center" style="width: 60%" target="_blank"></a></li>
+        <li><a href="https://www.nwo.nl/"><img :src="`${$router.options.base}logos/logo_nwo.svg`" alt="The Netherlands Organisation for Scientific Research" style="width: 70%" target="_blank"></a></li>
+        <li><a href="http://www.formas.se/"><img :src="`${$router.options.base}logos/logo_formas.svg`" alt="The Swedish Research Council for Environment, Agricultural Sciences and Spatial Planning" style="margin-top: 2em" target="_blank"></a></li>
       </ul>
     </div>
   </footer>

@@ -14,7 +14,7 @@
         v-for="el in elements"
         :key="el.file"
         :class="{ isVisible: el.isVisible }"
-        :style="{ 'background-image': `url('./header/${el.file}')`}"
+        :style="{ 'background-image': `url('${$router.options.base}/header/${el.file}')`}"
       />
     </ul>
     <transition name="fade" mode="out-in">

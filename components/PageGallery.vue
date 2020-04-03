@@ -6,7 +6,7 @@
       </h1>
       <div class="header-intro">
         <p>These modules helps you understand and communicate climate change scenarios. The modules utilise visualisations in an <span class="clickable interactive" @click="() => changeFilter({ key: 'tag', value: 'Learn' })">explanatory</span> or <span class="clickable interactive" @click="() => changeFilter({ key: 'tag', value: 'Explore' })">exploratory</span> way. The target audience are <span class="clickable interactive" @click="() => changeFilter({ key: 'tag', value: 'Finance' })">finance</span>, <span class="clickable interactive" @click="() => changeFilter({ key: 'tag', value: 'Policy' })">policy</span> and <span class="clickable interactive" @click="() => changeFilter({ key: 'tag', value: 'Regional' })">regional</span> decision makers.</p>
-        <p>Find more about how to use the toolkit <nuxt-link to="/about">here</nuxt-link>.</p>
+        <p>Find more about how to use the toolkit <a href="/about">here</a>.</p>
       </div>
       <GalleryOptions />
     </header>
