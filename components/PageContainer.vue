@@ -12,7 +12,7 @@ export default {}
   @import "~@/assets/style/global";
 
   .page-container {
-    margin: $spacing * 2 0;
+    margin: $spacing * 2 $spcaing / 2;
 
     @include media-query($medium) {
       width: 96vw;
