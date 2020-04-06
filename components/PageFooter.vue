@@ -68,7 +68,7 @@ export default {}
 
   .page-footer {
     margin: $spacing / 2;
-    margin-top: $spacing * 2;
+    margin-top: $spacing * 3;
     display: grid;
     font-size: 0.8rem;
     grid-gap: $spacing / 2;
