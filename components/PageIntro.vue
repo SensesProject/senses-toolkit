@@ -9,8 +9,8 @@
           <span>Scroll down to find all modules</span>
         </div>
       </section>
-      <section class="policy">
-        <a href="https://dev.climatescenarios.org/policy-portal/" class="wrapper">
+      <section v-tooltip="{ content: 'Coming soon', offset: 5, classes: 'attention policy' }" class="policy">
+        <a class="wrapper">
           <div>
             <span class="glyph glyph-policies" />
           </div>
@@ -115,15 +115,21 @@ export default {}
         }
 
         &.policy {
+          a {
+            cursor: default;
+          }
+
           strong, .glyph {
             color: $color-green;
           }
 
           a:hover, a:focus {
-            background-color: $color-green;
+            background-color: none;
+            // background-color: $color-green;
 
             strong, .glyph, span {
-              color: #fff;
+              color: $color-gray;
+              // color: #fff;
             }
           }
         }

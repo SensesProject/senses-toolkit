@@ -152,6 +152,10 @@ input {
     background: $color-purple;
   }
 
+  &.policy .tooltip-inner {
+    background: $color-green;
+  }
+
   .tooltip-arrow {
     width: 0;
     height: 0;
@@ -164,6 +168,10 @@ input {
 
   &.finance .tooltip-arrow {
     border-color: $color-purple;
+  }
+
+  &.policy .tooltip-arrow {
+    border-color: $color-green;
   }
 
   &[x-placement^="top"] {
