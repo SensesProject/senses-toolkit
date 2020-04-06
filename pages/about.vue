@@ -42,10 +42,14 @@ export default {
     align-items: center;
     flex-direction: column;
 
+    p {
+      width: 80%;
+    }
+
     img {
-      width: 100%;
+      width: 80%;
       border: 1px solid #eee;
-      margin-top: $spacing;
+      margin: $spacing auto 0;
     }
   }
 
