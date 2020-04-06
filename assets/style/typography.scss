@@ -37,8 +37,17 @@
   letter-spacing: 0.02em;
   text-transform: uppercase;
   color: $color-dark-gray;
-  margin-bottom: 4rem;
+  margin-bottom: $spacing * 3 / 2;
   margin-left: $spacing / 2;
+  border-top: 1px solid getColor(gray, 80);
+  margin-top: $spacing * 3;
+
+  span {
+    transform: translateY(-50%);
+    display: inline-block;
+    background-color: #fff;
+    padding-right: $spacing;
+  }
 
   @include media-query($narrow) {
     font-size: 1.2rem;
@@ -53,6 +62,7 @@
 
   @include media-query($wide) {
     font-size: 1.4rem;
+    width: 100%;
   }
 }
 
