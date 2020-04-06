@@ -119,6 +119,11 @@ export default {}
             cursor: default;
           }
 
+          strong, .glyph, span {
+            color: $color-gray;
+            // color: #fff;
+          }
+
           strong, .glyph {
             color: $color-green;
           }
@@ -137,6 +142,11 @@ export default {}
         &.finance {
           a {
             cursor: default;
+          }
+
+          strong, .glyph, span {
+            color: $color-gray;
+            // color: #fff;
           }
 
           strong, .glyph {
