@@ -4,10 +4,10 @@
     <PageContainer>
       <h1>How to use the SENSES Tookit</h1>
       <p>
-        The SENSES Toolkit is a unique collection of user-centred scenario visualization tools, include practical guidelines and manuals, and builds on co-production techniques of relevant and useful climate change knowledge for three key user groups.
+        The SENSES Toolkit is a unique collection of user-centred visualization tools of climate change scenario knowledge. It includes tools to learn about the scenario approach and its key insights, tools to explore climate change scenarios, and practical guidelines of how to use climate change scenarios for three key user groups.It builds on co-production techniques of relevant and useful climate change scenario knowledge.
       </p>
       <p>
-        The aim of SENSES is to generate tools for debate and deliberation. The interactive approach of co-production prevents that users become detached from the original scenario data, and minimizes the risk that the extracted information is misinterpreted and/or perceived as intransparent. Thus, an essential objective of SENSES is that the developed tools are understandable, accessible, trustworthy, and useful for the stakeholders.
+        The aim of SENSES is to provide tools for better assessment and application of climate change scenario knowledge. The interactive approach aims to connect users to the original scenario data and to minimize the risk that the extracted information is misinterpreted and/or perceived as intransparent. Thus, an essential objective of SENSES is that the developed tools are understandable, accessible, trustworthy, and useful for the stakeholders.
       </p>
       <p>
         The following video is a quick tutorial on the key features of the SENSES Toolkit:
