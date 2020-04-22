@@ -1,14 +1,11 @@
+const { getHead } = require('library/src/assets/js/head.js')
 
 export default {
   mode: 'spa',
-  head: {
+  head: getHead({
     title: 'Senses Toolkit',
-    meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'This collection of visualisation tools helps you understand and communicate climate change scenarios.' }
-    ]
-  },
+    description: 'The Senses Toolkit offers a wide range of modules to help you understand and communicate climate change scenarios'
+  }),
   css: [
     '@/assets/style/base.scss'
   ],
