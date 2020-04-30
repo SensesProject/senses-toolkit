@@ -33,23 +33,11 @@ export default {
   },
   data () {
     const images = [{
-      file: 'ATLAS-OF-PLACES-INFRASTRUCTURE-PATTERNS-II-IMG-4.jpg',
-      info: 'Kumiyama, Japan',
-      year: '2018',
-      author: 'Atlas of Places',
-      link: 'https://atlasofplaces.com/research/infrastructure-patterns-ii/'
-    }, {
-      file: 'ATLAS-OF-PLACES-INFRASTRUCTURE-PATTERNS-VI-IMG-6.jpg',
-      info: 'Alang, India',
+      file: 'Tom_Hegen_THE_SPANISH_FARMLAND_SERIES-14.jpg',
+      info: 'Marble Mining',
       year: '2019',
-      author: 'Atlas of Places',
-      link: 'https://atlasofplaces.com/research/infrastructure-patterns-vi/'
-    }, {
-      file: 'ATLAS-OF-PLACES-UN-FEU-DISTINCT-I-IMG-2.jpg',
-      info: 'California, United States',
-      year: '2018',
-      author: 'Atlas of Places',
-      link: 'https://atlasofplaces.com/research/un-feu-distinct-i/'
+      author: 'Tom Hegen',
+      link: 'http://tomhegen.de/fotodesign/the-marble-series/'
     }, {
       file: 'The_Coalmine_Series-17.jpg',
       info: 'Coal mining',
@@ -74,12 +62,6 @@ export default {
       year: '2019',
       author: 'Tom Hegen',
       link: 'http://tomhegen.de/fotodesign/the-marble-series/'
-    }, {
-      file: 'ATLAS-OF-PLACES-INFRASTRUCTURE-PATTERNS-IV-IMG-7.jpg',
-      info: 'Namiquipa, Mexico',
-      year: '2019',
-      author: 'Atlas of Places',
-      link: 'https://atlasofplaces.com/research/infrastructure-patterns-iv/'
     }]
     const strings = ['policy', 'finance', 'scientists', 'investors', 'activists', 'mitigation', 'adaptation']
     return {
@@ -103,8 +85,10 @@ export default {
   },
   methods: {
     onErased (erasedString) {
-      const i = this.strings.indexOf(erasedString)
-      this.current = i
+      this.current += 1
+      if (this.current === this.images.length) {
+        this.current = 0
+      }
     }
   }
 }
