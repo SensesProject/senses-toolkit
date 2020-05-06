@@ -50,9 +50,10 @@
         <li><img :src="`${$router.options.base}logos/logo_EU.svg`" alt="European Union" style="width: 70%"></li>
         <li><a href="http://www.jpi-climate.eu/"><img :src="`${$router.options.base}logos/logo_JPI.png`" alt="Joint Programming Initiative Climate" target="_blank"></a></li>
         <li><a href="https://www.bmbf.de/en/index.html"><img :src="`${$router.options.base}logos/logo_BMBF.svg`" alt="Federal Ministry of Education and Research" target="_blank"></a></li>
-        <li><a href="http://www.dlr.de/"><img :src="`${$router.options.base}logos/logo_DLR.svg`" alt="German Aerospace Center" style="width: 60%" target="_blank"></a></li>
+        <li><a href="https://www.bmbwf.gv.at/"><img :src="`${$router.options.base}logos/logo_BMBWF.svg`" alt="Bundesministerium für Bildung, Wissenschaft und Forschung" target="_blank"></a></li>
+        <li><a href="https://www.dlr.de/"><img :src="`${$router.options.base}logos/logo_DLR.svg`" alt="German Aerospace Center" style="width: 60%" target="_blank"></a></li>
         <li><a href="https://www.nwo.nl/"><img :src="`${$router.options.base}logos/logo_nwo.svg`" alt="The Netherlands Organisation for Scientific Research" style="width: 70%" target="_blank"></a></li>
-        <li><a href="http://www.formas.se/"><img :src="`${$router.options.base}logos/logo_formas.svg`" alt="The Swedish Research Council for Environment, Agricultural Sciences and Spatial Planning" style="margin-top: 2em" target="_blank"></a></li>
+        <li><a href="https://www.formas.se/"><img :src="`${$router.options.base}logos/logo_formas.svg`" alt="The Swedish Research Council for Environment, Agricultural Sciences and Spatial Planning" style="margin-top: 2em" target="_blank"></a></li>
       </ul>
     </div>
   </footer>
@@ -119,12 +120,12 @@ export default {}
         grid-template-columns: repeat(2, 1fr);
 
         @include media-query($narrow) {
-          grid-template-columns: repeat(3, 1fr);
+          grid-template-columns: repeat(4, 1fr);
         }
 
         @include media-query($medium) {
           grid-gap: $spacing * 3 / 2;
-          grid-template-columns: repeat(6, 1fr);
+          grid-template-columns: repeat(7, 1fr);
         }
       }
 
