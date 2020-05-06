@@ -9,58 +9,6 @@ input {
   text-size-adjust: 100%;
 }
 
-// .btn {
-// 	transition: background-color 0.2s, color 0.2s;
-//   padding: $spacing / 4;
-//   border: 0;
-//   cursor: pointer;
-//   @include center();
-//   text-align: center;
-
-//   // &.btn--action {
-//   // 	text-transform: uppercase;
-//   // 	letter-spacing: 0.05em;
-//   // 	font-weight: bolder;
-//   // }
-
-//   // &:hover, &:focus {
-//   //   background: #b8aeff;
-//   //   color: #424ab9;
-//   // }
-
-//   // &.btn--secondary {
-//   // 	background-color: getColor(gray, 80);
-//   // 	color: #000;
-//   // }
-
-//   // &.btn--invert {
-//   // 	background-color: #fff;
-//   // 	color: $color-neon;
-//   // 	border: 2px solid $color-neon;
-//   // 	transition: box-shadow;
-//   // 	border: 2px solid #fff;
-//   // 	transition: transform $transition, background-color $transition, box-shadow $transition;
-
-//   // 	&:hover, &:focus {
-// 	 //  	box-shadow: $box-shadow--heavy;
-// 	 //  	transform: scale(1.01);
-// 	 //  	// background-color: $color-neon;
-// 	 //  }
-//   // }
-
-//   // &.btn--tertiary {
-//   // 	border: none;
-//   // 	background-color: #f8f8f8;
-//   // 	color: $color-deep-gray;
-//   // 	box-shadow: none;
-
-//   // 	&:hover, &:focus {
-// 	 //  	background-color: getColor(gray, 90);
-// 	 //  	color: $color-black;
-// 	 //  }
-//   // }
-// }
-
 .input-search {
 	cursor: text;
 	border: 0;
