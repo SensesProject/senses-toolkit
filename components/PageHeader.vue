@@ -9,12 +9,12 @@
         @erased="onErased"
       />
     </h1>
-    <ul class="header-background">
+    <ul v-if="type" class="header-background">
       <li
         v-for="el in elements"
         :key="el.file"
         :class="{ isVisible: el.isVisible }"
-        :style="{ 'background-image': `url('${$router.options.base}/header/${el.file}')`}"
+        :style="{ 'background-image': `url('${$router.options.base}/header/${el.file}.${type}')` }"
       />
     </ul>
     <transition name="fade" mode="out-in">
@@ -33,41 +33,42 @@ export default {
   },
   data () {
     const images = [{
-      file: 'Tom_Hegen_THE_SPANISH_FARMLAND_SERIES-14.jpg',
-      info: 'Marble Mining',
-      year: '2019',
-      author: 'Tom Hegen',
-      link: 'http://tomhegen.de/fotodesign/the-marble-series/'
-    }, {
-      file: 'The_Coalmine_Series-17.jpg',
-      info: 'Coal mining',
-      year: '2018',
-      author: 'Tom Hegen',
-      link: 'http://tomhegen.de/fotodesign/the-coalmine-series/'
-    }, {
-      file: 'The_Cultivation_Series-10.jpg',
-      info: 'Art of Gardening',
+      file: 'Tom_Hegen_The_Cultivation_Series',
+      info: 'Cultivation Series',
       year: '2018',
       author: 'Tom Hegen',
       link: 'http://tomhegen.de/fotodesign/the-cultivation-series/'
     }, {
-      file: 'The_Farmer_Series-2.jpg',
-      info: 'Lignite Mining',
+      file: 'Tom_Hegen_The-Coalmine-Series',
+      info: 'Coalmine Series',
       year: '2018',
       author: 'Tom Hegen',
-      link: 'http://tomhegen.de/fotodesign/the-toxic-series/'
+      link: 'http://tomhegen.de/fotodesign/the-coalmine-series/'
     }, {
-      file: 'Tom_Hegen_The_Marble_Series_web-5.jpg',
-      info: 'Marble Mining',
+      file: 'Tom_Hegen_The_Marble_Series',
+      info: 'Marble Series',
       year: '2019',
       author: 'Tom Hegen',
       link: 'http://tomhegen.de/fotodesign/the-marble-series/'
+    }, {
+      file: 'Tom_Hegen_The-Spanish-Farmland-Series',
+      info: 'Spanish Farmland Series',
+      year: '2020',
+      author: 'Tom Hegen',
+      link: 'http://tomhegen.de/fotodesign/the-spanish-farmland-series/'
+    }, {
+      file: 'Tom_Hegen_The-Toxic-Series',
+      info: 'Toxic Series',
+      year: '2018',
+      author: 'Tom Hegen',
+      link: 'http://tomhegen.de/fotodesign/the-toxic-series/'
     }]
     const strings = ['policy', 'finance', 'scientists', 'investors', 'activists', 'mitigation', 'adaptation']
     return {
       strings,
       images,
-      current: 0
+      current: 0,
+      type: false
     }
   },
   computed: {
@@ -90,6 +91,13 @@ export default {
         this.current = 0
       }
     }
+  },
+  mounted () {
+    const WebP = new Image()
+    WebP.onload = WebP.onerror = () => {
+      this.type = (WebP.height === 2) ? 'webp' : 'jpg'
+    }
+    WebP.src = 'data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA'
   }
 }
 </script>
