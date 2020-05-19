@@ -57,7 +57,6 @@ export default {
       'setDraft'
     ]),
     close () {
-      console.log('close')
       this.selectDownload({})
     }
   }
