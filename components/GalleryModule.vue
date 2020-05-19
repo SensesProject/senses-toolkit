@@ -50,7 +50,7 @@
           </li>
           <li v-if="download.length">
             <span class="caption">Printable resources</span>
-            <span class="btn--link clickable" @click="() => showDownload({ module: id })">View {{ download.length }} packages for download</span>
+            <span class="btn--link clickable" @click="() => showDownload({ module: id })">View {{ download.length }} {{ download.length > 1 ? 'packages' : 'package' }} for download</span>
           </li>
           <li v-if="gems">
             <span class="caption">Data used in this module</span>
