@@ -21,5 +21,5 @@ $ npm run build && npm run generate
 Currently, it’s a bit tricky:
 - Build the code
 - Upload to `/toolkit`
-- Upload ´index.html` to `/`
+- Upload `index.html` to `/`
 - Upload background images to `/bg`
