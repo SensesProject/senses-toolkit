@@ -10,46 +10,49 @@ input {
 }
 
 .input-search {
-	cursor: text;
-	border: 0;
-	display: block;
-	width: 100%;
-	font-size: 0.9rem;
+  cursor: text;
+  border: 0;
+  display: block;
+  width: 100%;
+  font-size: 0.9rem;
 }
 
 .tag {
-	font-size: 0.7rem;
-	padding: 2px 5px 2px;
-	border-radius: $border-radius;
-	margin-right: 8px;
-	background-color: rgba($color-gray, 0.1);
-	color: $color-gray;
-	cursor: pointer;
+  font-size: 0.7rem;
+  padding: 2px 5px 2px;
+  border-radius: $border-radius;
+  margin-right: 8px;
+  margin-bottom: 8px;
+  background-color: rgba($color-gray, 0.1);
+  color: $color-gray;
+  cursor: pointer;
+  white-space: nowrap;
+  display: inline-block;
 
   &:hover {
     background-color: rgba($color-gray, 0.3)
   }
 
-	&:last-child {
-		margin: 0;
-	}
+  &:last-child {
+    margin: 0;
+  }
 
-	&.Policy {
-		background-color: rgba($color-green, 0.1);
-		color: $color-green;
+  &.Policy {
+    background-color: rgba($color-green, 0.1);
+    color: $color-green;
 
-		&:hover {
-			background-color: rgba($color-green, 0.3);
-		}
-	}
-	&.Finance {
-		background-color: rgba($color-purple, 0.1);
-		color: $color-purple;
+    &:hover {
+      background-color: rgba($color-green, 0.3);
+    }
+  }
+  &.Finance {
+    background-color: rgba($color-purple, 0.1);
+    color: $color-purple;
 
-		&:hover {
-			background-color: rgba($color-purple, 0.3);
-		}
-	}
+    &:hover {
+      background-color: rgba($color-purple, 0.3);
+    }
+  }
   &.Regional {
     background-color: rgba($color-yellow, 0.1);
     color: $color-yellow;
@@ -61,7 +64,7 @@ input {
 }
 
 .until-medium {
-	@include media-query($medium) {
+  @include media-query($medium) {
     display: none;
     visibility: hidden;
   }

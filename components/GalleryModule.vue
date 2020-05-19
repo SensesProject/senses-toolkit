@@ -30,7 +30,7 @@
             <section>
               <span class="caption">Audience</span>
               <span
-                v-for="tag in tags"
+                v-for="tag in sortedTags"
                 :key="tag"
                 v-tooltip="{ content: `Filter by ${tag}`, offset: 2 }"
                 :class="{ tag: true, [tag]: true }"
@@ -40,7 +40,7 @@
             <section>
               <span class="caption">Type</span>
               <span
-                v-for="typ in type"
+                v-for="typ in sortedTypes"
                 :key="typ"
                 v-tooltip="{ content: `Filter by ${typ}`, offset: 2 }"
                 :class="{ tag: true, [typ]: true }"
@@ -64,7 +64,7 @@
 
 <script>
 import { mapActions } from 'vuex'
-import { map, get, truncate } from 'lodash'
+import { map, get, truncate, sortBy } from 'lodash'
 import TransitionExpand from 'library/src/components/helper/TransitionExpand.vue'
 import { chain } from '~/assets/js/utils.js'
 
@@ -134,6 +134,12 @@ export default {
   computed: {
     author () {
       return chain(this.authors)
+    },
+    sortedTypes () {
+      return sortBy(this.type, d => d.length * -1)
+    },
+    sortedTags () {
+      return sortBy(this.tags, d => d.length * -1)
     },
     download () {
       const { downloadIDs, downloads } = this
@@ -390,6 +396,10 @@ export default {
 
         .btn {
           height: 100%;
+        }
+
+        .caption {
+          margin: $spacing / 2 0 $spacing / 8;
         }
 
         section + section {
