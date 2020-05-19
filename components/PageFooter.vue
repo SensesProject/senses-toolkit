@@ -32,6 +32,13 @@
         <span class="street-address">Telegrafenberg A31</span><br>
         <span class="postal-code">14473</span> <span class="locality">Potsdam</span>
       </div>
+      <br>
+      <span class="caption">Sitemap</span>
+      <ul class="list">
+        <li><a :href="`${$router.options.base}about`">How to use the SENSES Tookit</a></li>
+        <li><a :href="`${$router.options.base}imprint`">Imprint</a></li>
+        <li><a :href="`${$router.options.base}press`">Presskit</a></li>
+      </ul>
     </div>
     <div class="footer-consortium">
       <span class="caption">Consortium members</span>
@@ -91,6 +98,10 @@ export default {}
       .footer-funding, .footer-consortium {
         grid-column-end: span 2;
       }
+    }
+
+    .list li {
+      margin-left: $spacing / 2;
     }
 
     .logo-list {
