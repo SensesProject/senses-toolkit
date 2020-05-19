@@ -35,9 +35,9 @@
       <br>
       <span class="caption">Sitemap</span>
       <ul class="list">
-        <li><a :href="`${$router.options.base}about`">How to use the SENSES Tookit</a></li>
-        <li><a :href="`${$router.options.base}imprint`">Imprint</a></li>
-        <li><a :href="`${$router.options.base}press`">Presskit</a></li>
+        <li><a href="/about">How to use the SENSES Tookit</a></li>
+        <li><a href="/imprint">Imprint</a></li>
+        <li><a href="/press">Presskit</a></li>
       </ul>
     </div>
     <div class="footer-consortium">
