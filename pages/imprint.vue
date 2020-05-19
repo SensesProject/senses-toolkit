@@ -14,7 +14,8 @@
         <li>the visited address (URL);</li>
         <li>the IP address of the requesting computer;</li>
         <li>the date and the time of the request;</li>
-        <li>the description of the web browser type used and/or the operating system used;</li>
+        <li>the country from which the request was made;</li>
+        <li>the description of the web browser type used and the operating system used;</li>
         <li>the address (URL) of the website from which the file was requested;</li>
         <li>the access status (file transferred, file not found, etc.);</li>
         <li>the data volume transferred.</li>
