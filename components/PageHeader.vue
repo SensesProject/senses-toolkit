@@ -84,6 +84,13 @@ export default {
       return get(this.images, this.current)
     }
   },
+  mounted () {
+    const WebP = new Image()
+    WebP.onload = WebP.onerror = () => {
+      this.type = (WebP.height === 2) ? 'webp' : 'jpg'
+    }
+    WebP.src = 'data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA'
+  },
   methods: {
     onErased (erasedString) {
       this.current += 1
@@ -91,13 +98,6 @@ export default {
         this.current = 0
       }
     }
-  },
-  mounted () {
-    const WebP = new Image()
-    WebP.onload = WebP.onerror = () => {
-      this.type = (WebP.height === 2) ? 'webp' : 'jpg'
-    }
-    WebP.src = 'data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA'
   }
 }
 </script>
