@@ -1,6 +1,6 @@
 <template>
   <div class="gallery-module">
-    <header :class="{ 'module-header': true, isExpanded }" :style="{ 'background-image': bg ? `url(./bg/${bg}.png)` : 'none' }">
+    <header :class="['module-header', { isExpanded, isTextOnly }]" :style="{ 'background-image': bg ? `url(./bg/${bg}.png)` : 'none' }">
       <h2 class="module-title mono">
         <component
           :is="link ? 'a' : 'span'"
@@ -17,7 +17,7 @@
         </p>
       </transition-expand>
     </header>
-    <footer class="module-footer">
+    <footer v-if="author || sortedTags.length || sortedTypes.length || download.length || gems" class="module-footer">
       <a :href="link" :class="['btn', 'btn--module', { 'btn--clickable': link }]"><span>{{ link ? linkText : 'Available soon' }}</span></a>
       <span :class="{ isExpanded }" class="btn btn-expand" @click="expand">More information <svg width="16" height="8"><g><path d="M-4,1.5 L0,-1.5 L4,1.5" /></g></svg></span>
       <transition-expand>
@@ -59,6 +59,7 @@
         </ul>
       </transition-expand>
     </footer>
+    <footer v-else class="module-footer empty" />
   </div>
 </template>
 
@@ -124,6 +125,10 @@ export default {
     authors: { // List of authors
       type: Array,
       default: () => []
+    },
+    isTextOnly: { // Is true for elements like: More modules coming soon
+      type: Boolean,
+      default: false
     }
   },
   data () {
@@ -214,7 +219,10 @@ export default {
         padding: $padding-vertical $padding-horizontal $spacing;
       }
 
-      border-bottom: 1px solid getColor(gray, 80);
+      &:not(.isTextOnly) {
+        border-bottom: 1px solid getColor(gray, 80);
+      }
+
       background-position: center;
       background-size: 90% auto;
       background-repeat: no-repeat;

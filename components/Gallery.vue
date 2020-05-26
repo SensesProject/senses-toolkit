@@ -16,20 +16,17 @@
       }"
       v-bind="module"
     />
+    <GalleryModule
+      title="More modules to come"
+      description="We will add more modules over the course of the next few months."
+      :isTextOnly="true"
+    />
     <h3 v-if="!hasFilter" class="section-header explore">
       <span>Explore modules</span>
     </h3>
     <GalleryModule
       v-for="module in elements['false']"
       :key="module.id"
-      v-tooltip="{
-        content: 'If you are new to scenarios you should start here!',
-        trigger: 'manual',
-        show: module.id === 'primer',
-        offset: 5,
-        position: 'top',
-        classes: 'attention'
-      }"
       v-bind="module"
     />
   </div>
