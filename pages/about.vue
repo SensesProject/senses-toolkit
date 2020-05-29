@@ -15,11 +15,11 @@
       <p>
         <video controls width="100%">
           <source
-            src="@/assets/video/toolkit.webm"
+            src="video/toolkit.webm"
             type="video/webm"
           >
           <source
-            src="@/assets/video/toolkit.mp4"
+            src="video/toolkit.mp4"
             type="video/mp4"
           >
           Sorry, your browser doesn't support embedded videos.
