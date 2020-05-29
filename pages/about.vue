@@ -13,7 +13,17 @@
         The following video is a quick tutorial on the key features of the SENSES Toolkit:
       </p>
       <p>
-        <img :src="`${$router.options.base}/SENSES-Placeholder.jpg`" alt="Video Placeholder">
+        <video controls width="100%">
+          <source
+            src="@/assets/video/toolkit.webm"
+            type="video/webm"
+          >
+          <source
+            src="@/assets/video/toolkit.mp4"
+            type="video/mp4"
+          >
+          Sorry, your browser doesn't support embedded videos.
+        </video>
       </p>
     </PageContainer>
     <PageFooter />
@@ -46,9 +56,7 @@ export default {
       width: 80%;
     }
 
-    img {
-      width: 80%;
-      border: 1px solid #eee;
+    video {
       margin: $spacing auto 0;
     }
   }
