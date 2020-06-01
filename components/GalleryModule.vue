@@ -1,6 +1,6 @@
 <template>
   <div class="gallery-module">
-    <header :class="['module-header', { isExpanded, isTextOnly }]" :style="{ 'background-image': bg ? `url(./bg/${bg}.png)` : 'none' }">
+    <header :class="['module-header', { isExpanded, isTextOnly }]" :style="{ 'background-image': bg ? `url(${$router.options.base}bg/${bg}.png)` : 'none' }">
       <h2 class="module-title mono">
         <component
           :is="link ? 'a' : 'span'"
