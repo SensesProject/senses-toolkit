@@ -15,11 +15,11 @@
       <p>
         <video controls width="100%">
           <source
-            src="video/toolkit.webm"
+            :src="`${$router.options.base}video/toolkit.webm`"
             type="video/webm"
           >
           <source
-            src="video/toolkit.mp4"
+            :src="`${$router.options.base}video/toolkit.mp4`"
             type="video/mp4"
           >
           Sorry, your browser doesn't support embedded videos.
