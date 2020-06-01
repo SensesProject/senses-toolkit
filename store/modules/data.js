@@ -1,6 +1,7 @@
 import { assign, get, filter, includes, trim } from 'lodash'
 import axios from 'axios'
 import Fuse from 'fuse.js'
+const { getUrlToResources } = require('library/src/assets/js/utils.js')
 
 const options = {
   shouldSort: true,
@@ -75,7 +76,7 @@ const actions = {
     const status = get(state.datum, 'status')
     if (status !== 'loading') {
       commit('MODULES_CHANGE', { status: 'loading' })
-      const url = 'https://dev.climatescenarios.org/settings/modules.json'
+      const url = getUrlToResources('settings/modules.json', true)
       axios.get(url)
         .then((response) => {
           commit('MODULES_CHANGE', { status: 'success', data: get(response, ['data', 'modules'], []) })
