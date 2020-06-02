@@ -24,7 +24,6 @@
         <li>Lotte de Jong</li>
         <li>Michael Pimmer</li>
         <li>Nadia Zeissig</li>
-        <li>Nadia Zeissig</li>
         <li>Nico Bauer</li>
         <li>Sara Talebian</li>
         <li>Simona Pedde</li>
