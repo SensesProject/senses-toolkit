@@ -5,6 +5,43 @@
       <h1>Imprint</h1>
       <p>The website climatescenarios.org is an initiative of the EU project SENSES. The project investigates potential socioeconomic futures in the face of climate change and how this knowledge can be made accessible to a broader public.</p>
       <p>SENSES will develop tools and approaches to make the new generation of climate change scenarios more comprehensible and accessible. Further information can be found on the project website: <a href="http://senses-project.org">senses-project.org</a></p>
+      <h3>Senses Consortium</h3>
+      <ul class="column">
+        <li>Bas van Ruijven</li>
+        <li>Boris Müller</li>
+        <li>Christoph Bertram</li>
+        <li>Cornelia Auer</li>
+        <li>Daniel Huppmann</li>
+        <li>Elmar Kriegler</li>
+        <li>Fidel Thomet</li>
+        <li>Florian Humpenöder</li>
+        <li>Francesca Morini</li>
+        <li>Henrik Carlsen</li>
+        <li>Jan Volkholz</li>
+        <li>Jonas Parnow</li>
+        <li>Jérôme Hilaire</li>
+        <li>Kasper Kok</li>
+        <li>Lotte de Jong</li>
+        <li>Michael Pimmer</li>
+        <li>Nadia Zeissig</li>
+        <li>Nadia Zeissig</li>
+        <li>Nico Bauer</li>
+        <li>Sara Talebian</li>
+        <li>Simona Pedde</li>
+        <li>Volker Krey</li>
+      </ul>
+      <h3>Contributors</h3>
+      <ul class="column">
+        <li>Alexander Popp</li>
+        <li>Christopher Pietsch</li>
+        <li>Dennis Ostendorf</li>
+        <li>Falko Ueckerdt</li>
+        <li>Felix Schreyer</li>
+        <li>Hannah Schwan</li>
+        <li>Katja Dittrich</li>
+        <li>Lavinia Baumstark</li>
+        <li>Nikolay Kushin</li>
+      </ul>
       <h2>Disclaimer of Liability</h2>
       <h3>Content</h3>
       <p>The content of this website has been carefully prepared and reviewed. However, the Potsdam Institute for Climate Impact Research (PIK) does not guarantee the accuracy, completeness or quality of the information provided, or that it is up-to-date. Liability claims against PIK in respect of material or immaterial damage caused by the use or non-use of the information offered or by inaccurate or incomplete information are in principle ruled out provided that there is no provable culpable intent or gross negligence on the Institute’s part. PIK expressly reserves the right to alter, amend or delete parts of the site or the entire offering, or to cease publication, without prior notice.</p>
@@ -93,6 +130,12 @@ export default {
 
       li {
         margin-left: $spacing;
+      }
+    }
+
+    .column {
+      @include media-query($medium) {
+        column-count: 2;
       }
     }
 
