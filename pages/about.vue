@@ -56,6 +56,10 @@ export default {
       width: 80%;
     }
 
+    p + p {
+      margin-top: $spacing / 4;
+    }
+
     video {
       margin: $spacing auto 0;
     }
