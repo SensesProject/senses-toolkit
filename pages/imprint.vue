@@ -7,24 +7,20 @@
       <p>SENSES will develop tools and approaches to make the new generation of climate change scenarios more comprehensible and accessible. Further information can be found on the project website: <a href="http://senses-project.org">senses-project.org</a></p>
       <h3>Senses Consortium</h3>
       <ul class="column">
-        <li>Bas van Ruijven</li>
         <li>Boris Müller</li>
         <li>Christoph Bertram</li>
         <li>Cornelia Auer</li>
         <li>Daniel Huppmann</li>
         <li>Elmar Kriegler</li>
         <li>Fidel Thomet</li>
-        <li>Florian Humpenöder</li>
         <li>Francesca Morini</li>
         <li>Henrik Carlsen</li>
         <li>Jan Volkholz</li>
         <li>Jonas Parnow</li>
-        <li>Jérôme Hilaire</li>
         <li>Kasper Kok</li>
         <li>Lotte de Jong</li>
         <li>Michael Pimmer</li>
         <li>Nadia Zeissig</li>
-        <li>Nico Bauer</li>
         <li>Sara Talebian</li>
         <li>Simona Pedde</li>
         <li>Volker Krey</li>
@@ -32,13 +28,17 @@
       <h3>Contributors</h3>
       <ul class="column">
         <li>Alexander Popp</li>
+        <li>Bas van Ruijven</li>
         <li>Christopher Pietsch</li>
         <li>Dennis Ostendorf</li>
         <li>Falko Ueckerdt</li>
         <li>Felix Schreyer</li>
+        <li>Florian Humpenöder</li>
         <li>Hannah Schwan</li>
+        <li>Jérôme Hilaire</li>
         <li>Katja Dittrich</li>
         <li>Lavinia Baumstark</li>
+        <li>Nico Bauer</li>
         <li>Nikolay Kushin</li>
       </ul>
       <h2>Disclaimer of Liability</h2>
