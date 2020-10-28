@@ -1,0 +1,15 @@
+{
+  "presets": [
+    ["@babel/preset-env", {
+        "targets": {
+          "ie": "11"
+        }, "useBuiltIns": "entry"
+      }]
+  ],
+  "plugins": ["@babel/transform-arrow-functions", "@babel/transform-modules-commonjs"],
+  "env": {
+    "development": {},
+    "test": {},
+    "production": {}
+  }
+}
