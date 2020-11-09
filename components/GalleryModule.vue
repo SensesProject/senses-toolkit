@@ -1,6 +1,6 @@
 <template>
   <div class="gallery-module">
-    <header :class="['module-header', { isExpanded, isTextOnly }]" :style="{ 'background-image': bg ? `url(./bg/${bg}.png)` : 'none' }">
+    <header :class="['module-header', { isExpanded, isTextOnly }]" :style="{ 'background-image': bg ? `url(${$router.options.base}bg/${bg}.png)` : 'none' }">
       <h2 class="module-title mono">
         <component
           :is="link ? 'a' : 'span'"
@@ -59,7 +59,6 @@
         </ul>
       </transition-expand>
     </footer>
-    <footer v-else class="module-footer empty" />
   </div>
 </template>
 
@@ -219,10 +218,6 @@ export default {
         padding: $padding-vertical $padding-horizontal $spacing;
       }
 
-      &:not(.isTextOnly) {
-        border-bottom: 1px solid getColor(gray, 80);
-      }
-
       background-position: center;
       background-size: 90% auto;
       background-repeat: no-repeat;
@@ -232,6 +227,14 @@ export default {
       display: flex;
       align-items: flex-start;
       flex-direction: column;
+
+      &:not(.isTextOnly) {
+        border-bottom: 1px solid getColor(gray, 80);
+      }
+
+      &.isTextOnly {
+        background-position: center bottom;
+      }
 
       a {
         background: none;

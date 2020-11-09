@@ -16,7 +16,7 @@ export default {}
 
     @include media-query($medium) {
       width: 96vw;
-      max-width: 1200px;
+      max-width: 800px;
     }
 
     h1 {

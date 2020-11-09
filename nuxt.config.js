@@ -1,10 +1,11 @@
 const { getHead } = require('library/src/assets/js/head.js')
 
 export default {
-  mode: 'spa',
+  ssr: false,
   head: getHead({
     title: 'Senses Toolkit',
-    description: 'The Senses Toolkit offers a wide range of modules to help you understand and communicate climate change scenarios'
+    description: 'The Senses Toolkit offers a wide range of modules to help you understand and communicate climate change scenarios',
+    image: 'https://climatescenarios.org/share/og-toolkit.jpg'
   }),
   css: [
     '@/assets/style/base.scss'
@@ -18,6 +19,9 @@ export default {
   },
   build: {
     extend (config, ctx) {
-    }
+    },
+    transpile: [
+      'library'
+    ]
   }
 }

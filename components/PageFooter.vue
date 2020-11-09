@@ -36,7 +36,7 @@
       <span class="caption">Sitemap</span>
       <ul class="list">
         <li><a href="/about">How to use the SENSES Tookit</a></li>
-        <li><a href="/imprint">Imprint</a></li>
+        <li><a href="/imprint">Imprint and Privacy</a></li>
         <li><a href="/press">Presskit</a></li>
       </ul>
     </div>
