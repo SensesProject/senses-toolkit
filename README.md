@@ -29,6 +29,10 @@ SENSES will develop tools and approaches to make the new generation of climate c
 
 This repository contains the code for [*SENSES Toolkit*](https://climatescenarios.org/).
 
+![screenshot of the module](./screenshot_toolkit_1.jpg)
+![screenshot of the module](./screenshot_toolkit_2.png)
+![screenshot of the module](./screenshot_toolkit_3.png)
+
 ## License
 
 The source code is licensed under the [ISC license](LICENSE.md). Text and graphics are licensed under [Attribution-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/).
