@@ -58,5 +58,5 @@ $ npm run build && npm run generate
 - Build the code
 - Upload to `/toolkit`
 - Upload `index.html` to `/`
-- Upload each page to `/`
+- Upload each page to `/` (for example `about`, `imprint`, …)
 - Upload background images to `/bg`
