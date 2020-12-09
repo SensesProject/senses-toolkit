@@ -20,7 +20,7 @@ const mutations = {
       set(state, key, val)
     }
     state.hasFilter = !(state.tag === DEFAULTS.tag && state.term === DEFAULTS.term)
-    console.log(state.tag, DEFAULTS.tag, state.term, DEFAULTS.term, state.tag === DEFAULTS.tag && state.term === DEFAULTS.term)
+    // console.log(state.tag, DEFAULTS.tag, state.term, DEFAULTS.term, state.tag === DEFAULTS.tag && state.term === DEFAULTS.term)
   }
 }
 
