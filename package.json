@@ -1,8 +1,6 @@
 {
   "name": "senses-toolkit",
   "version": "1.0.0",
-  "description": "Senses Project Toolkit",
-  "author": "Jonas Parnow <parnow@fh-potsdam.de>",
   "private": true,
   "scripts": {
     "dev": "nuxt",
