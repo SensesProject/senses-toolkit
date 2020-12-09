@@ -9,12 +9,6 @@
       v-tooltip="getTooltipSettings(module)"
       v-bind="module"
     />
-    <GalleryModule
-      title="More modules to come"
-      description="We will add more modules over the course of the next few months."
-      :isTextOnly="true"
-      bg="modules-coming-soon"
-    />
     <h3 v-if="!hasFilter" class="section-header explore">
       <span>Explore modules</span>
     </h3>
