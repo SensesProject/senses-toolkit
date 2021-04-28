@@ -9,23 +9,23 @@
           <span>Scroll down to find all modules</span>
         </div>
       </section>
-      <section v-tooltip="{ content: 'Coming soon', offset: 5, classes: 'attention policy' }" class="policy">
+      <section class="policy">
         <a class="wrapper">
           <div>
             <span class="glyph glyph-policies-thick" />
           </div>
           <div>
-            <span>Visit the <strong>Policy</strong> portal for a curated path&nbsp;&nearr;</span>
+            <a href="/policy-portal">Visit the <strong>Policy</strong> portal for a curated path&nbsp;&nearr;</a>
           </div>
         </a>
       </section>
-      <section v-tooltip="{ content: 'Coming soon', offset: 5, classes: 'attention finance' }" class="finance">
+      <section class="finance">
         <a class="wrapper">
           <div>
             <span class="glyph glyph-finance-thick" />
           </div>
           <div>
-            <span>Visit the <strong>Finance</strong> portal for a curated path&nbsp;&nearr;</span>
+            <a href="/finance-portal">Visit the <strong>Finance</strong> portal for a curated path&nbsp;&nearr;</a>
           </div>
         </a>
       </section>
@@ -130,10 +130,11 @@ export default {}
 
           a:hover, a:focus {
             background-color: none;
+            cursor: pointer;
             // background-color: $color-green;
 
             strong, .glyph, span {
-              color: $color-gray;
+              // color: $color-gray;
               // color: #fff;
             }
           }
@@ -155,9 +156,10 @@ export default {}
 
           a:hover, a:focus {
             background-color: none;
+            cursor: pointer;
 
             strong, .glyph, span {
-              color: $color-gray;
+              // color: $color-gray;
             }
           }
 
