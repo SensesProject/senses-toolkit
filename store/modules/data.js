@@ -1,5 +1,4 @@
 import { assign, get, filter, includes, trim } from 'lodash'
-import axios from 'axios'
 import Fuse from 'fuse.js'
 const { getUrlToResources } = require('library/src/assets/js/utils.js')
 
@@ -76,12 +75,12 @@ const actions = {
     const status = get(state.datum, 'status')
     if (status !== 'loading') {
       commit('MODULES_CHANGE', { status: 'loading' })
-      const url = getUrlToResources('settings/modules.json', true)
-      axios.get(url)
-        .then((response) => {
-          commit('MODULES_CHANGE', { status: 'success', data: get(response, ['data', 'modules'], []) })
+      fetch( getUrlToResources('settings/modules.json', true))
+        .then(response => response.json())
+        .then(data => {
+          commit('MODULES_CHANGE', { status: 'success', data: get(data, ['modules'], []) })
         })
-        .catch((error) => {
+        .catch(error => {
           console.error('error', error)
           commit('MODULES_CHANGE', { status: 'error', message: error })
         })
